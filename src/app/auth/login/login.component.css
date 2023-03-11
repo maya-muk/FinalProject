@@ -17,7 +17,7 @@ body{
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
-#chk{
+#chk {
 	display: none;
 }
 .signup{
@@ -25,7 +25,7 @@ body{
 	width:100%;
 	height: 100%;
 }
-label{
+mat-label{
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -35,7 +35,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-input{
+mat-form-field matInput input{
 	width: 80%;
 	height: 40px;
 	background: #e0dede;
@@ -47,7 +47,7 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+formGroup button{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -64,27 +64,27 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+formGroup button:hover{
 	background: cadetblue;
 }
-.login{
+.login {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
-.login label{
+.login mat-label{
 	color: cadetblue;
 	transform: scale(.6);
 }
 
-#chk:checked ~ .login{
+#chk:checked ~ .login  mat-label{
 	transform: translateY(-500px);
 }
-#chk:checked ~ .login label{
+#chk:checked ~ .login  mat-label{
 	transform: scale(1);	
 }
-#chk:checked ~ .signup label{
+#chk:checked ~ .signup  mat-label{
 	transform: scale(.6);
 }

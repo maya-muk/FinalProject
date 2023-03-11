@@ -8,7 +8,8 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
      AdminSideBarComponent,
      AdminFooterComponent,
      HomeFooterComponent,
-     HomeHeaderComponent
+     HomeHeaderComponent,
+     FormsModule, //formgroup
+     ReactiveFormsModule, //validation
+     MatInputModule
   ]
 })
 export class SharedModule { }
