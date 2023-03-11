@@ -8,6 +8,9 @@ import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { RouterModule } from '@angular/router';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
+
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
   imports: [
     CommonModule,
     SharedRoutingModule,
-    RouterModule
+    RouterModule,
+    
   ],
   exports:
   [
@@ -29,7 +33,8 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
      AdminSideBarComponent,
      AdminFooterComponent,
      HomeFooterComponent,
-     HomeHeaderComponent
+     HomeHeaderComponent,
+     NgxSpinnerModule,
   ]
 })
 export class SharedModule { }

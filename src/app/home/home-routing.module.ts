@@ -7,7 +7,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
   {
-    path:"main",
+    path:"",
     component:IndexComponent
   },
   {
