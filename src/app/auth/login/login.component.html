@@ -32,7 +32,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
 					<mat-form-field class="example-full-width">
 						<mat-label>Password</mat-label>
-						<input type="password" matInput formControlName="pswd" placeholder="Password">
+						<input type="password" matInput formControlName="pswd">
 						<mat-error *ngIf="RegisterForm.controls['password'].hasError('minlength')">
 						  Please enter a valid password
 						</mat-error>
@@ -41,10 +41,6 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 						</mat-error>
 					  </mat-form-field>
 
-					<!--<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">-->
 					<button>Sign up</button>
 				</form>
 			</div>
@@ -66,7 +62,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
 					<mat-form-field class="example-full-width">
 						<mat-label>Password</mat-label>
-						<input type="password" matInput formControlName="pswd" placeholder="Password">
+						<input type="password" matInput formControlName="pswd">
 						<mat-error *ngIf="LoginForm.controls['password'].hasError('minlength')">
 						  Please enter a valid password
 						</mat-error>
