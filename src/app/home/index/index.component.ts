@@ -19,4 +19,61 @@ export class IndexComponent {
     }, 3000);
   }
 
+  Ride = [
+    {
+       ArrivalStation:"Irbid",
+       DepatureStation:"Amman",
+       DepatureTime :"01/06/2023 15:15",
+       Capacity:50,
+       TrainName:"A",
+       StationName:"AmmanStation",
+       Price:10
+    },
+    {
+      ArrivalStation:"Amman",
+      DepatureStation:"Irbid",
+      DepatureTime :"01/06/2023 22:15",
+      Capacity:50,
+      TrainName:"B",
+      StationName:"IrbidStation",
+      Price:10
+   },
+   {
+    ArrivalStation:"Ajlon",
+    DepatureStation:"Amman",
+    DepatureTime :"01/06/2023 15:15",
+    Capacity:50,
+    TrainName:"A",
+    StationName:"AmmanStation",
+    Price:10
+ },
+ {
+  ArrivalStation:"Amman",
+  DepatureStation:"Ajlon",
+  DepatureTime :"01/06/2023 15:50",
+  Capacity:50,
+  TrainName:"A",
+  StationName:"AmmanStation",
+  Price:10
+},
+{
+  ArrivalStation:"Aqaba",
+  DepatureStation:"Amman",
+  DepatureTime :"01/06/2023 15:15",
+  Capacity:50,
+  TrainName:"A",
+  StationName:"AmmanStation",
+  Price:10
+},
+{
+  ArrivalStation:"Salt",
+  DepatureStation:"Irbid",
+  DepatureTime :"01/06/2023 15:15",
+  Capacity:50,
+  TrainName:"B",
+  StationName:"IrbidStation",
+  Price:10
+}
+
+  ]
 }

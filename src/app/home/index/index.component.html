@@ -126,119 +126,12 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
             <h3 class="heading-92913 text-black text-center">Our Destinations</h3>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="../../../assets/Homeassets/images/hero_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="/../../../assets/Homeassets/images/hero_2.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="/../../../assets/Homeassets/images/hero_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="row">
+          <app-card  [ArrivalStation]="item.ArrivalStation" [DepatureStation]="item.DepatureStation" [DepatureTime]="item.DepatureTime" [Capacity]="item.Capacity" [TrainName]="item.TrainName" [StationName]="item.StationName" [Price]="item.Price" *ngFor="let item of Ride" class="col-md-6 col-lg-4 mb-4"> </app-card>
 
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="/../../../assets/Homeassets/images/hero_2.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="/../../../assets/Homeassets/images/hero_1.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="service-39381">
-              <img src="/../../../assets/Homeassets/images/hero_2.jpg" alt="Image" class="img-fluid">
-              <div class="p-4">
-                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> Croatia &mdash; Columbia</a></h3>
-                <div class="d-flex">
-                  <div class="mr-auto">
-                    <span class="icon-date_range"></span>
-                    Sep. 05 &mdash; Oct. 15
-                  </div>
-                  <div class="ml-auto price">
-                    <span class="bg-primary">$600</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    </div>
       </div>
+    
     </div>
 
     <div class="site-section">
