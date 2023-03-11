@@ -1,81 +1,100 @@
-
-<!DOCTYPE html>
-<html>
-<body>
-	<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#0090e7" 
-type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true"/>
-
-			<div class="signup">
-				<form [formGroup]="RegisterForm">
-
-					<mat-label for="chk" aria-hidden="true">Sign up</mat-label>	
-					<mat-form-field>
-						
-						<input type="text" matInput formControlName="txt" placeholder="username">
-						<mat-error *ngIf="RegisterForm.controls['username'].hasError('required')">
-							UserName is Requeried
-						</mat-error>
-					</mat-form-field>
-
-					<mat-form-field>
-						
-						<input type="email" matInput formControlName="email" placeholder="Email">
-						<mat-error *ngIf="RegisterForm.controls['email'].hasError('email')">
-							Please Enter a valid email
-						</mat-error>
-						<mat-error *ngIf="RegisterForm.controls['email'].hasError('required')">
-							Email is required
-						  </mat-error>
-					</mat-form-field>
-
-					<mat-form-field class="example-full-width">
-						<mat-label>Password</mat-label>
-						<input type="password" matInput formControlName="pswd">
-						<mat-error *ngIf="RegisterForm.controls['password'].hasError('minlength')">
-						  Please enter a valid password
-						</mat-error>
-						<mat-error *ngIf="RegisterForm.controls['password'].hasError('required')">
-						  Password is required
-						</mat-error>
-					  </mat-form-field>
-
-					<button>Sign up</button>
-				</form>
-			</div>
-
+<div class ="row">
+	<div class="col-md-6 mx-auto p-0">
+		<div class="card">
+<div class="login-box">
+	<div class="login-snip">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-space">
 			<div class="login">
 				<form [formGroup]="LoginForm">
-					<mat-label for="chk" aria-hidden="true">Login</mat-label>
-					<mat-form-field>
+				<div class="group">
+					<mat-label class="label" for="chk"  aria-hidden="true">Email Address</mat-label>
 						
-						<input type="email" matInput formControlName="email" placeholder="Email">
+						<input type="email" class="input" matInput formControlName="email"  placeholder="mm@gmail">
 						<mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
 							Please Enter a valid email
 						</mat-error>
 						<mat-error *ngIf="LoginForm.controls['email'].hasError('required')">
 							Email is required
 						  </mat-error>
-					</mat-form-field>
-
-
-					<mat-form-field class="example-full-width">
-						<mat-label>Password</mat-label>
-						<input type="password" matInput formControlName="pswd">
+				</div>
+				<div class="group">
+					<mat-label class="label" for="chk" aria-hidden="true">Password</mat-label>	
+						
+						<input id="pass" type="password" matInput class="input" data-type="password" placeholder="Create your password">
 						<mat-error *ngIf="LoginForm.controls['password'].hasError('minlength')">
-						  Please enter a valid password
-						</mat-error>
-						<mat-error *ngIf="LoginForm.controls['password'].hasError('required')">
-						  Password is required
-						</mat-error>
-					  </mat-form-field>
-					<!---<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">-->
-					<button>Login</button>
-				</form>
+							Please enter a valid password
+						  </mat-error>
+						  <mat-error *ngIf="LoginForm.controls['password'].hasError('required')">
+							Password is required
+						  </mat-error>
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In"  (click)="GetData()"  [disabled]="LoginForm.invalid">
+				</div>
+			</form>
+				<div class="hr"></div>
+				<div class="foot">
+					<a href="#">Forgot Password?</a>
+				</div>
 			</div>
+
+
+
+			<div class="sign-up-form">
+
+				<form [formGroup]="RegisterForm">
+
+					<div class="group">
+						<mat-label class="label" for="chk"  aria-hidden="true">Username</mat-label>	
+						
+						<input id="user" type="text" class="input" matInput  placeholder="Create your Username">
+						<mat-error *ngIf="RegisterForm.controls['username'].hasError('required')">
+							UserName is Requeried
+						</mat-error>
+					</div>
+					<div class="group">
+						<mat-label class="label" for="chk" aria-hidden="true">Password</mat-label>	
+						
+						<input id="pass" type="password" matInput class="input" data-type="password" placeholder="Create your password">
+						<mat-error *ngIf="RegisterForm.controls['password'].hasError('minlength')">
+							Please enter a valid password
+						  </mat-error>
+						  <mat-error *ngIf="RegisterForm.controls['password'].hasError('required')">
+							Password is required
+						  </mat-error>
+					</div>
+					<div class="group">
+						<mat-label class="label" for="chk" matInput aria-hidden="true">Email Address</mat-label>
+						
+						<input id="pass" type="text" class="input" placeholder="Enter your email address">
+						<mat-error *ngIf="RegisterForm.controls['email'].hasError('email')">
+							Please Enter a valid email
+						</mat-error>
+						<mat-error *ngIf="RegisterForm.controls['email'].hasError('required')">
+							Email is required
+						  </mat-error>
+					</div>
+					<div class="group">
+						<input type="submit" class="button" value="Sign In" routerLink="Home/main">
+					</div>
+
+				</form>
+				
+				<div class="hr"></div>
+				<div class="foot">
+					<label for="tab-1">Already Member?</label>
+				</div>
+			</div>
+		</div>
 	</div>
-</body>
-</html>
+</div>   
+</div>
+</div>
+</div>
+

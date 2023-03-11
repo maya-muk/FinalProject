@@ -127,7 +127,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </div>
         </div>
     <div class="row">
-          <app-card  [ArrivalStation]="item.ArrivalStation" [DepatureStation]="item.DepatureStation" [DepatureTime]="item.DepatureTime" [Capacity]="item.Capacity" [TrainName]="item.TrainName" [StationName]="item.StationName" [Price]="item.Price" *ngFor="let item of Ride" class="col-md-6 col-lg-4 mb-4"> </app-card>
+          <app-card (Send)="getdata($event)" [id]="item.id" [ArrivalStation]="item.ArrivalStation" [DepatureStation]="item.DepatureStation" [DepatureTime]="item.DepatureTime" [Capacity]="item.Capacity" [TrainName]="item.TrainName" [StationName]="item.StationName" [Price]="item.Price" *ngFor="let item of Ride" class="col-md-6 col-lg-4 mb-4"> </app-card>
 
     </div>
       </div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IndexComponent } from '../index/index.component';
 
 @Component({
   selector: 'app-ride-details',
@@ -7,28 +9,49 @@ import { Component } from '@angular/core';
 })
 export class RideDetailsComponent {
 
-  ride =
-  [
-   {
-    ArrivalStation :"",
-    DepatureStation:"",
-     DepatureTime :"",
-     Capacity :1,
-    TrainName :"",
-    StationName :"",
-     Price : 1,
-   }
-  ]
-   
+  //constructor( ){}
+/**
+ private activatedrout : ActivatedRoute = new ActivatedRoute
+ private index :IndexComponent = new IndexComponent()
 
-  Save(ride:any)
+
+  ridee:any;
+  rideid:number = 1;
+
+ngOnInit():void{
+  this.rideid = Number(this.activatedrout.snapshot.params['id']);
+  this.ridee = this.index.Ride.find(x=>x.id = this.rideid)
+
+ 
+  
+}
+
+
+  ss():void{
+    console.log(this.rideid);
+  }
+ */
+
+
+
+  ride:any;
+  getdata(rides:any)
   {
-    console.log(ride);
+    this.ride = rides
+
+    console.log(this.ride);
     
   }
 
- 
+  qparam:any
+  constructor(private route:ActivatedRoute){}
 
-
+  ngoninit()
+  {
+    this.route.queryParams.subscribe(param =>{
+     console.log(param);
+     
+    })
+  }
 
 }

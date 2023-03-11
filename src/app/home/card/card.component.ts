@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-
+@Input() id? :number
 @Input() ArrivalStation? :string
 @Input() DepatureStation? :string
 @Input() DepatureTime? :string
@@ -17,10 +18,11 @@ export class CardComponent {
 
 @Output() Send = new EventEmitter()
 
-SendDetails(ArrivalStation?:string,DepatureStation?:string,DepatureTime?:string,Capacity?:number,TrainName?:string,StationName?:string,Price?:number)
+SendDetails(id?:number,ArrivalStation?:string,DepatureStation?:string,DepatureTime?:string,Capacity?:number,TrainName?:string,StationName?:string,Price?:number)
 {
    const ride=
    {
+    ids:id,
     ArrivalStations:ArrivalStation,
     DepatureStations:DepatureStation,
     DepatureTimes:DepatureTime,
@@ -32,8 +34,6 @@ SendDetails(ArrivalStation?:string,DepatureStation?:string,DepatureTime?:string,
 
    this.Send.emit(ride)
 }
-
-
 
 
 }

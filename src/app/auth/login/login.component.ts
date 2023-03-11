@@ -25,9 +25,13 @@ RegisterForm = new FormGroup(
 )
 
 
-email = new FormControl('',[])
-constructor(private spinner: NgxSpinnerService) {}
+GetData()
+{
+const user = this.LoginForm.value;
+console.log(user);
+}
 
+constructor(private spinner: NgxSpinnerService) {}
 ngOnInit() {
   /** spinner starts on init */
   this.spinner.show();
@@ -37,5 +41,7 @@ ngOnInit() {
     this.spinner.hide();
   }, 3000);
 }
+
+
 
 }
