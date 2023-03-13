@@ -11,13 +11,14 @@
 				<div class="group">
 					<mat-label class="label" for="chk"  aria-hidden="true">Email Address</mat-label>
 						
+					  
 						<input type="email" class="input" matInput formControlName="email"  placeholder="mm@gmail">
 						<mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
 							Please Enter a valid email
 						</mat-error>
 						<mat-error *ngIf="LoginForm.controls['email'].hasError('required')">
 							Email is required
-						  </mat-error>
+						</mat-error>
 				</div>
 				<div class="group">
 					<mat-label class="label" for="chk" aria-hidden="true">Password</mat-label>	
@@ -38,6 +39,8 @@
 					<input type="submit" class="button" value="Sign In"  (click)="GetData()"  [disabled]="LoginForm.invalid">
 				</div>
 			</form>
+
+
 				<div class="hr"></div>
 				<div class="foot">
 					<a href="#">Forgot Password?</a>

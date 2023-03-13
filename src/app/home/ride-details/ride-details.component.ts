@@ -35,14 +35,30 @@ ngOnInit():void{
 
 
   ride:any;
-  getdata(rides:any)
+  getdata()
   {
-    this.ride = rides
-
-    console.log(this.ride);
-    
+    localStorage.getItem('ArrivalStations');
+    const data ={
+      ArrivalStations : localStorage.getItem('ArrivalStations')
+    }
+    this.ride = data;
+    debugger
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   qparam:any
   constructor(private route:ActivatedRoute){}
 

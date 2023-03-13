@@ -8,17 +8,17 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class IndexComponent {
 
- // constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService) {}
 
- /** ngOnInit() {
-    /** spinner starts on init 
+ ngOnInit() {
+    /** spinner starts on init **/
     this.spinner.show();
 
     setTimeout(() => {
-      /** spinner ends after 5 seconds 
+      /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 3000);
-  }*/ 
+  }
 
   Ride = [
     {
@@ -83,13 +83,4 @@ export class IndexComponent {
 }
 
   ]
-
-
-  ride:any;
-  getdata(rides:any)
-  {
-    this.ride = rides
-    //console.log(this.ride);
-    
-  }
 }

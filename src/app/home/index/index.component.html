@@ -3,7 +3,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 <app-home-header></app-home-header>
 
 <div class="hero-slide owl-carousel site-blocks-cover">
-      <div class="intro-section" style="background-image: url('images/hero_1.jpg');">
+      <div class="intro-section" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-7 ml-auto text-right" data-aos="fade-up">
@@ -34,7 +34,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img src="images/hero_2.jpg" alt="Image" class="img-fluid">
+            <img src="../../../assets/HomeAssets/images/hero_2.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-6">
             <span class="text-serif text-primary">About Us</span>
@@ -81,7 +81,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       </div>
     </div>
 
-    <div class="site-section bg-image overlay" style="background-image: url('/../../../assets/Homeassets/images/hero_1.jpg');">
+    <div class="site-section bg-image overlay" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -127,7 +127,8 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </div>
         </div>
     <div class="row">
-          <app-card (Send)="getdata($event)" [id]="item.id" [ArrivalStation]="item.ArrivalStation" [DepatureStation]="item.DepatureStation" [DepatureTime]="item.DepatureTime" [Capacity]="item.Capacity" [TrainName]="item.TrainName" [StationName]="item.StationName" [Price]="item.Price" *ngFor="let item of Ride" class="col-md-6 col-lg-4 mb-4"> </app-card>
+
+     <app-card  [id]="item.id" [ArrivalStation]="item.ArrivalStation" [DepatureStation]="item.DepatureStation" [DepatureTime]="item.DepatureTime" [Capacity]="item.Capacity" [TrainName]="item.TrainName" [StationName]="item.StationName" [Price]="item.Price" *ngFor="let item of Ride" class="col-md-6 col-lg-4 mb-4"> </app-card>
 
     </div>
       </div>
@@ -138,7 +139,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <p><img src="/../../../assets/Homeassets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>
+            <p><img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>
           </div>
           <div class="col-md-5">
             <span class="text-serif text-primary">Book Now</span>
@@ -212,7 +213,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           <div class="col-lg-3 col-md-6 mb-lg-0">
             <div class="person">
               <figure>
-                <img src="/../../../assets/Homeassets/images/person_1.jpg" alt="Image" class="img-fluid">
+                <img src="../../../assets/HomeAssets/images/person_1.jpg" alt="Image" class="img-fluid">
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
                   <a href="#"><span class="icon-twitter"></span></a>
@@ -229,7 +230,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           <div class="col-lg-3 col-md-6 mb-lg-0">
             <div class="person">
               <figure>
-                <img src="/../../../assets/Homeassets/images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="../../../assets/HomeAssets/images/person_2.jpg" alt="Image" class="img-fluid">
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
                   <a href="#"><span class="icon-twitter"></span></a>
@@ -246,7 +247,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           <div class="col-lg-3 col-md-6 mb-lg-0">
             <div class="person">
               <figure>
-                <img src="/../../../assets/Homeassets/images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="../../../assets/HomeAssets/images/person_3.jpg" alt="Image" class="img-fluid">
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
                   <a href="#"><span class="icon-twitter"></span></a>
@@ -263,7 +264,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           <div class="col-lg-3 col-md-6 mb-lg-0">
             <div class="person">
               <figure>
-                <img src="/../../../assets/Homeassets/images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="../../../assets/HomeAssets/images/person_4.jpg" alt="Image" class="img-fluid">
                 <div class="social">
                   <a href="#"><span class="icon-facebook"></span></a>
                   <a href="#"><span class="icon-twitter"></span></a>
@@ -297,7 +298,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
               </blockquote>
               <div class="d-flex vcard align-items-center">
                 <div class="pic mr-3">
-                  <img src="/../../../assets/Homeassets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
+                  <img src="../../../assets/HomeAssets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
                 </div>
                 <div class="text">
                   <strong class="d-block">John Doe</strong>
@@ -313,7 +314,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
               </blockquote>
               <div class="d-flex vcard align-items-center">
                 <div class="pic mr-3">
-                  <img src="/../../../assets/Homeassets/images/person_4_sq.jpg" alt="Image" class="img-fluid">
+                  <img src="../../../assets/HomeAssets/images/person_4_sq.jpg" alt="Image" class="img-fluid">
                 </div>
                 <div class="text">
                   <strong class="d-block">John Doe</strong>
@@ -329,7 +330,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
               </blockquote>
               <div class="d-flex vcard align-items-center">
                 <div class="pic mr-3">
-                  <img src="/../../../assets/Homeassets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
+                  <img src="../../../assets/HomeAssets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
                 </div>
                 <div class="text">
                   <strong class="d-block">John Doe</strong>
@@ -342,7 +343,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       </div>
     </div>
 
-    <div class="site-section bg-image overlay" style="background-image: url('/../../../assets/Homeassets/images/hero_2.jpg');">
+    <div class="site-section bg-image overlay" style="background-image: url('../../../assets/HomeAssets/images/hero_2.jpg');">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 text-center">

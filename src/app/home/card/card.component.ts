@@ -17,10 +17,10 @@ export class CardComponent {
 @Input() Price? : number
 
 @Output() Send = new EventEmitter()
-
+public D : any
 SendDetails(id?:number,ArrivalStation?:string,DepatureStation?:string,DepatureTime?:string,Capacity?:number,TrainName?:string,StationName?:string,Price?:number)
 {
-   const ride=
+   const ride =
    {
     ids:id,
     ArrivalStations:ArrivalStation,
@@ -31,8 +31,10 @@ SendDetails(id?:number,ArrivalStation?:string,DepatureStation?:string,DepatureTi
     StationNames:StationName,
     Prices:Price
    }
-
+   this.D = ride
    this.Send.emit(ride)
+
+   localStorage.setItem('ArrivalStations',this.D.ArrivalStations)
 }
 
 

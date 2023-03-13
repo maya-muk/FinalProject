@@ -38,7 +38,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
      ReactiveFormsModule, //validation
      MatInputModule,
      NgxSpinnerModule,
-
+   
   ]
 })
 export class SharedModule { }
