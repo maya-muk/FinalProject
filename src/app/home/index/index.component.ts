@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -6,7 +6,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit{
 
   constructor(private spinner: NgxSpinnerService) {}
 
@@ -18,8 +18,24 @@ export class IndexComponent {
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 3000);
+
   }
 
+  display : any;
+  center: google.maps.LatLngLiteral = {lat:24,lng:12};
+  zoom  =4;
+
+  moveMap(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.center = (event.latLng.toJSON())
+  }
+
+  move(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.display = (event.latLng.toJSON())
+  }
   Ride = [
     {
        id:1,
@@ -83,4 +99,5 @@ export class IndexComponent {
 }
 
   ]
+
 }

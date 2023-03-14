@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     CommonModule,
     SharedRoutingModule,
     RouterModule,
-    
+    GoogleMapsModule
   ],
   exports:
   [
@@ -38,7 +39,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
      ReactiveFormsModule, //validation
      MatInputModule,
      NgxSpinnerModule,
-   
+     GoogleMapsModule // for map
   ]
 })
 export class SharedModule { }
