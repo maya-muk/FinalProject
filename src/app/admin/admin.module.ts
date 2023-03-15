@@ -7,6 +7,9 @@ import { SharedModule } from '../shared/shared.module';
 import { ProfileComponent } from './profile/profile.component';
 import { StationComponent } from './station/station.component';
 import { UserComponent } from './user/user.component';
+import { TrainComponent } from './train/train.component';
+import { RideComponent } from './ride/ride.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { UserComponent } from './user/user.component';
     DashComponent,
     ProfileComponent,
     StationComponent,
-    UserComponent
+    UserComponent,
+    TrainComponent,
+    RideComponent,
+    TestimonialComponent
   ],
   imports: [
     CommonModule,

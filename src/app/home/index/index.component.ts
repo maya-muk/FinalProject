@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
-
+import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit{
 
   constructor(private spinner: NgxSpinnerService) {}
 
@@ -18,7 +18,51 @@ export class IndexComponent {
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 3000);
+
+
+
+
+
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
+    })
   }
+
+  //map lat lng
+  display : any;
+  center: google.maps.LatLngLiteral = {lat:32.2993849522795,lng:37.93397772382293};
+  zoom  =4;
+
+  //to move map  using mapclick on html 
+  moveMap(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.center = (event.latLng.toJSON())
+  }
+
+  //to save lat and lng using map mouse move in html
+  move(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.display = (event.latLng.toJSON())
+  }
+
+
+  //map marker 
+  //
+  markerOptions : google.maps.MarkerOptions = {draggable: false}
+  markerPositions : google.maps.LatLngLiteral[] = []
+
+  addMarker(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.markerPositions.push(event.latLng.toJSON())
+  }
+
+
 
   Ride = [
     {
@@ -83,4 +127,72 @@ export class IndexComponent {
 }
 
   ]
+
+
+
+  maxZoom = 15;
+  minZoom = 8;
+
+  options: google.maps.MapOptions = {
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    mapTypeId: 'hybrid',
+    maxZoom:this.maxZoom,
+    minZoom:this.minZoom,
+  }
+
+  markers = []  as  any;
+  infoContent = ''
+
+  map!: GoogleMap;
+
+  zoomIn() {
+    if (this.zoom < this.maxZoom) this.zoom++;
+    console.log('Get Zoom',this.map.getZoom());
+  }
+
+  zoomOut() {
+    if (this.zoom > this.minZoom) this.zoom--;
+  }
+
+  eventHandler(event: any ,name:string){
+    console.log(event,name);
+    if(name === 'mapDblclick'){
+      this.dropMarker(event)
+    }
+  }
+
+   // Markers
+   logCenter() {
+    console.log(JSON.stringify(this.map.getCenter()))
+  }
+  dropMarker(event:any) {
+    this.markers.push({
+      position: {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      },
+      label: {
+        color: 'blue',
+        text: 'Marker label ' + (this.markers.length + 1),
+      },
+      title: 'Marker title ' + (this.markers.length + 1),
+      info: 'Marker info ' + (this.markers.length + 1),
+      options: {
+        animation: google.maps.Animation.DROP,
+      },
+    })
+  }
+
+  info!: MapInfoWindow;
+  openInfo(marker: MapMarker, content: string) {
+    this.infoContent = content;
+    this.info.open(marker)
+  }
+
+
+
+
+
 }
