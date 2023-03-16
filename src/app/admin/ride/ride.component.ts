@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-ride',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class RideComponent {
 
+  
+  constructor(public adminService : AdminService) {}
+
+  ngOnInit()
+  {
+    this.adminService.GetAllRids();
+  }
 }
