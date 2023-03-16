@@ -8627,13 +8627,13 @@ pre {
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #d2d7d9; }
+  background-color:white; }
 
 .table-secondary th,
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #f1f4f5; }
+  border-color: white; }
 
 .table-hover .table-secondary:hover {
   background-color: #c4cbcd; }
@@ -17880,14 +17880,20 @@ div.tagsinput {
     font-size: 20px; }
 
 /* Tables */
+
+
 .table, .jsgrid .jsgrid-table {
   margin-bottom: 0;
-  color: #6c7293; }
+  color:#f2f2f2; }
+
+
   .table thead th, .jsgrid .jsgrid-table thead th {
     border-top: 0;
     border-bottom-width: 1px;
-    font-weight: 500;
-    color: #6c7293; }
+    font-weight: 700;
+    color: white; }
+
+
     .table thead th i, .jsgrid .jsgrid-table thead th i {
       margin-left: 0.325rem; }
   .table th, .jsgrid .jsgrid-table th,
