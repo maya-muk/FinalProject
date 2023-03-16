@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps';
+import { UserHeaderComponent } from './user-header/user-header.component';
+import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
     AdminSideBarComponent,
     AdminFooterComponent,
     HomeHeaderComponent,
-    HomeFooterComponent
+    HomeFooterComponent,
+    UserHeaderComponent,
+    UserSideBarComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,9 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
      NgxSpinnerModule,
      GoogleMapsModule, // for map
      MapMarker,// to but mark on map
-     MapInfoWindow
+     MapInfoWindow,
+     UserHeaderComponent,
+     UserSideBarComponent
   ]
 })
 export class SharedModule { }
