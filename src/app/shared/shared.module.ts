@@ -13,7 +13,10 @@ import {MatInputModule} from '@angular/material/input';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps';
+import {MatRadioModule} from '@angular/material/radio';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AdminHeaderComponent,
@@ -42,7 +45,10 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
      NgxSpinnerModule,
      GoogleMapsModule, // for map
      MapMarker,// to but mark on map
-     MapInfoWindow
+     MapInfoWindow,
+     MatRadioModule,
+     MatDatepickerModule,
+     MatNativeDateModule
   ]
 })
 export class SharedModule { }

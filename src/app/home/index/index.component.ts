@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { AdminService } from 'src/app/admin.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -8,21 +10,28 @@ import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 })
 export class IndexComponent implements OnInit{
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, private fb:FormBuilder) {}
 
- ngOnInit() {
+  
+  form!: FormGroup;
+ ngOnInit() 
+ {
+
+
     /** spinner starts on init **/
     this.spinner.show();
 
     setTimeout(() => {
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
-    }, 3000);
+    }, 1000);
 
+   
+    //Call Function From Admin Service To Display Ride 
+    this.adminService.GetAllTickets()
 
-
-
-
+ 
+    //for map
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
@@ -30,6 +39,36 @@ export class IndexComponent implements OnInit{
       }
     })
   }
+
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+
+ //search interval 
+ onSubmit()
+ {
+
+    this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
+    
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //map lat lng
   display : any;
