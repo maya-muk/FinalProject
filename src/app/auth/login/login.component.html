@@ -119,41 +119,70 @@
 		  </ul>
 		  <div class="tab-content" id="pills-tabContent">
 			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+			<div class="form px-4 pt-5">
+				<form [formGroup]="LoginForm" class="form px-4 pt-5 ">
+					<mat-form-field appearance="fill" style="width: 100%; " >
+					<input type="email" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Email or Phone" formControlName="email" >
+				
+					<mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
+						Please enter a valid email address
+					</mat-error>
+					<mat-error *ngIf="LoginForm.controls['email'].hasError('required')">
+						Email is <strong>required</strong>
+					</mat-error>
+				</mat-form-field>
+				
+				<mat-form-field appearance="fill" style="width: 100%; " >
+					<input type="email" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Password" formControlName="password" >
+				
+					<mat-error *ngIf="LoginForm.controls['password'].hasError('minlength')">
+						min Length for password is 5 
+					</mat-error>
+					<mat-error *ngIf="LoginForm.controls['password'].hasError('required')">
+						password is <strong>required</strong>
+					</mat-error>
+					
+				</mat-form-field>
+				
+					
+				
+					<button class="btn btn-dark btn-block" [disabled]="LoginForm.invalid" >Login</button>
 			  
-			  <div class="form px-4 pt-5">
-
-				<input type="text" name="" class="form-control" placeholder="Email or Phone">
-
-				<input type="text" name="" class="form-control" placeholder="Password">
-				<button class="btn btn-dark btn-block">Login</button>
-
-			  </div>
-
-
+			
+				 
+			  </form>
+			   </div>
+			  
 
 			</div>
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 			  
 
 			  <div class="form px-4">
+               
+				<form [formGroup]="RegisterForm" >
+				<input type="text" name="" class="form-control" placeholder="FirstName">
+				<small *ngIf="RegisterForm.controls.username.invalid">
+					Name is required
+				  </small>
 
-				<input type="text" name="" class="form-control" placeholder="Name">
+				<input type="text" name="" class="form-control" placeholder="LastName">
 
 				<input type="text" name="" class="form-control" placeholder="Email">
 
-				<input type="text" name="" class="form-control" placeholder="Phone">
-
+				<input type="text" name="" class="form-control" formControlName="username" placeholder="UserName">
 				<input type="text" name="" class="form-control" placeholder="Password">
+				<input type="text" name="" class="form-control" placeholder="">
 
 				<button class="btn btn-dark btn-block">Signup</button>
 				
-
+			</form>
 			  </div>
-
+			
 
 
 			</div>
-			
+		
 		   </div>
 		
 	  
