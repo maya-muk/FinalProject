@@ -120,11 +120,12 @@ this.route.navigate([""])
 imageName = "" // imagename
 
 UploadImage(imageFile : any) 
-{console.log("khaled " +imageFile.name) 
+{
   this.http.post("https://localhost:44304/api/User/UploadImage",imageFile).subscribe(
     {
       next:(res:any)=>{
-        this.imageName = res.imageName},
+        this.imageName = res.imagepath
+        console.log("rrrrrr" +res.imagepath) },
         
       error:()=>{}
     }
@@ -135,6 +136,8 @@ CreateUser(User : any)
 {
  User.Imagepath = this.imageName 
  User.Roleid=2
+ console.log("khaled 5656565" +this.imageName  ) 
+ console.log("khaled 22222222222222222" +User.Imagepath ) 
 return new Promise<void>((resolve, reject) => {
 
   this.spinner.show()
