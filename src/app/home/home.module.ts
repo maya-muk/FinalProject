@@ -18,7 +18,8 @@ import { RideDetailsComponent } from './ride-details/ride-details.component';
     ContactusComponent,
     TestimonialComponent,
     CardComponent,
-    RideDetailsComponent
+    RideDetailsComponent,
+    
   ],
   imports: [
     CommonModule,

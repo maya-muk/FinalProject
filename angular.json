@@ -25,13 +25,10 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "src/custom-theme.scss",
-              "src/styles.css"
-=======
               "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
               "node_modules/ngx-spinner/animations/ball-running-dots.css"
->>>>>>> c8f23aea97cb28b75fbdc4f7a6d6849ff72e0eb3
             ],
             "scripts": []
           },
@@ -94,7 +91,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/ngx-spinner/animations/ball-running-dots.css"
+              "node_modules/ngx-spinner/animations/ball-running-dots.css", 
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           }
