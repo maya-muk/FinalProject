@@ -120,10 +120,12 @@ this.route.navigate([""])
 imageName = "" // imagename
 
 UploadImage(imageFile : any) 
-{
+{console.log("khaled " +imageFile.name) 
   this.http.post("https://localhost:44304/api/User/UploadImage",imageFile).subscribe(
     {
-      next:(res:any)=>{this.imageName = res.imageName},
+      next:(res:any)=>{
+        this.imageName = res.imageName},
+        
       error:()=>{}
     }
   )
