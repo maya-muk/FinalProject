@@ -121,7 +121,7 @@ imageName = "" // imagename
 
 UploadImage(imageFile : any) 
 {
-  this.http.post("https://localhost:44379/api/User/UploadImage",imageFile).subscribe(
+  this.http.post("https://localhost:44304/api/User/UploadImage",imageFile).subscribe(
     {
       next:(res:any)=>{this.imageName = res.imageName},
       error:()=>{}
@@ -136,7 +136,7 @@ CreateUser(User : any)
 return new Promise<void>((resolve, reject) => {
 
   this.spinner.show()
-  this.http.post("https://localhost:44379/api/User/Create",User).subscribe(
+  this.http.post("https://localhost:44304/api/User/Create",User).subscribe(
     {
       next:()=>{
 this.spinner.hide()
