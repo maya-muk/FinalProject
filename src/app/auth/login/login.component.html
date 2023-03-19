@@ -162,20 +162,34 @@
                
 				<form [formGroup]="RegisterForm" >
 				<input type="text" name="" class="form-control"  formControlName="Firstname"  placeholder="FirstName">
-				
+				<small class="text-danger" [class.d-none]="RegisterForm.controls.Firstname.valid || RegisterForm.controls.Firstname.untouched ">
+					FirstName is required
+				  </small>
 
 				<input type="text" name="" class="form-control" formControlName="Lastname" placeholder="LastName">
-
+				<small class="text-danger" [class.d-none]="RegisterForm.controls.Lastname.valid || RegisterForm.controls.Lastname.untouched ">
+					Lastname is required
+				  </small>
 				<input type="text" name="" class="form-control"formControlName="Email" placeholder="Email">
-
-				<input type="text" name="" class="form-control" formControlName="Username" placeholder="UserName">
-				<small *ngIf="RegisterForm.controls.Username.invalid">
-					Name is required
+				<small class="text-danger" *ngIf="RegisterForm.controls.Email.hasError('email')" [class.d-none]="RegisterForm.controls.Email.valid || RegisterForm.controls.Email.untouched ">
+					Must Be Email
+				  </small><small class="text-danger" *ngIf="RegisterForm.controls.Email.hasError('required')" [class.d-none]="RegisterForm.controls.Email.valid|| RegisterForm.controls.Email.untouched ">
+					Email is required
+				  </small>
+				<input type="text"  name="" class="form-control" formControlName="Username" placeholder="UserName">
+				<small  class="text-danger" [class.d-none]="RegisterForm.controls.Username.valid || RegisterForm.controls.Username.untouched ">
+					UserName is required
 				  </small>
 				<input type="text" name="" class="form-control" formControlName="Password" placeholder="Password">
+				<small class="text-danger left" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('pattern')" [class.d-none]="RegisterForm.controls.Password.valid || RegisterForm.controls.Password.untouched ">
+					Must Be min length 8 
+				  </small>
+				  <small class="text-danger" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('required')" [class.d-none]="RegisterForm.controls.Password.valid|| RegisterForm.controls.Password.untouched ">
+					Password is required
+				  </small>
 				<input type="file" #file (change)="UploadImage(file)">
 
-				<button class="btn btn-dark btn-block" (click)="createUser()">Signup</button>
+				<button class="btn btn-dark btn-block" [disabled]="RegisterForm.invalid" (click)="createUser()">Signup</button>
 				
 			</form>
 			  </div>
