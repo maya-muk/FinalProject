@@ -34,68 +34,58 @@ export class AdminService {
   CreateRide(ride: any) {
     return new Promise<void>((resolve, reject) => {
       console.log(ride);
-      
+
       this.http.post("https://localhost:44304/api/Ride", ride).subscribe(
         {
-          next: () => 
-          {
-              
-              this.toaster.success("Added Successfully")
-              resolve()
+          next: () => {
+
+            this.toaster.success("Added Successfully")
+            resolve()
           },
-          error: (err) => 
-          {
+          error: (err) => {
             console.log(err);
-            
+
             this.spinner.hide()
             this.toaster.error("error")
-            
+
           }
         }
       )
     })
   }
 
-  async DeleteRide(RideId : number)
-  {
-    return new Promise<void>((resolve,reject)=>
-      {
-        this.spinner.show()
-        this.http.delete("https://localhost:44304/api/Ride/delete/"+RideId).subscribe(
-          {
-             next:()=>
-             {
-                 this.spinner.hide()
-                 this.toaster.success("Deleted Successfully")
-                 resolve();
-             },
-             error:()=>
-             {
-                this.spinner.hide()
-                this.toaster.error("Error")
-                reject()
-             }
+  async DeleteRide(RideId: number) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.delete("https://localhost:44304/api/Ride/delete/" + RideId).subscribe(
+        {
+          next: () => {
+            this.spinner.hide()
+            this.toaster.success("Deleted Successfully")
+            resolve();
+          },
+          error: () => {
+            this.spinner.hide()
+            this.toaster.error("Error")
+            reject()
           }
-        )
-      })
-    
+        }
+      )
+    })
+
   }
 
-  async UpdateRide(Ride : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
+  async UpdateRide(Ride: any) {
+    return new Promise<void>((resolve, reject) => {
       this.spinner.show()
-      this.http.put("https://localhost:44304/api/Ride/",Ride).subscribe(
+      this.http.put("https://localhost:44304/api/Ride/", Ride).subscribe(
         {
-          next:()=>
-          {
+          next: () => {
             this.spinner.hide()
             this.toaster.success("Updated Successfully")
             resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             this.spinner.hide()
             this.toaster.error("Error")
@@ -108,23 +98,20 @@ export class AdminService {
 
   //user
 
-  AllUser:any = []
-  GetAllUser()
-  {
+  AllUser: any = []
+  GetAllUser() {
     this.spinner.show()
     this.http.get("https://localhost:44304/api/user").subscribe(
       {
-        next:(result)=>
-        {
-            console.log(this.AllUser);
-            
-            this.AllUser = result
-            this.spinner.hide()
-            this.toaster.success("Success")
+        next: (result) => {
+          console.log(this.AllUser);
+
+          this.AllUser = result
+          this.spinner.hide()
+          this.toaster.success("Success")
         }
         ,
-        error:(err)=>
-        {
+        error: (err) => {
           console.log(err);
           this.toaster.error("Error")
           this.spinner.hide()
@@ -152,43 +139,40 @@ export class AdminService {
     )
   }
 
- //Station
- AllStation : any = []
- GetAllStation()
- {
+  //Station
+  AllStation: any = []
+  GetAllStation() {
     this.http.get("https://localhost:44304/api/station").subscribe(
       {
-        next:(result)=>{
+        next: (result) => {
           this.AllStation = result
-          
+
         },
-        error:(err)=>{
+        error: (err) => {
           console.log(err);
-          
+
         }
       }
     )
- }
+  }
 
 
- //Train
- AllTrain :any = []
- GetAllTrain()
- {
-  this.http.get("https://localhost:44304/api/trains").subscribe(
-    {
-      next:(result)=>{
-        this.AllTrain = result
-        this.toaster.success("Success")
-      },
-      error:(err)=>{
-        console.log(err);
-        
+  //Train
+  AllTrain: any = []
+  GetAllTrain() {
+    this.http.get("https://localhost:44304/api/trains").subscribe(
+      {
+        next: (result) => {
+          this.AllTrain = result
+          this.toaster.success("Success")
+        },
+        error: () => {
+
+        }
       }
-    }
-  )
- }
-
+    )
+  }
+ 
  CreateTrain(train: any) {
   return new Promise<void>((resolve, reject) => {
     this.spinner.show();
@@ -261,6 +245,7 @@ async DeleteTrains(TrainID : number)
       )
     })
   }
+
   //Search
 
   Search(DateFome: any, Dateto: any) {
@@ -351,7 +336,4 @@ async DeleteTrains(TrainID : number)
       )
     })
   }
-
-
-
 }
