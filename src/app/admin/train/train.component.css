@@ -1,0 +1,69 @@
+.D
+{
+    color: black;
+    width: 100px;
+    background-color: white;
+    border-color: black;
+    border-width: 3px;
+
+}
+
+.B
+{
+    width: 200px;
+    color: white;
+    background-color:black;
+    border-color: white;
+    border-width: 3px;
+   
+}
+
+
+.A
+{
+    background-color: #191c24;
+}
+
+.container
+{
+    display: flex;
+    column-gap: 30px;
+   
+}
+.M mat-form-field 
+{
+    /*background-color: black;*/
+    margin-top: 10%;
+    margin-left: 60%;
+   /* margin-right: 5%;
+    width: 50%;*/
+}
+
+.C
+{
+    margin-left: 15%;
+}
+.C input
+{
+    width: 200px;
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-width: 3px;
+}
+input ,mat-select
+{
+   background-color:darkgray;
+   margin: 7px 0;
+}
+
+.delete
+{
+    margin-left: 90px;
+    margin-top: 20px;
+}
+.delete input
+{
+    width: 200px;
+    background-color: black;
+}

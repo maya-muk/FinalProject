@@ -26,19 +26,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr *ngFor="let item of adminService.AllUser">
                         <td class="py-1">
-                            1
+                            {{item.userid}}
                         </td>
-                        <td>Maya </td>
-                        <td> Mukbil </td>
-                        <td> 111111 </td>
-                        <td> maya@gmail.com </td>
-                        <td> maya12 </td>
+                        <td> {{item.firstname}} </td>
+                        <td> {{item.lastname}} </td>
+                        <td> {{item.dateofbirth}} </td>
+                        <td> {{item.email}} </td>
+                        <td> {{item.username}} </td>
                         <td class="py-1">
-                            <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="image" />
+                            <img src="" alt="image" />
                           </td>
-                        <td> <input type="button" class=".btn-inverse-{}" value="Edit"> | <input type="button" class=".btn-inverse-{}" value="Add">| <input type="button" class=".btn-inverse-{}" value="Delete"></td>
+                        <td><input type="button" class="D" value="Delete"></td>
                       </tr>
                     </tbody>
                   </table>

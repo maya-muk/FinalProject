@@ -16,7 +16,9 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
 import {MatRadioModule} from '@angular/material/radio';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AdminHeaderComponent,
@@ -30,7 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     SharedRoutingModule,
     RouterModule,
     GoogleMapsModule,
-   
+    MatDialogModule
   ],
   exports:
   [
@@ -42,13 +44,15 @@ import { MatNativeDateModule } from '@angular/material/core';
      FormsModule, //formgroup
      ReactiveFormsModule, //validation
      MatInputModule,
-     NgxSpinnerModule,
+     NgxSpinnerModule, //spinner
      GoogleMapsModule, // for map
      MapMarker,// to but mark on map
-     MapInfoWindow,
-     MatRadioModule,
-     MatDatepickerModule,
-     MatNativeDateModule
+     MapInfoWindow, //map window info
+     MatRadioModule, //radio button
+     MatDatepickerModule, //date 
+     MatNativeDateModule, //format for date
+     MatDialogModule ,// dialog
+     MatSelectModule,//select
   ]
 })
 export class SharedModule { }
