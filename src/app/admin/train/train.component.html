@@ -12,6 +12,7 @@
                 <h4 class="card-title">Trains</h4>
                 <!-- <p class="card-description"> Add class <code>.table-striped</code>
                 </p>-->
+                <input type="button" class="B" value="ADD" (click)="OpenDialog()">
                 <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
@@ -22,13 +23,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr *ngFor="let item of adminServices.AllTrain">
                         <td class="py-1">
-                            1
+                            {{item.trainid}}
                         </td>
-                        <td> Henry Tom </td>
-                        <td> 100 </td>
-                        <td> <input type="button" class=".btn-inverse-{}" value="Edit"> | <input type="button" class=".btn-inverse-{}" value="Add">| <input type="button" class=".btn-inverse-{}" value="Delete"></td>
+                        <td> {{item.trainname}} </td>
+                        <td> {{item.capacityy}} </td>
+                        <td> <input type="button" class="D" value="Edit"> | <input type="button" class="D" value="Delete"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -43,3 +44,41 @@
     </div>
     <app-admin-footer></app-admin-footer>
 </body>
+
+
+
+<ng-template   #CreateTrains>
+  <div class="A" >
+  <form [formGroup]="CreateTrainForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Train Name</mat-label>
+          <input type="text" matInput formControlName="trainname" />
+          <mat-error *ngIf="CreateTrainForm.controls['trainname'].hasError('required')">
+              Train Name is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Capacity</mat-label>
+          <input type="text" matInput formControlName="capacityy" />
+          <mat-error *ngIf="CreateTrainForm.controls['capacityy'].hasError('required')">
+            Capacity is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       
+    </div>
+    <div class="container">
+      <div class="C">
+      <input type="button"  [disabled]="CreateTrainForm.invalid" value="Create" (click)="CreateTrain()"/>
+    </div>
+    <div class="C">
+      <input type="button" [disabled]="CreateTrainForm.invalid" value="Close" mat-dialog-close />
+    </div>
+  </div>
+  </form>
+</div>
+</ng-template>

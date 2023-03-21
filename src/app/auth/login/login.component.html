@@ -122,23 +122,23 @@
 			<div class="form px-4 pt-5">
 				<form [formGroup]="LoginForm" class="form px-4 pt-5 ">
 					<mat-form-field appearance="fill" style="width: 100%; " >
-					<input type="email" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Email or Phone" formControlName="email" >
+					<input type="text" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Email or Phone" formControlName="Username" >
 				
-					<mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
+					<!-- <mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
 						Please enter a valid email address
-					</mat-error>
-					<mat-error *ngIf="LoginForm.controls['email'].hasError('required')">
-						Email is <strong>required</strong>
+					</mat-error> -->
+					<mat-error *ngIf="LoginForm.controls['Username'].hasError('required')">
+						Username is <strong>required</strong>
 					</mat-error>
 				</mat-form-field>
 				
 				<mat-form-field appearance="fill" style="width: 100%; " >
-					<input type="email" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Password" formControlName="password" >
+					<input type="email" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Password" formControlName="Password" >
 				
-					<mat-error *ngIf="LoginForm.controls['password'].hasError('minlength')">
+					<mat-error *ngIf="LoginForm.controls['Password'].hasError('minlength')">
 						min Length for password is 5 
 					</mat-error>
-					<mat-error *ngIf="LoginForm.controls['password'].hasError('required')">
+					<mat-error *ngIf="LoginForm.controls['Password'].hasError('required')">
 						password is <strong>required</strong>
 					</mat-error>
 					
@@ -146,7 +146,7 @@
 				
 					
 				
-					<button class="btn btn-dark btn-block" [disabled]="LoginForm.invalid" >Login</button>
+					<button class="btn btn-dark btn-block" [disabled]="LoginForm.invalid" (click)="login()" >Login</button>
 			  
 			
 				 
@@ -161,20 +161,35 @@
 			  <div class="form px-4">
                
 				<form [formGroup]="RegisterForm" >
-				<input type="text" name="" class="form-control" placeholder="FirstName">
-				<small *ngIf="RegisterForm.controls.username.invalid">
-					Name is required
+				<input type="text" name="" class="form-control"  formControlName="Firstname"  placeholder="FirstName">
+				<small class="text-danger" [class.d-none]="RegisterForm.controls.Firstname.valid || RegisterForm.controls.Firstname.untouched ">
+					FirstName is required
 				  </small>
 
-				<input type="text" name="" class="form-control" placeholder="LastName">
+				<input type="text" name="" class="form-control" formControlName="Lastname" placeholder="LastName">
+				<small class="text-danger" [class.d-none]="RegisterForm.controls.Lastname.valid || RegisterForm.controls.Lastname.untouched ">
+					Lastname is required
+				  </small>
+				<input type="text" name="" class="form-control"formControlName="Email" placeholder="Email">
+				<small class="text-danger" *ngIf="RegisterForm.controls.Email.hasError('email')" [class.d-none]="RegisterForm.controls.Email.valid || RegisterForm.controls.Email.untouched ">
+					Must Be Email
+				  </small><small class="text-danger" *ngIf="RegisterForm.controls.Email.hasError('required')" [class.d-none]="RegisterForm.controls.Email.valid|| RegisterForm.controls.Email.untouched ">
+					Email is required
+				  </small>
+				<input type="text"  name="" class="form-control" formControlName="Username" placeholder="UserName">
+				<small  class="text-danger" [class.d-none]="RegisterForm.controls.Username.valid || RegisterForm.controls.Username.untouched ">
+					UserName is required
+				  </small>
+				<input type="text" name="" class="form-control" formControlName="Password" placeholder="Password">
+				<small class="text-danger left" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('pattern')" [class.d-none]="RegisterForm.controls.Password.valid || RegisterForm.controls.Password.untouched ">
+					Must Be min length 8 
+				  </small>
+				  <small class="text-danger" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('required')" [class.d-none]="RegisterForm.controls.Password.valid|| RegisterForm.controls.Password.untouched ">
+					Password is required
+				  </small>
+				<input type="file" #file (change)="UploadImage(file)">
 
-				<input type="text" name="" class="form-control" placeholder="Email">
-
-				<input type="text" name="" class="form-control" formControlName="username" placeholder="UserName">
-				<input type="text" name="" class="form-control" placeholder="Password">
-				<input type="text" name="" class="form-control" placeholder="">
-
-				<button class="btn btn-dark btn-block">Signup</button>
+				<button class="btn btn-dark btn-block" [disabled]="RegisterForm.invalid" (click)="createUser()">Signup</button>
 				
 			</form>
 			  </div>

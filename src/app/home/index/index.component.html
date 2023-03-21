@@ -128,7 +128,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </div>
         </div>
       
-        <mat-form-field appearance="fill">
+        <mat-form-field >
           <mat-label>Enter a date range</mat-label>
           <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
             <input matStartDate formControlName="start" placeholder="Start date">
@@ -142,7 +142,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
         </mat-form-field>
 
         <br>
-          <button (click)="onSubmit()">search</button>
+          <button class=" btn btn-warning" (click)="onSubmit()">search</button>
         <br>
         <br>
     <div class="row">
