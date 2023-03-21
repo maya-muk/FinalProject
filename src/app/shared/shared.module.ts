@@ -56,7 +56,7 @@ import {MatSelectModule} from '@angular/material/select';
      UserSideBarComponent,
      MatRadioModule,
      MatDatepickerModule,
-     MatNativeDateModule
+     MatNativeDateModule,
      MapInfoWindow, //map window info
      MatRadioModule, //radio button
      MatDatepickerModule, //date 
