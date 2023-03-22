@@ -13,6 +13,10 @@ const routes: Routes = [
 {
   path:"",
   loadChildren:()=>import ('./home/home.module').then(x=>x.HomeModule)
+},
+{
+  path:"paypal",
+  loadChildren:()=>import ('./paypal/paypal.module').then(x=>x.PaypalModule)
 }
 ];
 
