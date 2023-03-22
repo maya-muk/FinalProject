@@ -12,6 +12,31 @@ export class HomeService {
   constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toaster: ToastrService, private route: Router) { }
 
 
+  
+
+
+  //get station
+
+  AllStation:any=[]
+
+  GetStation()
+  {
+    this.http.get('https://localhost:44304/api/Station').subscribe(
+      {
+        next:(result)=>
+        {
+            this.AllStation = result
+            this.toaster.success("success")
+        },
+        error:(err)=>{
+             console.log(err);
+             this.toaster.error("error")
+        }
+      }
+    )
+  }
+
+
   //Contact US
 
   SendMessage(contact : any)

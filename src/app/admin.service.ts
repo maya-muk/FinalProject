@@ -129,11 +129,11 @@ export class AdminService {
           this.AllTickets = result
           console.log("Done");
 
-          //this.tost.success("Done")
+          this.toaster.success("Success")
         },
         error: (err) => {
           console.log(err);
-          //this.tost.error("Done")
+          this.toaster.error("Error")
         }
       }
     )
@@ -166,8 +166,9 @@ export class AdminService {
           this.AllTrain = result
           this.toaster.success("Success")
         },
-        error: () => {
-
+        error: (err) => {
+          console.log(err);
+           this.toaster.error("Error")
         }
       }
     )
@@ -201,7 +202,7 @@ async DeleteTrains(TrainID : number)
     return new Promise<void>((resolve,reject)=>
       {
         this.spinner.show()
-        this.http.delete("https://localhost:44304/api/trains/delete"+TrainID).subscribe(
+        this.http.delete("https://localhost:44304/api/trains/delete/"+TrainID).subscribe(
           {
              next:()=>
              {
@@ -237,6 +238,7 @@ async DeleteTrains(TrainID : number)
           error:(err)=>
           {
             console.log(err);
+            console.log(Train);
             this.spinner.hide()
             this.toaster.error("Error")
             reject()
@@ -246,6 +248,48 @@ async DeleteTrains(TrainID : number)
     })
   }
 
+  //Testimonial
+  AllTestimonial: any = []
+  GetAllTestimonial() {
+    this.http.get("https://localhost:44304/api/Testemonial").subscribe(
+      {
+        next: (result) => {
+          this.AllTestimonial = result
+          this.toaster.success("Success")
+        },
+        error: (err) => {
+          console.log(err);
+           this.toaster.error("Error")
+        }
+      }
+    )
+  }
+
+  async UpdateTestimonial(Testimonial : any)
+  {
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.spinner.show()
+      this.http.put("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
+        {
+          next:()=>
+          {
+            this.spinner.hide()
+            this.toaster.success("Updated Successfully")
+            resolve()
+          },
+          error:(err)=>
+          {
+            console.log(err);
+            console.log(Testimonial);
+            this.spinner.hide()
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )
+    })
+  }
   //Search
 
   Search(DateFome: any, Dateto: any) {

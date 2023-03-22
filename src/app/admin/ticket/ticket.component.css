@@ -1,0 +1,35 @@
+.B
+{
+    width: 200px;
+    color: white;
+    background-color:black;
+    border-color: white;
+    border-width: 3px;
+   
+}
+
+.mat-date-range-input-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: inherit;
+    background: rgba(0,0,0,0);
+    color: black;
+
+}
+.container
+{
+    display: flex;
+    column-gap: 30px;
+    margin-left: 10px;
+}
+
+.D
+{
+    color: black;
+    width: 100px;
+    background-color: white;
+    border-color: black;
+    border-width: 3px;
+
+}

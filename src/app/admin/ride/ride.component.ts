@@ -14,6 +14,8 @@ export class RideComponent {
   @ViewChild('DeleteRides') Delete: any;
   @ViewChild('UpdateRides') Update: any
 
+  RideStatus = ["Yes","No"]
+
   CreateRideForm = new FormGroup
     (
       {
@@ -64,11 +66,10 @@ export class RideComponent {
     this.ID = rideId
     console.log(this.ID);
     
-    this.dialog.open(this.Delete ,{height:'150px' ,width:'400px'})
+    this.dialog.open(this.Delete ,{height:'140px' ,width:'400px'})
 
   }
   async DeleteRide() {
-    console.log(this.ID);
     await this.adminService.DeleteRide(this.ID)
     this.adminService.GetAllRids()
   }
@@ -76,10 +77,12 @@ export class RideComponent {
   Ride : any
   async OpenUpdateDialog(rideId:number)
   {
-    console.log(rideId);
+   // console.log(rideId);
+   this.Ride = await this.adminService.AllRide.filter((obj : any)=> obj.rideid == rideId)
+    this.UpdateRideForm.patchValue(this.Ride)   
+    //console.log(this.Ride);
+    //console.log(this.UpdateRideForm.value);
     
-     this.Ride = await this.adminService.AllRide.filter((obj : any)=> obj.rideid == rideId)
-    this.UpdateRideForm.patchValue(this.Ride)    
     this.dialog.open(this.Update,{height: '460px', width: '800px'})
   }
 
