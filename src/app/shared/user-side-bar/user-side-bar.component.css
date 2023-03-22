@@ -1,0 +1,4 @@
+.sidebar .nav, .off-canvas-sidebar .nav {
+    margin-top: -67px;
+    display: block;
+}

@@ -1,0 +1,12 @@
+.main-panel > .content{
+    margin-top: 0px;
+}
+.card .card-title {
+    color: #212529;}
+    .pl-1, .px-1 {
+        padding-left: 1.0rem!important;
+    }
+
+    .file-input {
+        display: none;
+      }
