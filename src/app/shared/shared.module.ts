@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps';
+import { UserHeaderComponent } from './user-header/user-header.component';
+import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
 import {MatRadioModule} from '@angular/material/radio';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -25,7 +27,9 @@ import {MatSelectModule} from '@angular/material/select';
     AdminSideBarComponent,
     AdminFooterComponent,
     HomeHeaderComponent,
-    HomeFooterComponent
+    HomeFooterComponent,
+    UserHeaderComponent,
+    UserSideBarComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +51,12 @@ import {MatSelectModule} from '@angular/material/select';
      NgxSpinnerModule, //spinner
      GoogleMapsModule, // for map
      MapMarker,// to but mark on map
+     MapInfoWindow,
+     UserHeaderComponent,
+     UserSideBarComponent,
+     MatRadioModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
      MapInfoWindow, //map window info
      MatRadioModule, //radio button
      MatDatepickerModule, //date 

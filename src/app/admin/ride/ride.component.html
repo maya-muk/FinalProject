@@ -61,7 +61,7 @@
 
 
 
-<ng-template   #CreateRides>
+<ng-template #CreateRides>
   <div class="A" >
   <form [formGroup]="CreateRideForm">
     <div class="container">
@@ -111,9 +111,13 @@
         </mat-form-field>
        </div>
       <div class="M">
-        <mat-form-field >
+        <mat-form-field formControlName="status">
           <mat-label style="color: black;">Status</mat-label>
-          <input type="text" matInput formControlName="status" />
+          <mat-select>
+            <mat-option *ngFor="let item of RideStatus" [value]="item">
+                {{item}}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="CreateRideForm.controls['status'].hasError('required')">
               Status is Required
           </mat-error>
@@ -127,8 +131,11 @@
               {{item.stationname}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="CreateRideForm.controls['stationnid'].hasError('required')">
+            station name is Required
+        </mat-error>
         </mat-form-field>
-
+        
        </div>
     </div>
     <div class="container">
@@ -140,13 +147,16 @@
               {{item.trainname}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="CreateRideForm.controls['trainsid'].hasError('required')">
+            Train name is Required
+        </mat-error>
         </mat-form-field>
       </div>
     </div>
 
     <div class="container">
       <div class="C">
-      <input type="button"   value="Create" (click)="CreateRide()"/>
+      <input type="button" mat-dialog-close  value="Create" (click)="CreateRide()"/>
     </div>
     <div class="C">
       <input type="button"  value="Close" mat-dialog-close="" />
@@ -211,16 +221,20 @@
        <div class="M">
         <mat-form-field >
           <mat-label style="color: black;">Capacity</mat-label>
-          <input type="text" matInput formControlName="capacityy" />
+          <input type="number" matInput formControlName="capacityy" />
           <mat-error *ngIf="UpdateRideForm.controls['capacityy'].hasError('required')">
               Capacity is Required
           </mat-error>
         </mat-form-field>
        </div>
       <div class="M">
-        <mat-form-field >
+        <mat-form-field formControlName="status">
           <mat-label style="color: black;">Status</mat-label>
-          <input type="text" matInput formControlName="status" />
+          <mat-select>
+            <mat-option *ngFor="let item of RideStatus" [value]="item">
+                {{item}}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="UpdateRideForm.controls['status'].hasError('required')">
               Status is Required
           </mat-error>
@@ -234,19 +248,25 @@
               {{item.stationname}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="UpdateRideForm.controls['stationnid'].hasError('required')">
+            station name is Required
+        </mat-error>
         </mat-form-field>
 
        </div>
     </div>
     <div class="container">
       <div class="M">
-        <mat-form-field formControlName="trainid">
+        <mat-form-field formControlName="trainsid">
           <mat-label style="color: black;">Train Name</mat-label>
           <mat-select>
             <mat-option *ngFor="let item of adminService.AllTrain" [value]="item.trainid">
               {{item.trainname}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="UpdateRideForm.controls['trainsid'].hasError('required')">
+            Train name is Required
+        </mat-error>
         </mat-form-field>
       </div>
     </div>

@@ -25,20 +25,20 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr *ngFor="let item of adminService.AllTestimonial">
                         <td class="py-1">
-                            1
+                           {{item.id}}
                         </td>
-                        <td> Ammanbbbbbbbnmsbndfghjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </td>
-                        <td> 222 </td>
+                        <td> {{item.opinion}} </td>
+                        <td> {{item.userid}} </td>
                         <td> maya </td>
                         <td class="py-1">
                             <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="image" />
-                          </td>
-                        <td> <input type="radio" name="status" value="yes"> Yes <br>
-                            <input type="radio" name="status" value="no"> No
-                             </td>
-                        <td> <input type="button" class=".btn-inverse-{}" value="Edit"> | <input type="button" class=".btn-inverse-{}" value="Add">| <input type="button" class=".btn-inverse-{}" value="Delete"></td>
+                        </td>
+                        <td >
+                            {{item.status}}
+                        </td>
+                        <td> <input type="button"  class="D" value="Edit" (click)="OpenUpdateDialog(item.id)"> 
                       </tr>
                     </tbody>
                   </table>
@@ -50,6 +50,40 @@
     </div>
         </div>
         
-    </div>
+      </div>
+
+
     <app-admin-footer></app-admin-footer>
 </body>
+
+
+
+<ng-template   #UpdateTestimonial>
+  <div class="A" >
+  <form [formGroup]="UpdateTetimonialForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field formControlName="Status">
+          <mat-label style="color: black;">Status</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let item of TetimonialStatus" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="UpdateTetimonialForm.controls['status'].hasError('required')">
+            status is Required
+        </mat-error>
+        </mat-form-field>
+        <div class="container">
+          <div class="C">
+          <input type="button" mat-dialog-close  value="Update" />
+        </div>
+        <div class="C">
+          <input type="button"  value="Close" mat-dialog-close="" />
+        </div>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
+</ng-template>

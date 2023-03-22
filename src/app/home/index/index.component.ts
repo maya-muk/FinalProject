@@ -3,6 +3,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AdminService } from 'src/app/admin.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { HomeService } from 'src/app/home.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -10,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class IndexComponent implements OnInit{
 
-  constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, private fb:FormBuilder) {}
+  constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, private fb:FormBuilder,public homeservice:HomeService) {}
 
   
   form!: FormGroup;
@@ -20,20 +21,25 @@ export class IndexComponent implements OnInit{
 
     /** spinner starts on init **/
     this.spinner.show();
-
     setTimeout(() => {
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 2000);
 
-
-
-
    
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()
 
+
+    //call all station
+    this.homeservice.GetStation()
  
+
+
+
+
+
+
     //for map
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
@@ -73,24 +79,7 @@ export class IndexComponent implements OnInit{
 
 
 
-  //map lat lng
-  display : any;
-  center: google.maps.LatLngLiteral = {lat:32.2993849522795,lng:37.93397772382293};
-  zoom  =4;
 
-  //to move map  using mapclick on html 
-  moveMap(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.center = (event.latLng.toJSON())
-  }
-
-  //to save lat and lng using map mouse move in html
-  move(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.display = (event.latLng.toJSON())
-  }
 
 
   //map marker 
@@ -232,6 +221,40 @@ export class IndexComponent implements OnInit{
     this.infoContent = content;
     this.info.open(marker)
   }
+
+
+
+
+
+
+////////////Reeeem Maya
+
+
+  //map lat lng
+  display : any;
+  center: google.maps.LatLngLiteral = {lat:31.963158,lng:35.930359};
+  zoom  =4;
+
+  //to move map  using mapclick on html 
+  moveMap(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.center = (event.latLng.toJSON())
+  }
+
+  //to save lat and lng using map mouse move in html
+  move(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.display = (event.latLng.toJSON())
+  }
+
+
+
+
+
+
+
 
 
 

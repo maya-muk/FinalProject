@@ -10,7 +10,7 @@ export class UserComponent {
 
   constructor(public adminService:AdminService){}
 
- ngOnInot()
+ ngOnInit()
  {
    console.log("Hi");
    this.adminService.GetAllUser()

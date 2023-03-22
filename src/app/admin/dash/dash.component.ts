@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-dash',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class DashComponent {
 
+  constructor(public adminService:AdminService){}
+
+  NumberOfRegisterd = ""
+  User : any
+  ngOnInit()
+  {
+     this.User = this.adminService.AllUser
+     
+  }
+
+  
 }
