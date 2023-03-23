@@ -77,9 +77,9 @@ h1, h2, h3, h4, h5,
 
 .site-section {
   padding: 2.5em 0; }
-  /*@media (min-width: 768px) {
+  @media (min-width: 768px) {
     .site-section {
-      padding: 5em 0; } }*/
+      padding: 5em 0; } }
   .site-section.site-section-sm {
     padding: 4em 0; }
 
@@ -246,15 +246,11 @@ h1, h2, h3, h4, h5,
   .site-logo strong {
     font-weight: 900; }
 
-
-  .site-navbar {
-    font-family: "Oswald", sans-serif;
-    margin-bottom: 0px;
-    z-index: 1999;
-    width: 100%;
-    background-color: rgba(16, 137, 255, 0.8);
-}
-
+.site-navbar {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 0px;
+  z-index: 1999;
+  width: 100%; }
   .site-navbar .container-fluid {
     padding-left: 7rem;
     padding-right: 7rem; }

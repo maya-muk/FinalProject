@@ -9,16 +9,14 @@ import { HomeService } from 'src/app/home.service';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit{
+export class IndexComponent {
 
-  constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, private fb:FormBuilder,public homeservice:HomeService) {}
+constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
+            public homeservice:HomeService) {}
 
-  
-  form!: FormGroup;
- ngOnInit() 
+
+async ngOnInit() 
  {
-
-
     /** spinner starts on init **/
     this.spinner.show();
     setTimeout(() => {
@@ -32,28 +30,69 @@ export class IndexComponent implements OnInit{
 
 
     //call all station
-    this.homeservice.GetStation()
- 
+    await this.homeservice.GetStation()
+
+  
+    this.dropMarker()
 
 
 
 
-
-
-    //for map
-    navigator.geolocation.getCurrentPosition((position) => {
+      //for map
+   /* navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }
-    })
+    })*/
   }
+
+//Drop Marker
+  Position : any = {}
+  markers = []  as  any;
+ async dropMarker() {
+
+     this.Position = this.homeservice.AllStation
+    for(const item of this.Position)
+    {
+      this.markers.push({
+        position: {
+          lat:(Number)(item.locations),
+          lng:(Number)(item.locationla),
+        },
+        label: {
+          color: 'blue',
+          text: item.stationname + (this.markers.length + 1),
+        },
+        title: 'Marker title ' + (this.markers.length + 1),
+        info: 'Marker info ' + (this.markers.length + 1),
+        options: {
+          animation: google.maps.Animation.DROP,
+        },
+      })
+    }
+   console.log(this.markers);
+   
+  }
+   
+
+  info!: MapInfoWindow;
+  openInfo(marker: MapMarker, content: string) {
+    this.infoContent = content;
+    this.info.open(marker)
+  }
+
+
+
+
+
+
+
 
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
-
  //search interval 
  onSubmit()
  {
@@ -84,6 +123,8 @@ export class IndexComponent implements OnInit{
 
   //map marker 
   //
+
+  /*
   markerOptions : google.maps.MarkerOptions = {draggable: false}
   markerPositions : google.maps.LatLngLiteral[] = []
 
@@ -92,7 +133,7 @@ export class IndexComponent implements OnInit{
     if(event.latLng != null)
     this.markerPositions.push(event.latLng.toJSON())
   }
-
+*/
 
 
   Ride = [
@@ -173,7 +214,7 @@ export class IndexComponent implements OnInit{
     minZoom:this.minZoom,
   }
 
-  markers = []  as  any;
+
   infoContent = ''
 
   map!: GoogleMap;
@@ -187,40 +228,20 @@ export class IndexComponent implements OnInit{
     if (this.zoom > this.minZoom) this.zoom--;
   }
 
-  eventHandler(event: any ,name:string){
+  /*eventHandler(event: any ,name:string){
     console.log(event,name);
     if(name === 'mapDblclick'){
       this.dropMarker(event)
     }
-  }
+  }*/
 
    // Markers
    logCenter() {
     console.log(JSON.stringify(this.map.getCenter()))
   }
-  dropMarker(event:any) {
-    this.markers.push({
-      position: {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-      },
-      label: {
-        color: 'blue',
-        text: 'Marker label ' + (this.markers.length + 1),
-      },
-      title: 'Marker title ' + (this.markers.length + 1),
-      info: 'Marker info ' + (this.markers.length + 1),
-      options: {
-        animation: google.maps.Animation.DROP,
-      },
-    })
-  }
+  
 
-  info!: MapInfoWindow;
-  openInfo(marker: MapMarker, content: string) {
-    this.infoContent = content;
-    this.info.open(marker)
-  }
+ 
 
 
 
@@ -248,15 +269,6 @@ export class IndexComponent implements OnInit{
     if(event.latLng != null)
     this.display = (event.latLng.toJSON())
   }
-
-
-
-
-
-
-
-
-
 
 
 

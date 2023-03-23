@@ -2,102 +2,195 @@
 type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
 <app-home-header></app-home-header>
 
-<div class="intro-section site-blocks-cover innerpage" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
-    <div class="container">
-      <div class="row align-items-center text-center border">
-        <div class="col-lg-12 mt-5" data-aos="fade-up">
-          <h1>Get In Touch</h1>
-          <p class="text-white text-center">
-            <a href="index.html">Home</a>
-            <span class="mx-2">/</span>
-            <span>Contact Us</span>
-          </p>
-        </div>
+
+<div class="intro-section" style="background-image: url('../../../assets/HomeAssets/images/hero_6.jpg');">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
+              <h1 style="font-weight:500">Get In Touch</h1>
+              <p class="text-white text-center">
+                  <a routerLink="/">Home</a>
+                  <span class="mx-2">/</span>
+                  <span>Contact Us</span>
+              </p>
+          </div>
       </div>
-    </div>
+  </div>
+</div>
+
+
+<div class="site-section">
+
+
+  <div class="contact-form">
+      <div style="background-color:#1089FF;margin-left:30px" class="contact-form-box__left">
+          <h3 class="m-b-15">Get in touch</h3>
+          <hr>
+          
+          <div>
+              <small class="light-grey"><i class="fas fa-envelope m-r-5"></i> Email</small>
+              <p>ralomari962@gmail.com</p>
+          </div>
+          <div>
+              <small class="light-grey"><i class="fas fa-phone m-r-5"></i> Phone</small>
+              <p>
+                  +962 79821 6515</p>
+
+              <p>
+                  +962 79174 7902</p>
+
+              <p>
+                  +962 79194 0057</p>
+
+              <p>
+                  +962 79726 2030
+              </p>
+          </div>
+          <div>
+              <small class="light-grey"><i class="fas fa-map-marker m-r-5"></i> Address</small>
+              <p>Irbid, Jordan</p>
+          </div>
+          <div class="contact-form-box__left_footer"> <a href="#!"><i class="fab fa-facebook-f"></i></a> <a href="#!"><i class="fab fa-twitter"></i></a> <a href="#!"><i class="fab fa-instagram"></i></a> <a href="#!"><i class="fab fa-youtube"></i></a> </div>
+      </div>
+
+      <div class="contact-form-box__right">
+          <h3 class="m-b-15">Contact Us</h3>
+          <hr>
+          <form>
+              <div class="lab-grid mb-4">
+                  <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
+                      <div class="floating-label-wrap">
+                          <input type="text" class="floating-label-field floating-label-field--s1" id="field-1" placeholder="Full Name">
+                          <label for="field-1" class="floating-label">Full Name</label>
+                      </div>
+                      <!-- .floating-label-wrap -->
+                  </div>
+                  <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+
+                  <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
+                      <div class="floating-label-wrap">
+                          <input type="email" class="floating-label-field floating-label-field--s1" id="field-2" placeholder="Email">
+                          <label for="field-2" class="floating-label">Email</label>
+                      </div>
+                      <!-- .floating-label-wrap -->
+                  </div>
+                  <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+
+                  <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+
+                  <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
+                      <div class="floating-label-wrap">
+                          <input type="tel" class="floating-label-field floating-label-field--s1" id="field-4" placeholder="Contact Number">
+                          <label for="field-4" class="floating-label">Tel. Number</label>
+                      </div>
+                      <!-- .floating-label-wrap -->
+                  </div>
+                  <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+                  <div class="lab-grid-cell lab-grid-cell--mb-2x w-full">
+                      <div class="floating-label-wrap">
+                          <textarea class="floating-label-field floating-label-field--s1" id="field-7" placeholder="Textarea" row="15"></textarea>
+                          <label for="field-7" class="floating-label">Message</label>
+                      </div>
+                      <!-- .floating-label-wrap -->
+                  </div>
+                  <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+              </div>
+              <!-- .lab-grid -->
+              <button style="background-color:#1089FF" type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </form>
+      </div>
   </div>
 
-  
-  <div class="site-section">
-      <div class="container">
-        <form [formGroup]="CreateContatc">
-          <div class="row">
-            <div class="col-md-12 form-group">
-                <label for="fname">Subject</label>
-                <mat-form-field class="example-full-width" style="width: 100%;">
-                <input type="text" matInput formControlName="Subject" class="form-control form-control-lg">
-                <mat-error *ngIf="CreateContatc.controls['Subject'].hasError('required')">
-                  Subject is required
-                </mat-error>
-              </mat-form-field>
-              </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="eaddress">Name</label>
-                <mat-form-field class="example-full-width" style="width:100%">
-                <input type="text" matInput formControlName="Name" class="form-control form-control-lg">
-                <mat-error *ngIf="CreateContatc.controls['Name'].hasError('required')">
-                  Name is required
-                </mat-error>
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 form-group">
-                <label for="tel">Email Address</label>
-                <mat-form-field class="example-full-width" style="width:100%">
-                <input type="text" matInput formControlName="Email" class="form-control form-control-lg">
-                <mat-error *ngIf="CreateContatc.controls['Email'].hasError('required')">
-                  Email is required
-                </mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row"> 
-            <div class="col-md-12 form-group">
-                <label for="message">Message</label>
-                <mat-form-field class="example-full-width" style="width: 100%;">
-                <textarea name="" matInput formControlName="Message"  cols="30" rows="10" class="form-control"></textarea>
-                <mat-error *ngIf="CreateContatc.controls['Message'].hasError('required')">
-                  Message is required
-                </mat-error>
-              </mat-form-field>
-            </div>
-            
-        </div>
 
-        <div class="row">
-            <div class="col-12">
-                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 px-3 px-5" (click)="SendMessage()">
-            </div>
-        </div>
 
-        </form>
+</div>
+
+
+
+<app-home-footer></app-home-footer>
+
+
+<!--
+<div class="site-section">
+    <div class="container">
+      <form [formGroup]="CreateContatc">
+        <div class="row">
+          <div class="col-md-12 form-group">
+              <label for="fname">Subject</label>
+              <mat-form-field class="example-full-width" style="width: 100%;">
+              <input type="text" matInput formControlName="Subject" class="form-control form-control-lg">
+              <mat-error *ngIf="CreateContatc.controls['Subject'].hasError('required')">
+                Subject is required
+              </mat-error>
+            </mat-form-field>
+            </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6 form-group">
+              <label for="eaddress">Name</label>
+              <mat-form-field class="example-full-width" style="width:100%">
+              <input type="text" matInput formControlName="Name" class="form-control form-control-lg">
+              <mat-error *ngIf="CreateContatc.controls['Name'].hasError('required')">
+                Name is required
+              </mat-error>
+              </mat-form-field>
+          </div>
+          <div class="col-md-6 form-group">
+              <label for="tel">Email Address</label>
+              <mat-form-field class="example-full-width" style="width:100%">
+              <input type="text" matInput formControlName="Email" class="form-control form-control-lg">
+              <mat-error *ngIf="CreateContatc.controls['Email'].hasError('required')">
+                Email is required
+              </mat-error>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-md-12 form-group">
+              <label for="message">Message</label>
+              <mat-form-field class="example-full-width" style="width: 100%;">
+              <textarea name="" matInput formControlName="Message"  cols="30" rows="10" class="form-control"></textarea>
+              <mat-error *ngIf="CreateContatc.controls['Message'].hasError('required')">
+                Message is required
+              </mat-error>
+            </mat-form-field>
+          </div>
           
       </div>
-  </div>
 
-  <div class="section-bg style-1" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-mortarboard"></span>
-            <h3>Our Philosphy</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
+      <div class="row">
+          <div class="col-12">
+              <input type="submit" value="Send Message" class="btn btn-primary rounded-0 px-3 px-5" (click)="SendMessage()">
           </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-school-material"></span>
-            <h3>Academics Principle</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
-              Dolore, amet reprehenderit.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-            <span class="icon flaticon-library"></span>
-            <h3>Key of Success</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
-              Dolore, amet reprehenderit.</p>
-          </div>
+      </div>
+
+      </form>
+        
+    </div>
+</div>
+
+<div class="section-bg style-1" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <span class="icon flaticon-mortarboard"></span>
+          <h3>Our Philosphy</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.</p>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <span class="icon flaticon-school-material"></span>
+          <h3>Academics Principle</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
+            Dolore, amet reprehenderit.</p>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <span class="icon flaticon-library"></span>
+          <h3>Key of Success</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea?
+            Dolore, amet reprehenderit.</p>
         </div>
       </div>
     </div>
-  
-    <app-home-footer></app-home-footer>
+  </div>
+
+  --->

@@ -21,19 +21,25 @@ export class HomeService {
 
   GetStation()
   {
-    this.http.get('https://localhost:44304/api/Station').subscribe(
-      {
-        next:(result)=>
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get('https://localhost:44304/api/Station').subscribe(
         {
-            this.AllStation = result
-            this.toaster.success("success")
-        },
-        error:(err)=>{
-             console.log(err);
-             this.toaster.error("error")
+          next:(result)=>
+          {
+            
+              this.AllStation = result
+              console.log(this.AllStation);
+              this.toaster.success("success")
+              resolve()
+          },
+          error:(err)=>{
+               console.log(err);
+               this.toaster.error("error")
+          }
         }
-      }
     )
+    })
   }
 
 
