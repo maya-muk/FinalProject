@@ -118,11 +118,11 @@
 		   
 		  </ul>
 		  <div class="tab-content" id="pills-tabContent">
-			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"  style=" margin-top: -80px; ">
 			<div class="form px-4 pt-5">
 				<form [formGroup]="LoginForm" class="form px-4 pt-5 ">
-					<mat-form-field appearance="fill" style="width: 100%; " >
-					<input type="text" style="width: 127%;     padding-right: 51px;" class="form-control" matInput   placeholder="Email or Phone" formControlName="Username" >
+					<mat-form-field appearance="fill" style="width: 100%;" >
+					<input type="text" style="width: 127%;  padding-right: 51px;" class="form-control" matInput   placeholder="Email or Phone" formControlName="Username" >
 				
 					<!-- <mat-error *ngIf="LoginForm.controls['email'].hasError('email')">
 						Please enter a valid email address
@@ -188,6 +188,8 @@
 					Password is required
 				  </small>
 				<input type="file" #file (change)="UploadImage(file)">
+				<br>
+				<br>
 
 				<button class="btn btn-dark btn-block" [disabled]="RegisterForm.invalid" (click)="createUser()">Signup</button>
 				
@@ -207,3 +209,8 @@
 	
 
   </div>
+  <br>
+<br>
+ <br>
+<br>
+  <app-home-footer></app-home-footer>
