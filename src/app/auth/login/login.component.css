@@ -168,7 +168,7 @@ body{
   }
   
   
-  .card{
+   .card{
   
 	width: 400px;
 	border:none;
@@ -203,22 +203,7 @@ body{
   }
   
   
-  .nav-pills{
-  
-	display:table !important;
-	width:100%;
-  }
-  
-  .nav-pills .nav-link {
-	  border-radius: 0px;
-		  border-bottom: 1px solid #0d6efd40;
-  
-  }
-  
-  .nav-item{
-		display: table-cell;
-		 background: #0d6efd2e;
-  }
+ 
   
   
   .form{
@@ -243,4 +228,42 @@ body{
   .form button{
   
 	margin-top: 20px;
+  }
+  .tab-content {
+    border: 1px solid #2c2e33;
+    border-top: 1;
+    padding: 2rem 1rem;
+    text-align: justify;
+}
+
+.mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+    padding-top: 0px;
+    padding-bottom: 1px;
+}
+
+.form[_ngcontent-vyi-c80] {
+    padding: 10px;
+    margin-top: -50px;
+}
+.tab-content[_ngcontent-xds-c80] {
+    border: 1px solid #2c2e33;
+    border-top: 14;
+    padding: 0rem -1rem;
+    text-align: justify;
+}
+.nav-pills{
+  
+	display:table !important;
+	width:100%;
+  }
+  
+  .nav-pills .nav-link {
+	  border-radius: 0px;
+		  border-bottom: 1px solid #0d6efd40;
+  
+  }
+  
+  .nav-item{
+		display: table-cell;
+		 background: #0d6efd2e;
   }
