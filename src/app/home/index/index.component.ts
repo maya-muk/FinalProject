@@ -14,6 +14,7 @@ export class IndexComponent {
 constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
             public homeservice:HomeService) {}
 
+            A ?: any 
 
 async ngOnInit() 
  {
@@ -24,7 +25,7 @@ async ngOnInit()
       this.spinner.hide();
     }, 2000);
 
-   
+    
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()
 
@@ -35,8 +36,15 @@ async ngOnInit()
   
     this.dropMarker()
 
-
-
+   
+    //CurrentLocation 
+    if(localStorage.getItem("user") !=null)
+    {
+      this.A =localStorage.getItem("user")
+      console.log(this.A);
+      this.getLocation()
+    }
+  
 
       //for map
    /* navigator.geolocation.getCurrentPosition((position) => {
@@ -52,7 +60,7 @@ async ngOnInit()
   markers = []  as  any;
  async dropMarker() {
 
-     this.Position = this.homeservice.AllStation
+    this.Position = this.homeservice.AllStation
     for(const item of this.Position)
     {
       this.markers.push({
@@ -64,7 +72,7 @@ async ngOnInit()
           color: 'blue',
           text: item.stationname + (this.markers.length + 1),
         },
-        title: 'Marker title ' + (this.markers.length + 1),
+        title: 'Click To Show The Ride For This Station ' + (this.markers.length + 1),
         info: 'Marker info ' + (this.markers.length + 1),
         options: {
           animation: google.maps.Animation.DROP,
@@ -75,7 +83,22 @@ async ngOnInit()
    
   }
    
+  center: google.maps.LatLngLiteral = {lat:31.963158,lng:35.930359};
+  zoom  =4;
+  maxZoom = 15;
+  minZoom = 8;
+  infoContent = ''
 
+  map!: GoogleMap;
+  
+  options: google.maps.MapOptions = {
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    mapTypeId: 'hybrid',
+    maxZoom:this.maxZoom,
+    minZoom:this.minZoom,
+  }
   info!: MapInfoWindow;
   openInfo(marker: MapMarker, content: string) {
     this.infoContent = content;
@@ -83,8 +106,21 @@ async ngOnInit()
   }
 
 
-
-
+  LatUser : any
+  LngUser : any
+  async getLocation()
+  {
+     //Current Location
+     await this.homeservice.getLocationService().then(resp=>{
+      this.LatUser = resp.lat;
+      this.LngUser = resp.lng;
+      console.log(this.LatUser);
+      console.log(this.LngUser);
+      
+     })
+     
+  }
+ 
 
 
 
@@ -202,22 +238,11 @@ async ngOnInit()
 
 
 
-  maxZoom = 15;
-  minZoom = 8;
-
-  options: google.maps.MapOptions = {
-    zoomControl: false,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
-    mapTypeId: 'hybrid',
-    maxZoom:this.maxZoom,
-    minZoom:this.minZoom,
-  }
+ 
 
 
-  infoContent = ''
 
-  map!: GoogleMap;
+ 
 
   zoomIn() {
     if (this.zoom < this.maxZoom) this.zoom++;
@@ -253,8 +278,7 @@ async ngOnInit()
 
   //map lat lng
   display : any;
-  center: google.maps.LatLngLiteral = {lat:31.963158,lng:35.930359};
-  zoom  =4;
+
 
   //to move map  using mapclick on html 
   moveMap(event:google.maps.MapMouseEvent)
