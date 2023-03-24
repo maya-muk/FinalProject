@@ -29,7 +29,9 @@
                         </td>
                         <td> {{item.trainname}} </td>
                         <td> {{item.capacityy}} </td>
-                        <td> <input type="button" class="D" value="Edit"> | <input type="button" class="D" value="Delete"></td>
+                        <td> <input type="button" class="D" value="Edit" (click)="OpenUpdateDialog(item.trainid)"> | 
+                             <input type="button" class="D" value="Delete" (click)="OpenDeleteDialog(item.trainid)">
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -63,7 +65,7 @@
        <div class="M">
         <mat-form-field>
           <mat-label style="color: black;">Capacity</mat-label>
-          <input type="text" matInput formControlName="capacityy" />
+          <input type="number" matInput formControlName="capacityy" />
           <mat-error *ngIf="CreateTrainForm.controls['capacityy'].hasError('required')">
             Capacity is Required
           </mat-error>
@@ -73,12 +75,61 @@
     </div>
     <div class="container">
       <div class="C">
-      <input type="button"  [disabled]="CreateTrainForm.invalid" value="Create" (click)="CreateTrain()"/>
+      <input type="button"  mat-dialog-close value="Create" (click)="CreateTrain()"/>
     </div>
     <div class="C">
-      <input type="button" [disabled]="CreateTrainForm.invalid" value="Close" mat-dialog-close />
+      <input type="button"  value="Close" mat-dialog-close />
     </div>
   </div>
   </form>
 </div>
 </ng-template>
+
+
+<ng-template #DeleteTrains>
+  
+  <mat-label style="color: black;margin-top: 50px; margin-left: 70px;"><b>Would you like to delete this Trian?</b></mat-label>
+  
+  <div class="delete">
+    <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeleteTrain()"/>
+   <input mat-dialog-close value="No" type="button" class="btn btn-error">
+</div>
+</ng-template>
+
+
+<ng-template   #UpdateTrains>
+  <div class="A" >
+  <form [formGroup]="UpdateTrainForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Train Name</mat-label>
+          <input type="text" matInput formControlName="trainname" />
+          <mat-error *ngIf="CreateTrainForm.controls['trainname'].hasError('required')">
+              Train Name is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Capacity</mat-label>
+          <input type="number" matInput formControlName="capacityy" />
+          <mat-error *ngIf="CreateTrainForm.controls['capacityy'].hasError('required')">
+            Capacity is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       
+    </div>
+    <div class="container">
+      <div class="C">
+      <input type="button"  mat-dialog-close value="Update" (click)="UpdateTrain()"/>
+    </div>
+    <div class="C">
+      <input type="button"  value="Close" mat-dialog-close />
+    </div>
+  </div>
+  </form>
+</div>
+</ng-template>
+

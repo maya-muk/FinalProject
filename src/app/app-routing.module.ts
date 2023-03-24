@@ -15,7 +15,9 @@ const routes: Routes = [
   loadChildren:()=>import ('./home/home.module').then(x=>x.HomeModule)
 },
 {
-  path:"User",
+  path:"paypal",
+  loadChildren:()=>import ('./paypal/paypal.module').then(x=>x.PaypalModule)},
+ { path:"User",
   loadChildren:()=>import ('./user/user.module').then(x=>x.UserModule)
 }
 ];

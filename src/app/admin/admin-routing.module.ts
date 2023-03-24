@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RideComponent } from './ride/ride.component';
 import { StationComponent } from './station/station.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { TicketComponent } from './ticket/ticket.component';
 import { TrainComponent } from './train/train.component';
 import { UserComponent } from './user/user.component';
 
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path:"Testimonial",
     component:TestimonialComponent  
+  }
+  ,
+  {
+    path:"Ticket",
+    component:TicketComponent
   }
 ];
 

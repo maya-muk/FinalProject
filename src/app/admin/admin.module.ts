@@ -10,6 +10,7 @@ import { UserComponent } from './user/user.component';
 import { TrainComponent } from './train/train.component';
 import { RideComponent } from './ride/ride.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
     UserComponent,
     TrainComponent,
     RideComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    TicketComponent
   ],
   imports: [
     CommonModule,
