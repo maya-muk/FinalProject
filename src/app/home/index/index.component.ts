@@ -212,6 +212,9 @@ async ngOnInit()
     mapTypeId: 'hybrid',
     maxZoom:this.maxZoom,
     minZoom:this.minZoom,
+    
+      mapId: 'a3d06102f542c517',
+      
   }
 
 
