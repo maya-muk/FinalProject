@@ -309,43 +309,47 @@ async DeleteTrains(TrainID : number)
 
   //login
 
-  Login(user: any) {
-    console.log(user);
-    const header = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
+  async Login(user: any) {
 
-    const Options = {
-      headers: new HttpHeaders(header)
-    }
-
-    this.spinner.show()
-    this.http.post("https://localhost:44304/api/User", user, Options).subscribe( //token , error
-      {
-        next: (res: any) => {
-          console.log(res); // token
-          let data: any = jwt_decode(res)
-          console.log(data);
-
-          localStorage.setItem('token', res)
-          localStorage.setItem('user', JSON.stringify(data))
-          this.spinner.hide()
-          if (data.Roleid == 1) {
-            this.route.navigate(["Admin/dash"])
-          }
-          else if (data.Roleid == 2)
-            this.route.navigate([""])
-
-        },
-        error: (err) => {
-          this.spinner.hide()
-          console.log(err);
-
-          this.toaster.error("Invalid username or password")
-        }
+    return new Promise<void>((resolve,reject)=>{
+      console.log(user);
+      const header = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
-    )
+  
+      const Options = {
+        headers: new HttpHeaders(header)
+      }
+  
+      this.spinner.show()
+      this.http.post("https://localhost:44304/api/User", user, Options).subscribe( //token , error
+        {
+          next: (res: any) => {
+            console.log(res); // token
+            let data: any = jwt_decode(res)
+            console.log(data);
+  
+            localStorage.setItem('token', res)
+            localStorage.setItem('user', JSON.stringify(data))
+            this.spinner.hide()
+            if (data.Roleid == 1) {
+              this.route.navigate(["Admin/dash"])
+            }
+            else if (data.Roleid == 2)
+              this.route.navigate([""])
+  
+          },
+          error: (err) => {
+            this.spinner.hide()
+            console.log(err);
+  
+            this.toaster.error("Invalid username or password")
+          }
+        }
+      )
+    })
+   
   }
   imageName = "" // imagename
 
