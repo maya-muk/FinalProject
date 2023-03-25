@@ -100,25 +100,51 @@ export class AdminService {
 
   AllUser: any = []
   GetAllUser() {
-    this.spinner.show()
-    this.http.get("https://localhost:44304/api/user").subscribe(
-      {
-        next: (result) => {
-          console.log(this.AllUser);
-
-          this.AllUser = result
-          this.spinner.hide()
-          this.toaster.success("Success")
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.spinner.show()
+      this.http.get("https://localhost:44304/api/user").subscribe(
+        {
+          next: (result) => {
+           
+            this.AllUser = result
+            console.log(this.AllUser);
+            this.spinner.hide()
+            this.toaster.success("Success")
+            resolve()
+          }
+          ,
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+            this.spinner.hide()
+            reject()
+          }
         }
-        ,
-        error: (err) => {
-          console.log(err);
-          this.toaster.error("Error")
-          this.spinner.hide()
-        }
-      }
-    )
+      )
+    })
   }
+
+  UpdateUser(user:any){
+    return new Promise<void>((resolve, reject) => {
+      this.http.put("https://localhost:44304/api/user",user).subscribe(
+        {
+          next:(result)=>{
+
+              this.toaster.success("Updated")
+          },
+          error:(err)=>{
+              console.log(user);
+              
+              console.log(err);
+              this.toaster.error("Error")
+          }
+        }
+      )
+    })
+    
+  }
+
   // Tickets
 
   AllTickets: any = []

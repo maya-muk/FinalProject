@@ -4,6 +4,7 @@ import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AdminService } from 'src/app/admin.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HomeService } from 'src/app/home.service';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -12,10 +13,13 @@ import { HomeService } from 'src/app/home.service';
 export class IndexComponent {
 
 constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
-            public homeservice:HomeService) {}
+            public homeservice:HomeService
+           ) {}
 
-            A ?: any 
 
+user:any
+AllObj : any
+FinalObj : any
 async ngOnInit() 
  {
     /** spinner starts on init **/
@@ -35,24 +39,23 @@ async ngOnInit()
 
   
     this.dropMarker()
+    await this.adminService.GetAllUser()
 
    
     //CurrentLocation 
     if(localStorage.getItem("user") !=null)
     {
-      this.A =localStorage.getItem("user")
-      console.log(this.A);
+      this.user = localStorage.getItem('user')
+      this.user = JSON.parse(this.user)
+      
+      this.AllObj = this.adminService.AllUser.filter((obj:any)=> obj.userid == this.user.userid)
+      console.log(this.AllObj);
+      this.FinalObj = this.AllObj[0]
+      console.log(this.FinalObj);
+      
+      console.log(this.user.userid);
       this.getLocation()
     }
-  
-
-      //for map
-   /* navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      }
-    })*/
   }
 
 //Drop Marker
@@ -64,6 +67,7 @@ async ngOnInit()
     for(const item of this.Position)
     {
       this.markers.push({
+        id:item.stationid,
         position: {
           lat:(Number)(item.locations),
           lng:(Number)(item.locationla),
@@ -78,6 +82,8 @@ async ngOnInit()
           animation: google.maps.Animation.DROP,
         },
       })
+
+      
     }
    console.log(this.markers);
    
@@ -89,7 +95,7 @@ async ngOnInit()
   minZoom = 8;
   infoContent = ''
 
-  map!: GoogleMap;
+  map!: GoogleMap ;
   
   options: google.maps.MapOptions = {
     zoomControl: false,
@@ -100,12 +106,20 @@ async ngOnInit()
     minZoom:this.minZoom,
   }
   info!: MapInfoWindow;
+
+  openInfo(station:any) {
+    this.infoContent = station.stationname;
+    this.info.open(station)
+  }
+
+  
+/*
   openInfo(marker: MapMarker, content: string) {
     this.infoContent = content;
     this.info.open(marker)
-  }
+  }*/
 
-
+  
   LatUser : any
   LngUser : any
   async getLocation()
@@ -114,9 +128,11 @@ async ngOnInit()
      await this.homeservice.getLocationService().then(resp=>{
       this.LatUser = resp.lat;
       this.LngUser = resp.lng;
-      console.log(this.LatUser);
-      console.log(this.LngUser);
-      
+      this.FinalObj.locationlo = (this.LngUser).toString()
+      this.FinalObj.locationla = (this.LatUser).toString()
+      console.log(this.FinalObj.locationlo);
+      console.log(this.FinalObj.locationla);
+      this.adminService.UpdateUser(this.FinalObj)
      })
      
   }
@@ -125,52 +141,37 @@ async ngOnInit()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //search interval 
+
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
- //search interval 
+
  onSubmit()
  {
 
     this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
     
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //map marker 
-  //
-
-  /*
-  markerOptions : google.maps.MarkerOptions = {draggable: false}
-  markerPositions : google.maps.LatLngLiteral[] = []
-
-  addMarker(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.markerPositions.push(event.latLng.toJSON())
-  }
-*/
-
 
   Ride = [
     {
@@ -238,21 +239,38 @@ async ngOnInit()
 
 
 
-  // maxZoom = 15;
-  // minZoom = 8;
-
-  // options: google.maps.MapOptions = {
-  //   zoomControl: false,
-  //   scrollwheel: false,
-  //   disableDoubleClickZoom: true,
-  //   mapTypeId: 'hybrid',
-  //   maxZoom:this.maxZoom,
-  //   minZoom:this.minZoom,
-  // }
 
 
- 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   //map marker 
+  //
+
+  /*
+  markerOptions : google.maps.MarkerOptions = {draggable: false}
+  markerPositions : google.maps.LatLngLiteral[] = []
+
+  addMarker(event:google.maps.MapMouseEvent)
+  {
+    if(event.latLng != null)
+    this.markerPositions.push(event.latLng.toJSON())
+  }
+*/
+
+/*
   zoomIn() {
     if (this.zoom < this.maxZoom) this.zoom++;
     console.log('Get Zoom',this.map.getZoom());
@@ -262,21 +280,18 @@ async ngOnInit()
     if (this.zoom > this.minZoom) this.zoom--;
   }
 
-  /*eventHandler(event: any ,name:string){
+  eventHandler(event: any ,name:string){
     console.log(event,name);
     if(name === 'mapDblclick'){
       this.dropMarker(event)
     }
-  }*/
+  }
 
    // Markers
    logCenter() {
     console.log(JSON.stringify(this.map.getCenter()))
   }
-  
-
- 
-
+  **/
 
 
 
@@ -286,7 +301,7 @@ async ngOnInit()
 
 
   //map lat lng
-  display : any;
+ /* display : any;
 
 
   //to move map  using mapclick on html 
@@ -302,7 +317,6 @@ async ngOnInit()
     if(event.latLng != null)
     this.display = (event.latLng.toJSON())
   }
-
-
-
+*/
 }
+
