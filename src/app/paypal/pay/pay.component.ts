@@ -8,7 +8,7 @@ import { render } from 'creditcardpayments/creditCardPayments';
 export class PayComponent {
 
 constructor(){  render({
-  id:"#myPaypalButtons",
+  id:"myPaypalButtons",
   currency:"USD",
   value:"100.00 ",
   onApprove: (details) => {

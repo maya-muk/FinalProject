@@ -73,8 +73,8 @@ this.adminService.UploadImage(formData)
 async updateinfo(){
   await this.adminService.UpdateUser(this.updateform.value)
   this.ngOnInit()
-  // this.reloadPage()
- 
+  this.userobj()
+  
 }
 reloadPage(){
   window.location.reload()
