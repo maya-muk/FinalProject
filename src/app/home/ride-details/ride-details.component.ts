@@ -10,6 +10,11 @@ import { IndexComponent } from '../index/index.component';
 export class RideDetailsComponent {
 
   //constructor( ){}
+
+  ngOnInit():void{
+    
+    
+  }
 /**
  private activatedrout : ActivatedRoute = new ActivatedRoute
  private index :IndexComponent = new IndexComponent()

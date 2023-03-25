@@ -353,7 +353,7 @@ width="100%"
   [label]="marker.label"
   [title]="marker.title"
   [options]="marker.options"
-  
+  (mapClick)="openInfo(marker)"
   
 >
 </map-marker>

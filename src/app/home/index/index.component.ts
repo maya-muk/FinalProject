@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AdminService } from 'src/app/admin.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HomeService } from 'src/app/home.service';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -13,8 +14,7 @@ import { map } from 'rxjs';
 export class IndexComponent {
 
 constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
-            public homeservice:HomeService
-           ) {}
+            public homeservice:HomeService,private route: Router) {}
 
 
 user:any
@@ -83,7 +83,7 @@ async ngOnInit()
         },
       })
 
-      
+
     }
    console.log(this.markers);
    
@@ -105,11 +105,14 @@ async ngOnInit()
     maxZoom:this.maxZoom,
     minZoom:this.minZoom,
   }
-  info!: MapInfoWindow;
 
-  openInfo(station:any) {
-    this.infoContent = station.stationname;
-    this.info.open(station)
+  @Input() IdStation : any
+  @Output() Send = new EventEmitter()
+  openInfo(marker:any) {
+      console.log(marker);
+      this.IdStation = marker
+      this.route.navigate(["//rideDetails"])
+      this.Send.emit(this.IdStation)
   }
 
   
