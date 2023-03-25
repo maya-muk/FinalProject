@@ -170,26 +170,10 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            
             
             <!--  <p><img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>  --> 
           </div>
-          <div class="col-md-5">
-            <p>{{display?.lat}}</p>
-            <p>{{display?.lng}}</p>
-          </div>
+
         </div>
       </div>
     </div>
@@ -351,16 +335,6 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 <app-home-footer></app-home-footer>
 
 
-
-
-
-
-
-
-
-
-
-
 <google-map
   
 #myGoogleMap
@@ -379,13 +353,69 @@ width="100%"
   [label]="marker.label"
   [title]="marker.title"
   [options]="marker.options"
-  (mapClick)="openInfo(markerElem, marker.info)"
+  
+  
 >
 </map-marker>
 
 <map-info-window>{{ infoContent }}</map-info-window>
 </google-map>
 
+<button   *ngIf="user !=null">nearest Station </button>
 
-<button (click)="zoomOut()">Zoom out</button>
-<button (click)="logCenter()">Log center</button>
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA_EWGQPuLhu0DdeYMTlrfFIxR-bSsMN8&libraries=places" defer></script>
+
+<script>
+var map;
+var service;
+var infowindow;
+
+function initialize() {
+  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: pyrmont,
+      zoom: 15
+    });
+
+  var request = {
+    location: pyrmont,
+    radius: '500',
+    type: ['restaurant']
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+
+google.map.event.addDomListener(window,'load',initialize)
+  
+</script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA_EWGQPuLhu0DdeYMTlrfFIxR-bSsMN8&callback=initMap">
+</script>
+--->
