@@ -6,8 +6,10 @@
 <app-user-header></app-user-header>
 
 <div class="content">
+  <form [formGroup]="updateform">
     <div class="row">
       <div class="col-md-4">
+        
         <div class="card card-user">
           <div class="image">
             <img src="/../../../assets/Image/{{updateform.controls.imagepath.value}}" alt="...">
@@ -113,7 +115,7 @@
             <h5 class="card-title">Edit Profile</h5>
           </div>
           <div class="card-body">
-            <form [formGroup]="updateform">
+          
               <div class="row">
                 <!-- <div class="col-md-5 pr-1"> -->
                   <div class="form-group">
@@ -203,11 +205,12 @@
                   <button type="submit" class="btn btn-primary btn-round" (click)="updateinfo()"  >Update Profile</button>
                 </div>
               </div>
-            </form>
+            
           </div>
         </div>
       </div>
     </div>
+  </form>
   </div>
 
         </div>
