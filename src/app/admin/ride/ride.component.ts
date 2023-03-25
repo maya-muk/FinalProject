@@ -75,12 +75,16 @@ export class RideComponent {
   }
 
   Ride : any
+  rideobj :any 
   async OpenUpdateDialog(rideId:number)
   {
    // console.log(rideId);
    this.Ride = await this.adminService.AllRide.filter((obj : any)=> obj.rideid == rideId)
-    this.UpdateRideForm.patchValue(this.Ride)   
-    //console.log(this.Ride);
+this.rideobj=this.Ride[0]
+
+
+    this.UpdateRideForm.patchValue(this.rideobj)   
+    console.log(this.rideobj);
     //console.log(this.UpdateRideForm.value);
     
     this.dialog.open(this.Update,{height: '460px', width: '800px'})

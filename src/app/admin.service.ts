@@ -125,25 +125,6 @@ export class AdminService {
     })
   }
 
-  UpdateUser(user:any){
-    return new Promise<void>((resolve, reject) => {
-      this.http.put("https://localhost:44304/api/user",user).subscribe(
-        {
-          next:(result)=>{
-
-              this.toaster.success("Updated")
-          },
-          error:(err)=>{
-              console.log(user);
-              
-              console.log(err);
-              this.toaster.error("Error")
-          }
-        }
-      )
-    })
-    
-  }
 
   // Tickets
 
@@ -380,12 +361,15 @@ async DeleteTrains(TrainID : number)
   imageName = "" // imagename
 
   UploadImage(imageFile: any) {
+    return new Promise<void>((resolve,reject)=>{
     this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
       {
-        next: (res: any) => { this.imageName = res.imageName },
+        next: (res: any) => { this.imageName = res.imagepath
+          
+          resolve },
         error: () => { }
       }
-    )
+    )})
   }
 
   //Register
@@ -409,5 +393,32 @@ async DeleteTrains(TrainID : number)
         }
       )
     })
+  }
+  
+  UpdateUser(user:any){
+    return new Promise<void>((resolve, reject) => {
+    console.log( this.imageName)
+    if(this.imageName != ""){
+    user.Imagepath=this.imageName
+  console.log( user)
+  console.log( this.imageName)}
+    
+      this.http.put("https://localhost:44304/api/user",user).subscribe(
+        {
+          next:(result)=>{
+
+              this.toaster.success("Updated")
+              resolve
+          },
+          error:(err)=>{
+              console.log(user);
+              
+              console.log(err);
+              this.toaster.error("Error")
+          }
+        }
+      )
+    })
+    
   }
 }
