@@ -238,17 +238,17 @@ async ngOnInit()
 
 
 
-  maxZoom = 15;
-  minZoom = 8;
+  // maxZoom = 15;
+  // minZoom = 8;
 
-  options: google.maps.MapOptions = {
-    zoomControl: false,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
-    mapTypeId: 'hybrid',
-    maxZoom:this.maxZoom,
-    minZoom:this.minZoom,
-  }
+  // options: google.maps.MapOptions = {
+  //   zoomControl: false,
+  //   scrollwheel: false,
+  //   disableDoubleClickZoom: true,
+  //   mapTypeId: 'hybrid',
+  //   maxZoom:this.maxZoom,
+  //   minZoom:this.minZoom,
+  // }
 
 
  
