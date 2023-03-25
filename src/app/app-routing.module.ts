@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
 {
   path:"Admin",
-  loadChildren:()=>import ('./admin/admin.module').then(x=>x.AdminModule)
+  loadChildren:()=>import ('./admin/admin.module').then(x=>x.AdminModule),
+  canActivate:[AuthGuard]
 },
 {
   path:"Auth",
@@ -18,7 +20,8 @@ const routes: Routes = [
   path:"paypal",
   loadChildren:()=>import ('./paypal/paypal.module').then(x=>x.PaypalModule)},
  { path:"User",
-  loadChildren:()=>import ('./user/user.module').then(x=>x.UserModule)
+  loadChildren:()=>import ('./user/user.module').then(x=>x.UserModule),
+  canActivate:[AuthGuard]
 }
 ];
 
