@@ -56,8 +56,14 @@
                                 <li>
                                     <a routerLink="//contact" class="nav-link text-left">Contact Us</a>
                                 </li>
-                                <li>
+                                <li *ngIf="id ==null">
                                     <a routerLink="/Auth/login" class="nav-link text-left">LOGIN/REGISTER</a>
+                                </li>
+                                <li *ngIf="id !=null">
+                                    <a routerLink="/User/profile" class="nav-link text-left">Profile</a>
+                                </li>
+                                <li *ngIf="id !=null">
+                                    <a routerLink="/" class="nav-link text-left">Logout</a>
                                 </li>
                             </ul>                                                                                                                                                                                                                                                                                        
                         </nav>
