@@ -456,4 +456,30 @@ async DeleteTrains(TrainID : number)
 
     
   }
+  //create test userdashboard
+   CreateTestimonial(Testimonial : any)
+  {
+    // return new Promise<void>((resolve,reject)=>
+    // {
+      this.spinner.show()
+      this.http.post("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
+        {
+          next:()=>
+          {
+            this.spinner.hide()
+            this.toaster.success("Updated Successfully")
+            // resolve()
+          },
+          error:(err)=>
+          {
+            console.log(err);
+            console.log(Testimonial);
+            this.spinner.hide()
+            this.toaster.error("Error")
+            // reject()
+          }
+        }
+      )
+    // })
+  }
 }

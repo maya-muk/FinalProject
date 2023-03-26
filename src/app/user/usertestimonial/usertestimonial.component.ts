@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-usertestimonial',
@@ -11,11 +11,29 @@ export class UsertestimonialComponent {
 
 update = new FormGroup(
   {
-    Opinion :new FormControl('')
+    userid :new FormControl(''),
+    status: new FormControl('Yes'),
+    opinion :new FormControl('',[Validators.required])
   }
-)
+  
+  )
+  FinalObj :any
+  AllObj : any
+  user:any
+  async ngOnInit(){
+     await this.adminService.GetAllUser()
+    
+      this.user= localStorage.getItem('user')
+      this.user = JSON.parse(this.user)
+      
+      this.update.patchValue(this.user)
+      
 
-async updatetest(){
-   await this.adminService.UpdateTestimonial(this.update.value)
+  }
+
+ async updatetest(){
+ await this.adminService.CreateTestimonial(this.update.value)
+  
+console.log(this.update.value)
 }
 }

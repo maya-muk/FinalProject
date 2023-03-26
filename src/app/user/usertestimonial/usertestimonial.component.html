@@ -29,7 +29,7 @@
 
 
 <body class="">
-  <form [formGroup]="update">
+
   <div class="wrapper ">
       <app-user-side-bar></app-user-side-bar>
       <div class="main-panel">
@@ -46,19 +46,19 @@
                 <div class="u-container-layout u-container-layout-1">
                   <h3 class="u-text u-text-1"> &nbsp;Drop a line</h3>
                   <div class="u-align-left u-form u-form-1">
-                    <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" style="padding: 0px;" source="email" name="form">
+                    <form  [formGroup]="update"  class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" style="padding: 0px;" source="email" name="form">
                       <div class="u-form-group u-form-message">
                         <label for="message-319a" class="u-label u-label-1">Message</label>
-                        <textarea placeholder="Enter your message" rows="4" cols="50" formControlName="Opinion" class="u-grey-5 u-input u-input-rectangle u-radius-5 u-input-1" required=""></textarea>
+                        <textarea placeholder="Enter your message" rows="4" cols="50" formControlName="opinion" class="u-grey-5 u-input u-input-rectangle u-radius-5 u-input-1" required=""></textarea>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-active-grey-60 u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-60 u-radius-5 u-btn-1">Submit</a>
-                        <button type="submit" value="submit" class="u-form-control-hidden" (click)="updatetest()"></button>
+                        <button type="submit" class="u-active-grey-60 u-black u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-60 u-radius-5 u-btn-1" (click)="updatetest()">Submit </button>
+                        <button  class="u-form-control-hidden"></button>
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                      <!-- <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
                       <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
                       <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="ae5e250579c6b010862d9d19a3ccc060">
+                      <input type="hidden" name="formServices" value="ae5e250579c6b010862d9d19a3ccc060"> -->
                     </form>
                   </div>
                 </div>
@@ -75,5 +75,5 @@
   </div>
   </div>
   </div>
-  </form>
+
 </body>
