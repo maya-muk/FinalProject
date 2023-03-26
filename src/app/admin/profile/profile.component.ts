@@ -11,7 +11,7 @@ export class ProfileComponent {
 
   constructor(public adminService: AdminService) { }
 
-  updateform = new FormGroup(
+  UpdateProfile = new FormGroup(
     {
       userid: new FormControl(''),
       username: new FormControl('', [Validators.required]),
@@ -30,16 +30,34 @@ export class ProfileComponent {
   user: any
   async ngOnInit() {
     await this.adminService.GetAllUser()
-
-
     this.user = localStorage.getItem('user')
     this.user = JSON.parse(this.user)
+    this.userobj()
+  }
+  userobj() {
+    return new Promise<void>((resolve, reject) => {
+      this.AllObj = this.adminService.AllUser.filter((obj: any) => obj.userid == this.user.userid)
+      this.FinalObj = this.AllObj[0]
+      this.UpdateProfile.patchValue(this.FinalObj)
+      resolve()
+    })
+  }
+  UploadImage(input: any) // <input>
+  {
+    console.log(input);
+    console.log(input.files);
+    if (input.files.length != 0) {
+      let uploadedFile = input.files[0] // imagefile 
+      let formData = new FormData()
+      formData.append('file', uploadedFile)
+      this.adminService.UploadImage(formData)
+    }
 
-    //await this.userobj()
+  }
 
-
-
-
+  updateinfo(){
+    this.adminService.UpdateUser(this.UpdateProfile.value)
+    location.reload()
   }
 
 }

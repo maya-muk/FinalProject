@@ -63,14 +63,9 @@ export class ProfileComponent {
 
   }
 
-async updateinfo(){
-  await this.adminService.UpdateUser(this.updateform.value)
-  this.ngOnInit()
-  // this.reloadPage()
- 
-}
-reloadPage(){
-  window.location.reload()
+ updateinfo(){
+  this.adminService.UpdateUser(this.updateform.value)
+  location.reload()
 }
 
 }

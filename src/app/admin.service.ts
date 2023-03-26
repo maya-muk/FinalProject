@@ -18,17 +18,23 @@ export class AdminService {
   ///Ride
   AllRide: any = []
   GetAllRids() {
-    this.http.get("https://localhost:44304/api/ride").subscribe(
-      {
-        next: (result) => {
-          this.AllRide = result
-          this.toaster.success("Success")
-        },
-        error: (err) => {
-          console.log(err);
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get("https://localhost:44304/api/ride").subscribe(
+        {
+          next: (result) => {
+            this.AllRide = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            reject()
+          }
         }
-      }
-    )
+      )
+    })
+    
   }
 
   CreateRide(ride: any) {
@@ -108,7 +114,6 @@ export class AdminService {
           next: (result) => {
            
             this.AllUser = result
-            console.log(this.AllUser);
             this.spinner.hide()
             this.toaster.success("Success")
             resolve()
@@ -130,39 +135,66 @@ export class AdminService {
 
   AllTickets: any = []
   GetAllTickets() {
-    this.http.get("https://localhost:44304/api/tickets").subscribe(
-      {
-        next: (result) => {
-          this.AllTickets = result
-          console.log("Done");
-
-          this.toaster.success("Success")
-        },
-        error: (err) => {
-          console.log(err);
-          this.toaster.error("Error")
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get("https://localhost:44304/api/tickets").subscribe(
+        {
+          next: (result) => {
+            this.AllTickets = result
+            console.log("Done");
+  
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+          }
         }
-      }
-    )
+      )
+    })
+    
   }
 
   //Station
   AllStation: any = []
   GetAllStation() {
-    this.http.get("https://localhost:44304/api/station").subscribe(
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get("https://localhost:44304/api/station").subscribe(
       {
         next: (result) => {
           this.AllStation = result
-
+          resolve
         },
         error: (err) => {
           console.log(err);
-
+          reject
         }
       }
     )
+    })
   }
 
+  DeleteStation(stationID : number){
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.delete("https://localhost:44304/api/station/"+stationID).subscribe(
+        {
+          next:(res)=>
+          {
+            this.spinner.hide()
+             this.toaster.success("Deleted Successfully")
+             resolve
+          },
+          error:(err)=>{
+            console.log(err);
+            this.toaster.error("Error")
+          }
+        }
+      )
+    })
+  }
 
   //Train
   AllTrain: any = []
