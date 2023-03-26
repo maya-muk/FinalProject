@@ -360,7 +360,7 @@ async DeleteTrains(TrainID : number)
   }
   imageName = "" // imagename
 
-  UploadImage(imageFile: any) {
+ async UploadImage(imageFile: any) {
     return new Promise<void>((resolve,reject)=>{
     this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
       {
@@ -419,6 +419,7 @@ async DeleteTrains(TrainID : number)
         }
       )
     })
+
     
   }
 }

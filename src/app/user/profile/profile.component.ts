@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterState } from '@angular/router';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  constructor(public adminService:AdminService
+  constructor(public adminService:AdminService,private route: Router
    ) {}
 
   updateform = new FormGroup(
@@ -72,8 +73,8 @@ this.adminService.UploadImage(formData)
 
 async updateinfo(){
   await this.adminService.UpdateUser(this.updateform.value)
-  this.ngOnInit()
-  this.userobj()
+  this.route.navigate(["User/profile"])
+ 
   
 }
 reloadPage(){
