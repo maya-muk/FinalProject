@@ -65,14 +65,11 @@ export class ProfileComponent {
 
   }
 
-async updateinfo(){
-  await this.adminService.UpdateUser(this.updateform.value)
-  this.route.navigate(["User/profile"])
+ updateinfo(){
+   this.adminService.UpdateUser(this.updateform.value)
+  location.reload()
  
   
-}
-reloadPage(){
-  window.location.reload()
 }
 
 }

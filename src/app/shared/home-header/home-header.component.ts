@@ -18,6 +18,7 @@ export class HomeHeaderComponent {
   Logout()
   {
     localStorage.clear()
+    location.reload()
     this.ngOnInit()
   }
 }
