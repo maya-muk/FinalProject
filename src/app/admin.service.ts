@@ -416,6 +416,7 @@ async DeleteTrains(TrainID : number)
           next: () => {
             this.spinner.hide()
             this.toaster.success("Added Successfully")
+            this.route.navigate([""])
             resolve();
           },
           error: () => {
