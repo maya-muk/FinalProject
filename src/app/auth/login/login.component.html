@@ -16,10 +16,15 @@
 						<form [formGroup]="LoginForm " class="signin-form">
 							<div class="form-group">
 								<input type="text" class="form-control" formControlName="Username" placeholder="Username" required>
+								<small class="text-danger" [class.d-none]="LoginForm.controls.Username.valid || LoginForm.controls.Username.untouched ">
+									Username is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<input id="password-field" type="password" class="form-control" placeholder="Password" formControlName="Password" required>
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+								<small class="text-danger" style="text-align: left;" *ngIf="LoginForm.controls.Password.hasError('required')" [class.d-none]="LoginForm.controls.Password.valid|| LoginForm.controls.Password.untouched ">
+									Password is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<button type="submit" [disabled]="LoginForm.invalid" class="form-control btn btn-primary submit px-3" (click)="login()">Sign In</button>

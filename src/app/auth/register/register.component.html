@@ -16,19 +16,39 @@
 						<form [formGroup]="RegisterForm" class="signin-form">
 							<div class="form-group">
 								<input type="text" class="form-control" formControlName="Firstname" placeholder="Firstname" required>
+								<small class="text-white" [class.d-none]="RegisterForm.controls.Firstname.valid || RegisterForm.controls.Firstname.untouched ">
+									FirstName is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" formControlName="Lastname" placeholder="Lastname" required>
+								<small class="text-white" [class.d-none]="RegisterForm.controls.Lastname.valid || RegisterForm.controls.Lastname.untouched ">
+									Lastname is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<input type="email" class="form-control" formControlName="Email" placeholder="Email" required>
+								<small class="text-white" *ngIf="RegisterForm.controls.Email.hasError('email')" [class.d-none]="RegisterForm.controls.Email.valid || RegisterForm.controls.Email.untouched ">
+									Must Be Email
+								  </small><small class="text-white" *ngIf="RegisterForm.controls.Email.hasError('required')" [class.d-none]="RegisterForm.controls.Email.valid|| RegisterForm.controls.Email.untouched ">
+									Email is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" formControlName="Username" placeholder="Username" required>
+								<small  class="text-white" [class.d-none]="RegisterForm.controls.Username.valid || RegisterForm.controls.Username.untouched ">
+									UserName is required
+								  </small>
 							</div>
 							<div class="form-group">
 								<input id="password-field" type="password" class="form-control" formControlName="Password" placeholder="Password" required>
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+								<small class="text-white left" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('pattern')" [class.d-none]="RegisterForm.controls.Password.valid || RegisterForm.controls.Password.untouched ">
+									Must Be min length 8 
+								  </small>
+								  <small class="text-white" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('required')" [class.d-none]="RegisterForm.controls.Password.valid|| RegisterForm.controls.Password.untouched ">
+									Password is required
+								  </small>
+							
 							</div>
 
 							<div class="form-group">
