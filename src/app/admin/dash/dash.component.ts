@@ -8,15 +8,20 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class DashComponent {
 
-  constructor(public adminService:AdminService){}
+  constructor(public adminService: AdminService) { }
 
-  NumberOfRegisterd = ""
-  User : any
-  ngOnInit()
-  {
-     this.User = this.adminService.AllUser
-     
+  User: any
+  Ride: any
+  Station: any
+  Tickets: any
+  async ngOnInit() {
+    
+    this.adminService.GetAllUser()
+    this.adminService.GetAllRids()
+    this.adminService.GetAllTickets()
+    this.adminService.GetAllStation()
+    
   }
 
-  
+
 }
