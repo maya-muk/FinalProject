@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  
+	<body class="img js-fullheight" style="background-image:url(../../../assets/Image/hero_6.jpeg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+						<h3 class="mb-4 text-center">New Member?</h3>
+						<form [formGroup]="RegisterForm" class="signin-form">
+							<div class="form-group">
+								<input type="text" class="form-control" formControlName="Firstname" placeholder="Firstname" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" formControlName="Lastname" placeholder="Lastname" required>
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" formControlName="Email" placeholder="Email" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" formControlName="Username" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" type="password" class="form-control" formControlName="Password" placeholder="Password" required>
+								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+
+							<div class="form-group">
+								<input type="file" #file (change)="UploadImage(file)" class="form-control"   required>
+							</div>
+
+
+							<div class="form-group">
+								<button type="submit" (click)="createUser()" class="form-control btn btn-primary submit px-3">Sign Up</button>
+							</div>
+
+						</form>
+						<p class="w-100 text-center">&mdash; Already have an account? &mdash;</p>
+						<div class="form-group">
+							<button routerLink="/Auth/login" type="submit" class="form-control btn btn-primary submit px-3">Login</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
+

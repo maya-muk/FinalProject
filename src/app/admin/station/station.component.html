@@ -10,25 +10,28 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Stations</h4>
-                <!-- <p class="card-description"> Add class <code>.table-striped</code>
-                </p>-->
+                <input type="button" class="B" value="ADD">
                 <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
                       <tr>
                         <th> ID </th>
                         <th> Station Name </th>
-                        <th> Location </th>
+                        <th> Latitude </th>
+                        <th> Longitude </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr *ngFor="let item of adminService.AllStation">
                         <td class="py-1">
-                            1
+                            {{item.stationid}}
                         </td>
-                        <td> Henry Tom </td>
-                        <td> Amman </td>
-                        <td> <input type="button" class=".btn-inverse-{}" value="Edit"> | <input type="button" class=".btn-inverse-{}" value="Add">| <input type="button" class=".btn-inverse-{}" value="Delete"></td>
+                        <td> {{item.stationname}} </td>
+                        <td> {{item.locations}} </td>
+                        <td> {{item.locationla}} </td>
+                        <td> <input type="button" class="D" value="Edit">| 
+                             <input type="button" class="D"  value="Delete" (click)="OpenDeleteDialog(item.stationid)">
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -43,3 +46,13 @@
     </div>
     <app-admin-footer></app-admin-footer>
 </body>
+
+<ng-template #DeleteRides>
+  
+  <mat-label style="color: black;margin-top: 50px; margin-left: 70px;"><b>Would you like to delete this Ride?</b></mat-label>
+  
+  <div class="delete">
+    <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeleteStation()"/>
+   <input mat-dialog-close value="No" type="button" class="btn btn-error">
+</div>
+</ng-template>

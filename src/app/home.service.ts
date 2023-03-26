@@ -27,7 +27,7 @@ export class HomeService {
         {
           next:(result)=>
           {
-            
+          
               this.AllStation = result
               console.log(this.AllStation);
               this.toaster.success("success")
@@ -87,4 +87,29 @@ export class HomeService {
       })
     })
   }
+  Alltest:any 
+  gettestimonial()
+  {
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get('https://localhost:44304/api/Testemonial').subscribe(
+        {
+          next:(result)=>
+          {
+            
+              this.Alltest = result
+              console.log(this.Alltest);
+              
+              resolve()
+          },
+          error:(err)=>{
+               console.log(err);
+               this.toaster.error("error")
+          }
+        }
+    )
+    })
+  }
+
+
 }
