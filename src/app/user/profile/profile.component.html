@@ -6,8 +6,10 @@
 <app-user-header></app-user-header>
 
 <div class="content">
+  <form [formGroup]="updateform">
     <div class="row">
       <div class="col-md-4">
+        
         <div class="card card-user">
           <div class="image">
             <img src="/../../../assets/Image/{{updateform.controls.imagepath.value}}" alt="...">
@@ -23,35 +25,33 @@
               </p>
             </div>
             <input type="file" #file (change)="UploadImage(file)">
-            <p class="description text-center">
+            <!-- <p class="description text-center">
               "I like the way you work it <br>
               No diggity <br>
               I wanna bag it up"
-            </p>
+            </p> -->
           </div>
           <div class="card-footer">
             <hr>
             <div class="button-container">
               <div class="row">
-                <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <!-- <div class="col-lg-3 col-md-6 col-6 ml-auto">
                   <h5>12<br><small>Tickets</small></h5>
-                </div>
+                </div> -->
                 <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
                   <h5>2<br><small>Rides</small></h5>
                 </div>
-                <div class="col-lg-3 mr-auto">
+                <!-- <div class="col-lg-3 mr-auto">
                   <h5>24,6$<br><small>Spent</small></h5>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Team Members</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled team-members">
+         
+          <!-- <div class="card-body"> -->
+            <!-- <ul class="list-unstyled team-members">
               <li>
                 <div class="row">
                   <div class="col-md-2 col-2">
@@ -103,8 +103,8 @@
                   </div>
                 </div>
               </li>
-            </ul>
-          </div>
+            </ul> -->
+          <!-- </div> -->
         </div>
       </div>
       <div class="col-md-8">
@@ -113,7 +113,7 @@
             <h5 class="card-title">Edit Profile</h5>
           </div>
           <div class="card-body">
-            <form [formGroup]="updateform">
+          
               <div class="row">
                 <!-- <div class="col-md-5 pr-1"> -->
                   <div class="form-group">
@@ -203,11 +203,12 @@
                   <button type="submit" class="btn btn-primary btn-round" (click)="updateinfo()"  >Update Profile</button>
                 </div>
               </div>
-            </form>
+            
           </div>
         </div>
       </div>
     </div>
+  </form>
   </div>
 
         </div>

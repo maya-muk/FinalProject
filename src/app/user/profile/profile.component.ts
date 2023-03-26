@@ -63,15 +63,15 @@ export class ProfileComponent {
 
   }
 
-  async updateinfo() {
-    await this.adminService.UpdateUser(this.updateform.value)
-    this.ngOnInit()
-    // this.reloadPage()
-
-  }
-  reloadPage() {
-    window.location.reload()
-  }
+async updateinfo(){
+  await this.adminService.UpdateUser(this.updateform.value)
+  this.ngOnInit()
+  // this.reloadPage()
+ 
+}
+reloadPage(){
+  window.location.reload()
+}
 
 }
 
