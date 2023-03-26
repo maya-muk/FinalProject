@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,5 +8,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+
+  constructor(public adminService: AdminService) { }
+
+  updateform = new FormGroup(
+    {
+      userid: new FormControl(''),
+      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+      firstname: new FormControl('', [Validators.required]),
+      lastname: new FormControl('', [Validators.required]),
+      imagepath: new FormControl(''),
+
+    }
+
+  )
+
+  FinalObj: any
+  AllObj: any
+  user: any
+  async ngOnInit() {
+    await this.adminService.GetAllUser()
+
+
+    this.user = localStorage.getItem('user')
+    this.user = JSON.parse(this.user)
+
+    //await this.userobj()
+
+
+
+
+  }
 
 }
