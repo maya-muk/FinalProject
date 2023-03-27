@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AdminHeaderComponent,
@@ -36,7 +37,8 @@ import {MatSelectModule} from '@angular/material/select';
     SharedRoutingModule,
     RouterModule,
     GoogleMapsModule,
-    MatDialogModule
+    MatDialogModule,
+    DataTablesModule
   ],
   exports:
   [
@@ -63,6 +65,7 @@ import {MatSelectModule} from '@angular/material/select';
      MatNativeDateModule, //format for date
      MatDialogModule ,// dialog
      MatSelectModule,//select
+     DataTablesModule
   ]
 })
 export class SharedModule { }
