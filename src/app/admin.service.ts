@@ -290,7 +290,7 @@ async DeleteTrains(TrainID : number)
   //Testimonial
   AllTestimonial: any = []
   GetAllTestimonial() {
-    this.http.get("https://localhost:44304/api/Testemonial").subscribe(
+    this.http.get("https://localhost:44304/api/Testemonial/All").subscribe(
       {
         next: (result) => {
           this.AllTestimonial = result
