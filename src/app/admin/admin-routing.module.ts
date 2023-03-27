@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReportComponent } from './report/report.component';
 import { RideComponent } from './ride/ride.component';
 import { StationComponent } from './station/station.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path:"Ticket",
     component:TicketComponent
+  }
+  ,
+  {
+    path:"Report",
+    component:ReportComponent
   }
 ];
 

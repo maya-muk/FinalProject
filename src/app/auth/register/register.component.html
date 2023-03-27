@@ -57,7 +57,7 @@
 
 
 							<div class="form-group">
-								<button type="submit" (click)="createUser()" class="form-control btn btn-primary submit px-3">Sign Up</button>
+								<button type="submit" (click)="createUser()" class="form-control btn btn-primary submit px-3" [disabled]="RegisterForm.invalid" >Register</button>
 							</div>
 
 						</form>

@@ -37,11 +37,11 @@ async ngOnInit()
 
 
     //call all station
-    await this.homeservice.GetStation()
+     this.homeservice.GetStation()
 
-    await this.adminService.GetAllTrain()
+     this.adminService.GetAllTrain()
   
-    await this.adminService.GetAllTestimonial()
+     this.adminService.GetAllTestimonial()
     
     this.dropMarker()
     await this.adminService.GetAllUser()

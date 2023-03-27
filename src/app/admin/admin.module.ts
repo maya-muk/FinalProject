@@ -11,6 +11,7 @@ import { TrainComponent } from './train/train.component';
 import { RideComponent } from './ride/ride.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TicketComponent } from './ticket/ticket.component';
     TrainComponent,
     RideComponent,
     TestimonialComponent,
-    TicketComponent
+    TicketComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
