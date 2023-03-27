@@ -26,7 +26,7 @@ update = new FormGroup(
       this.user= localStorage.getItem('user')
       this.user = JSON.parse(this.user)
       
-      this.update.patchValue(this.user)
+      this.update.controls.userid.patchValue()
       
 
   }
