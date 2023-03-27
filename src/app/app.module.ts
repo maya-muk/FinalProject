@@ -7,9 +7,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http'; //hit on api
 
 import { NgxPayPalModule } from 'ngx-paypal';
+
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,

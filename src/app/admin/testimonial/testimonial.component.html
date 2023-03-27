@@ -31,9 +31,9 @@
                         </td>
                         <td> {{item.opinion}} </td>
                         <td> {{item.userid}} </td>
-                        <td> maya </td>
+                        <td> {{item.username}} </td>
                         <td class="py-1">
-                            <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="image" />
+                            <img src="../../../assets/HomeAssets/images/{{item.imagepath}}" alt="image" />
                         </td>
                         <td >
                             {{item.status}}
@@ -58,15 +58,15 @@
 
 
 
-<ng-template   #UpdateTestimonial>
+<ng-template #UpdateTestimonials>
   <div class="A" >
   <form [formGroup]="UpdateTetimonialForm">
     <div class="container">
       <div class="M">
-        <mat-form-field formControlName="Status">
+        <mat-form-field formControlName="status">
           <mat-label style="color: black;">Status</mat-label>
           <mat-select>
-            <mat-option *ngFor="let item of TetimonialStatus" [value]="item">
+            <mat-option *ngFor="let item of TetimonialStatus" [value]="item" >
               {{item}}
             </mat-option>
           </mat-select>
@@ -76,7 +76,7 @@
         </mat-form-field>
         <div class="container">
           <div class="C">
-          <input type="button" mat-dialog-close  value="Update" />
+          <input type="button"  mat-dialog-close value="Update" (click)="UpdateTestimonial()">
         </div>
         <div class="C">
           <input type="button"  value="Close" mat-dialog-close="" />

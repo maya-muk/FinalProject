@@ -63,7 +63,7 @@
                                     <a routerLink="/User/profile" class="nav-link text-left">Profile</a>
                                 </li>
                                 <li *ngIf="id !=null">
-                                    <a routerLink="/" class="nav-link text-left">Logout</a>
+                                    <a (click)="Logout()" class="nav-link text-left" routerLink="/">Logout</a>
                                 </li>
                             </ul>                                                                                                                                                                                                                                                                                        
                         </nav>

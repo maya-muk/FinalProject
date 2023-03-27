@@ -10,7 +10,7 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class TestimonialComponent {
 
-  @ViewChild('UpdateTestimonial') Update: any
+  @ViewChild('UpdateTestimonials') Update: any
 
   TetimonialStatus = ["Yes","No"]
 
@@ -20,7 +20,7 @@ export class TestimonialComponent {
       id: new FormControl(''),
       opinion: new FormControl('', Validators.required),
       status: new FormControl('', Validators.required),
-      userid: new FormControl('', Validators.required),
+      userid: new FormControl('', Validators.required)
     }
   )
   
@@ -36,16 +36,16 @@ export class TestimonialComponent {
   Testimonial : any
   async OpenUpdateDialog(tesID:number)
   {
-   // console.log(rideId);
-   this.Testimonial = await this.adminService.AllTestimonial.filter((obj : any)=> obj.id == tesID)
-    this.UpdateTetimonialForm.patchValue(this.Testimonial)   
-    //console.log(this.Ride);
-    //console.log(this.UpdateRideForm.value);
+   
+    this.Testimonial = await this.adminService.AllTestimonial.filter((obj : any)=> obj.id == tesID)
+    this.UpdateTetimonialForm.patchValue(this.Testimonial[0])   
     
     this.dialog.open(this.Update,{height:'180px' ,width:'400px'})
   }
 
   async UpdateTestimonial(){
+    console.log(this.UpdateTetimonialForm.value);
+    
     await this.adminService.UpdateTestimonial(this.UpdateTetimonialForm.value)
     this.adminService.GetAllTestimonial()
   }
