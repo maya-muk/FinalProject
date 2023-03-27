@@ -17,12 +17,7 @@
     color: black;
 
 }
-.container
-{
-    display: flex;
-    column-gap: 30px;
-    margin-left: 10px;
-}
+
 
 .D
 {
@@ -33,3 +28,54 @@
     border-width: 3px;
 
 }
+
+
+.A
+{
+    background-color: #191c24;
+}
+
+.container
+{
+    display: flex;
+    /*column-gap: 30px;*/
+    margin-left: 10px;
+}
+
+.M mat-form-field 
+{
+    /*background-color: black;*/
+    margin-top: 30px; 
+    margin-left: 70px;
+   /* margin-right: 5%;
+    width: 50%;*/
+}
+.C
+{
+    margin-left: 5%;
+}
+.C input
+{
+    width: 140px;
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-width: 3px;
+}
+input ,mat-select
+{
+   background-color:darkgray;
+   /*margin: 8px 0;*/
+}
+
+
+.D
+{
+    color: black;
+    width: 100px;
+    background-color: white;
+    border-color: black;
+    border-width: 3px;
+
+}
+

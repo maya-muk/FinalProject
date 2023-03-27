@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from 'src/app/admin.service';
 
@@ -22,7 +23,7 @@ export class RegisterComponent {
   
   
   
-  constructor(private spinner: NgxSpinnerService,public adminService: AdminService) {}
+  constructor(private spinner: NgxSpinnerService,public adminService: AdminService,public rout:Router) {}
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
@@ -48,6 +49,6 @@ export class RegisterComponent {
   }
   async createUser(){
   await this.adminService.CreateUser(this.RegisterForm.value)
-  
+  this.rout.navigate(["Auth/login"])
   }
 }

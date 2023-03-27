@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-side-bar.component.css']
 })
 export class AdminSideBarComponent {
-
+  Logout()
+  {
+    localStorage.clear()
+    location.reload()
+    
+  }
 }

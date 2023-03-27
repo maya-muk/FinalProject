@@ -156,6 +156,26 @@ export class AdminService {
     
   }
 
+  UpdateTickets(Tickets : any)
+  {
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.put("https://localhost:44304/api/tickets",Tickets).subscribe(
+        {
+          next:(result)=>
+          {
+             this.toaster.success("Updated Successfully")
+             resolve()
+          },
+          error:(err)=>
+          {
+             console.log(err);
+             this.toaster.error("Error")
+          }
+        }
+      )
+    })
+  }
   //Station
   AllStation: any = []
   GetAllStation() {
@@ -165,7 +185,8 @@ export class AdminService {
       {
         next: (result) => {
           this.AllStation = result
-          resolve
+          this.toaster.success("Success")
+          resolve()
         },
         error: (err) => {
           console.log(err);
@@ -431,11 +452,9 @@ async DeleteTrains(TrainID : number)
   
   UpdateUser(user:any){
     return new Promise<void>((resolve, reject) => {
-    console.log( this.imageName)
     if(this.imageName != ""){
     user.Imagepath=this.imageName
-  console.log( user)
-  console.log( this.imageName)}
+    }
     
       this.http.put("https://localhost:44304/api/user",user).subscribe(
         {
@@ -481,5 +500,12 @@ async DeleteTrains(TrainID : number)
         }
       )
     // })
+  }
+
+
+
+   FilterTestimonial()
+  {
+    return this.AllTestimonial.filter((obj :any)=>obj.status == "Yes")
   }
 }

@@ -20,6 +20,8 @@ constructor(private spinner: NgxSpinnerService ,public adminService:AdminService
 user:any
 AllObj : any
 FinalObj : any
+
+
 async ngOnInit() 
  {
     /** spinner starts on init **/
@@ -37,7 +39,10 @@ async ngOnInit()
     //call all station
     await this.homeservice.GetStation()
 
+    await this.adminService.GetAllTrain()
   
+    await this.adminService.GetAllTestimonial()
+    
     this.dropMarker()
     await this.adminService.GetAllUser()
 

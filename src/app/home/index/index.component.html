@@ -9,7 +9,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
               <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
                   <h1>Reliable Rides,</h1>
                   <p>Arrive your destinations safe.</p>
-                  <p><a href="about.html" class="btn btn-primary py-3 px-5">Read More</a></p>
+                  <p><a routerLink="//about" class="btn btn-primary py-3 px-5">Read More</a></p>
               </div>
           </div>
       </div>
@@ -40,7 +40,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
                   Represents the provision of rail transportation.
               </p>
               <br />
-              <p><a href="#" class="btn btn-primary py-3 px-4">Read More</a></p>
+              <p><a routerLink="//about"class="btn btn-primary py-3 px-4">Read More</a></p>
           </div>
       </div>
   </div>
@@ -53,19 +53,19 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       <div class="row">
           <div class="col">
               <div class="counter-39392">
-                  <h3>349</h3>
+                  <h3>{{adminService.AllTrain.length}}</h3>
                   <span>Number of Trains</span>
               </div>
           </div>
           <div class="col">
               <div class="counter-39392">
-                  <h3>7000+</h3>
-                  <span>Customers Satisfied</span>
+                  <h3>{{adminService.FilterTestimonial().length}}</h3>
+                  <span>Customers Testimonial</span>
               </div>
           </div>
           <div class="col">
               <div class="counter-39392">
-                  <h3>120</h3>
+                  <h3>{{adminService.AllStation.length}}</h3>
                   <span>Number of Stations</span>
               </div>
           </div>

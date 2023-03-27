@@ -14,7 +14,7 @@
                 <mat-form-field >
                     <mat-label>Enter a date range</mat-label>
                     <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-                      <input matStartDate formControlName="start" placeholder="Start date">
+                      <input matStartDate formControlName="start" placeholder="Start date" >
                       <input matEndDate formControlName="end" placeholder="End date">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -48,8 +48,7 @@
                         <td> {{item.status}} </td>
                         <td> {{item.userrid}} </td>
                         <td> {{item.ridesid}} </td>
-                        <td> <input type="button" class="D" value="Edit" > | 
-                             <input type="button" class="D" value="Delete" >
+                        <td> <input type="button" class="D" value="Edit" (click)="OpenUpdateDialog(item.ticketid)"> 
                         </td>
                       </tr>
                     </tbody>
@@ -65,6 +64,37 @@
     </div>
     <app-admin-footer></app-admin-footer>
 </body>
+
+
+<ng-template #UpdateTickets>
+  <div class="A" >
+  <form [formGroup]="UpdateTicketForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field formControlName="status">
+          <mat-label style="color: black;">Status</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let item of TicketsStatus" [value]="item" >
+              {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="UpdateTicketForm.controls['status'].hasError('required')">
+            status is Required
+        </mat-error>
+        </mat-form-field>
+        <div class="container">
+          <div class="C">
+          <input type="button"  mat-dialog-close value="Update" (click)="UpdateTicket()">
+        </div>
+        <div class="C">
+          <input type="button"  value="Close" mat-dialog-close="" />
+        </div>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
+</ng-template>
 
 
 
