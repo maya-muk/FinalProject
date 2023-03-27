@@ -66,8 +66,10 @@ export class ProfileComponent {
   }
 
  updateinfo(){
-  this.adminService.UpdateUser(this.updateform.value)
+   this.adminService.UpdateUser(this.updateform.value)
   location.reload()
+ 
+  
 }
 
 }
