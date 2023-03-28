@@ -22,7 +22,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { DataTablesModule } from 'angular-datatables';
-import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 @NgModule({
   declarations: [
     AdminHeaderComponent,
@@ -39,8 +38,7 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     RouterModule,
     GoogleMapsModule,
     MatDialogModule,
-    DataTablesModule,
-    MdbCarouselModule
+    DataTablesModule
   ],
   exports:
   [
@@ -68,7 +66,6 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
      MatDialogModule ,// dialog
      MatSelectModule,//select
      DataTablesModule,
-     MdbCarouselModule
   ]
 })
 export class SharedModule { }
