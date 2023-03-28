@@ -24,6 +24,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
                         <th> Depature Station </th>
                         <th> Depature Time</th>
                         <th> Capacity </th>
+                        <th> Price </th>
                         <th> Status </th>
                         <th> TrainID </th>
                         <th> StationID </th>
@@ -38,6 +39,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
                         <td> {{item.depaturestation}} </td>
                         <td> {{item.depaturetime}} </td>
                         <td> {{item.capacityy}} </td>
+                        <td> {{item.price}} </td>
                         <td >
                            {{item.status}}
                         </td>
@@ -112,6 +114,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </mat-error>
         </mat-form-field>
        </div>
+      
       <div class="M">
         <mat-form-field formControlName="status">
           <mat-label style="color: black;">Status</mat-label>
@@ -154,6 +157,15 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
         </mat-error>
         </mat-form-field>
       </div>
+      <div class="M">
+        <mat-form-field >
+          <mat-label style="color: black;">Price</mat-label>
+          <input type="number" matInput formControlName="price" />
+          <mat-error *ngIf="CreateRideForm.controls['price'].hasError('required')">
+              Price is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
     </div>
 
     <div class="container">
@@ -229,6 +241,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </mat-error>
         </mat-form-field>
        </div>
+       
       <div class="M">
         <mat-form-field formControlName="status">
           <mat-label style="color: black;">Status</mat-label>
@@ -271,6 +284,15 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
         </mat-error>
         </mat-form-field>
       </div>
+      <div class="M">
+        <mat-form-field >
+          <mat-label style="color: black;">Price</mat-label>
+          <input type="number" matInput formControlName="price" />
+          <mat-error *ngIf="UpdateRideForm.controls['price'].hasError('required')">
+            Price is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
     </div>
 
     <div class="container">

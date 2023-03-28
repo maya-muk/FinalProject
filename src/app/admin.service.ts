@@ -529,4 +529,6 @@ export class AdminService {
   {
     return this.AllRide.filter((obj : any)=>obj.status == "Yes")
   }
+
+  
 }

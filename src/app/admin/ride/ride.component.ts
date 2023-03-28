@@ -24,6 +24,7 @@ export class RideComponent {
         depaturetime: new FormControl('', Validators.required),
         capacityy: new FormControl('', Validators.required),
         status: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
         trainsid: new FormControl('', Validators.required),
         stationnid: new FormControl('', Validators.required)
       }
@@ -38,6 +39,7 @@ export class RideComponent {
         depaturetime: new FormControl('', Validators.required),
         capacityy: new FormControl('', Validators.required),
         status: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
         trainsid: new FormControl('', Validators.required),
         stationnid: new FormControl('', Validators.required)
       }
