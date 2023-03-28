@@ -15,12 +15,14 @@ export class DashComponent {
   Ride: any
   Station: any
   Tickets: any
-  ngOnInit() {
+  
+  Array:any = [this.adminService.AllUser.length,this.adminService.AllRide.length]
+ async ngOnInit() {
     
-    this.adminService.GetAllUser()
-    this.adminService.GetAllRids()
-    this.adminService.GetAllTickets()
-    this.adminService.GetAllStation()
+    await this.adminService.GetAllUser()
+    await this.adminService.GetAllRids()
+    await this.adminService.GetAllTickets()
+    await this.adminService.GetAllStation()
 
     var myChart = new Chart("myChart", {
       type: 'bar',
@@ -28,7 +30,7 @@ export class DashComponent {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [{
               label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [this.adminService.AllUser.length, this.adminService.AllRide.length, this.adminService.AllTickets.length, this.adminService.AllStation.length],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -60,4 +62,5 @@ export class DashComponent {
   }
 
 
+  
 }

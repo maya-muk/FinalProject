@@ -18,8 +18,7 @@ export class AdminService {
   ///Ride
   AllRide: any = []
   GetAllRids() {
-    return new Promise<void>((resolve,reject)=>
-    {
+    return new Promise<void>((resolve, reject) => {
       this.http.get("https://localhost:44304/api/ride").subscribe(
         {
           next: (result) => {
@@ -34,7 +33,7 @@ export class AdminService {
         }
       )
     })
-    
+
   }
 
   CreateRide(ride: any) {
@@ -106,13 +105,12 @@ export class AdminService {
 
   AllUser: any = []
   GetAllUser() {
-    return new Promise<void>((resolve,reject)=>
-    {
+    return new Promise<void>((resolve, reject) => {
       this.spinner.show()
       this.http.get("https://localhost:44304/api/user").subscribe(
         {
           next: (result) => {
-           
+
             this.AllUser = result
             this.spinner.hide()
             this.toaster.success("Success")
@@ -135,14 +133,13 @@ export class AdminService {
 
   AllTickets: any = []
   GetAllTickets() {
-    return new Promise<void>((resolve,reject)=>
-    {
+    return new Promise<void>((resolve, reject) => {
       this.http.get("https://localhost:44304/api/tickets").subscribe(
         {
           next: (result) => {
             this.AllTickets = result
             console.log("Done");
-  
+
             this.toaster.success("Success")
             resolve()
           },
@@ -153,62 +150,96 @@ export class AdminService {
         }
       )
     })
-    
+
   }
 
-  UpdateTickets(Tickets : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
-      this.http.put("https://localhost:44304/api/tickets",Tickets).subscribe(
+  UpdateTickets(Tickets: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.put("https://localhost:44304/api/tickets", Tickets).subscribe(
         {
-          next:(result)=>
-          {
-             this.toaster.success("Updated Successfully")
-             resolve()
+          next: (result) => {
+            this.toaster.success("Updated Successfully")
+            resolve()
           },
-          error:(err)=>
-          {
-             console.log(err);
-             this.toaster.error("Error")
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
           }
         }
       )
     })
   }
-  //Station
-  AllStation: any = []
-  GetAllStation() {
-    return new Promise<void>((resolve,reject)=>
-    {
-      this.http.get("https://localhost:44304/api/station").subscribe(
-      {
-        next: (result) => {
-          this.AllStation = result
-          this.toaster.success("Success")
-          resolve()
-        },
-        error: (err) => {
-          console.log(err);
-          reject
+
+  //Report
+
+  Reports: any = []
+  ReturnReport() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/tickets/reports").subscribe(
+        {
+          next: (result) => {
+               this.Reports = result
+               this.toaster.success("Successfully")
+               resolve()
+          },
+          error:(err)=>
+          {
+            console.log(err);
+            this.toaster.error("Error")
+          }
+          
         }
-      }
-    )
+      )
     })
   }
 
-  DeleteStation(stationID : number){
-    return new Promise<void>((resolve,reject)=>
-    {
-      this.http.delete("https://localhost:44304/api/station/"+stationID).subscribe(
+  SearchReport(DateFome: any, Dateto: any) {
+   return new Promise<void>((resolve,reject)=>
+   {
+    this.http.get("https://localhost:44304/api/Tickets/Report/" + DateFome + "/" + Dateto).subscribe(
+      {
+        next: (res) => {
+          this.Reports = res
+          resolve()
+        },
+        error: (err) => {
+          console.log(err)
+          reject()
+        }
+      }
+    )
+   })
+  }
+  //Station
+  AllStation: any = []
+  GetAllStation() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/station").subscribe(
         {
-          next:(res)=>
-          {
-            this.spinner.hide()
-             this.toaster.success("Deleted Successfully")
-             resolve
+          next: (result) => {
+            this.AllStation = result
+            this.toaster.success("Success")
+            resolve()
           },
-          error:(err)=>{
+          error: (err) => {
+            console.log(err);
+            reject
+          }
+        }
+      )
+    })
+  }
+
+  DeleteStation(stationID: number) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.delete("https://localhost:44304/api/station/" + stationID).subscribe(
+        {
+          next: (res) => {
+            this.spinner.hide()
+            this.toaster.success("Deleted Successfully")
+            resolve
+          },
+          error: (err) => {
             console.log(err);
             this.toaster.error("Error")
           }
@@ -228,75 +259,65 @@ export class AdminService {
         },
         error: (err) => {
           console.log(err);
-           this.toaster.error("Error")
+          this.toaster.error("Error")
         }
       }
     )
   }
- 
- CreateTrain(train: any) {
-  return new Promise<void>((resolve, reject) => {
-    this.spinner.show();
-    this.http.post("https://localhost:44304/api/trains", train).subscribe(
-      {
-        next: () => 
+
+  CreateTrain(train: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show();
+      this.http.post("https://localhost:44304/api/trains", train).subscribe(
         {
+          next: () => {
             this.spinner.hide()
             this.toaster.success("Added Successfully")
             resolve()
-        },
-        error: () => 
-        {
+          },
+          error: () => {
 
-          this.spinner.hide()
-          this.toaster.error("error")
-          
-        }
-      }
-    )
-  })
-}
+            this.spinner.hide()
+            this.toaster.error("error")
 
-async DeleteTrains(TrainID : number)
-  {
-    return new Promise<void>((resolve,reject)=>
-      {
-        this.spinner.show()
-        this.http.delete("https://localhost:44304/api/trains/delete/"+TrainID).subscribe(
-          {
-             next:()=>
-             {
-                 this.spinner.hide()
-                 this.toaster.success("Deleted Successfully")
-                 resolve();
-             },
-             error:()=>
-             {
-                this.spinner.hide()
-                this.toaster.error("Error")
-                reject()
-             }
           }
-        )
-      })
-    
+        }
+      )
+    })
   }
 
-  async UpdateTrain(Train : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
+  async DeleteTrains(TrainID: number) {
+    return new Promise<void>((resolve, reject) => {
       this.spinner.show()
-      this.http.put("https://localhost:44304/api/trains/",Train).subscribe(
+      this.http.delete("https://localhost:44304/api/trains/delete/" + TrainID).subscribe(
         {
-          next:()=>
-          {
+          next: () => {
+            this.spinner.hide()
+            this.toaster.success("Deleted Successfully")
+            resolve();
+          },
+          error: () => {
+            this.spinner.hide()
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )
+    })
+
+  }
+
+  async UpdateTrain(Train: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show()
+      this.http.put("https://localhost:44304/api/trains/", Train).subscribe(
+        {
+          next: () => {
             this.spinner.hide()
             this.toaster.success("Updated Successfully")
             resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             console.log(Train);
             this.spinner.hide()
@@ -319,27 +340,23 @@ async DeleteTrains(TrainID : number)
         },
         error: (err) => {
           console.log(err);
-           this.toaster.error("Error")
+          this.toaster.error("Error")
         }
       }
     )
   }
 
-  async UpdateTestimonial(Testimonial : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
+  async UpdateTestimonial(Testimonial: any) {
+    return new Promise<void>((resolve, reject) => {
       this.spinner.show()
-      this.http.put("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
+      this.http.put("https://localhost:44304/api/Testemonial", Testimonial).subscribe(
         {
-          next:()=>
-          {
+          next: () => {
             this.spinner.hide()
             this.toaster.success("Updated Successfully")
             resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             console.log(Testimonial);
             this.spinner.hide()
@@ -371,17 +388,17 @@ async DeleteTrains(TrainID : number)
 
   async Login(user: any) {
 
-    return new Promise<void>((resolve,reject)=>{
+    return new Promise<void>((resolve, reject) => {
       console.log(user);
       const header = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-  
+
       const Options = {
         headers: new HttpHeaders(header)
       }
-  
+
       this.spinner.show()
       this.http.post("https://localhost:44304/api/User", user, Options).subscribe( //token , error
         {
@@ -389,7 +406,7 @@ async DeleteTrains(TrainID : number)
             console.log(res); // token
             let data: any = jwt_decode(res)
             console.log(data);
-  
+
             localStorage.setItem('token', res)
             localStorage.setItem('user', JSON.stringify(data))
             this.spinner.hide()
@@ -398,31 +415,34 @@ async DeleteTrains(TrainID : number)
             }
             else if (data.Roleid == 2)
               this.route.navigate([""])
-  
+
           },
           error: (err) => {
             this.spinner.hide()
             console.log(err);
-  
+
             this.toaster.error("Invalid username or password")
           }
         }
       )
     })
-   
+
   }
   imageName = "" // imagename
 
- async UploadImage(imageFile: any) {
-    return new Promise<void>((resolve,reject)=>{
-    this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
-      {
-        next: (res: any) => { this.imageName = res.imagepath
-          
-          resolve },
-        error: () => { }
-      }
-    )})
+  async UploadImage(imageFile: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
+        {
+          next: (res: any) => {
+            this.imageName = res.imagepath
+
+            resolve
+          },
+          error: () => { }
+        }
+      )
+    })
   }
 
   //Register
@@ -448,64 +468,65 @@ async DeleteTrains(TrainID : number)
       )
     })
   }
-  
-  
-  UpdateUser(user:any){
-    return new Promise<void>((resolve, reject) => {
-    if(this.imageName != ""){
-    user.Imagepath=this.imageName
-    }
-    
-      this.http.put("https://localhost:44304/api/user",user).subscribe(
-        {
-          next:(result)=>{
 
-              this.toaster.success("Updated")
-              resolve
+
+  UpdateUser(user: any) {
+    return new Promise<void>((resolve, reject) => {
+      if (this.imageName != "") {
+        user.Imagepath = this.imageName
+      }
+
+      this.http.put("https://localhost:44304/api/user", user).subscribe(
+        {
+          next: (result) => {
+
+            this.toaster.success("Updated")
+            resolve
           },
-          error:(err)=>{
-              console.log(user);
-              
-              console.log(err);
-              this.toaster.error("Error")
+          error: (err) => {
+            console.log(user);
+
+            console.log(err);
+            this.toaster.error("Error")
           }
         }
       )
     })
 
-    
+
   }
   //create test userdashboard
-   CreateTestimonial(Testimonial : any)
-  {
+  CreateTestimonial(Testimonial: any) {
     // return new Promise<void>((resolve,reject)=>
     // {
-      this.spinner.show()
-      this.http.post("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
-        {
-          next:()=>
-          {
-            this.spinner.hide()
-            this.toaster.success("Updated Successfully")
-            // resolve()
-          },
-          error:(err)=>
-          {
-            console.log(err);
-            console.log(Testimonial);
-            this.spinner.hide()
-            this.toaster.error("Error")
-            // reject()
-          }
+    this.spinner.show()
+    this.http.post("https://localhost:44304/api/Testemonial", Testimonial).subscribe(
+      {
+        next: () => {
+          this.spinner.hide()
+          this.toaster.success("Updated Successfully")
+          // resolve()
+        },
+        error: (err) => {
+          console.log(err);
+          console.log(Testimonial);
+          this.spinner.hide()
+          this.toaster.error("Error")
+          // reject()
         }
-      )
+      }
+    )
     // })
   }
 
 
 
-   FilterTestimonial()
+  FilterTestimonial() {
+    return this.AllTestimonial.filter((obj: any) => obj.status == "Yes")
+  }
+
+  FilterRides()
   {
-    return this.AllTestimonial.filter((obj :any)=>obj.status == "Yes")
+    return this.AllRide.filter((obj : any)=>obj.status == "Yes")
   }
 }

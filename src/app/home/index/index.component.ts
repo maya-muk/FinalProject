@@ -21,7 +21,7 @@ user:any
 AllObj : any
 FinalObj : any
 
-
+FilterRide : any
 async ngOnInit() 
  {
     /** spinner starts on init **/
@@ -37,7 +37,7 @@ async ngOnInit()
 
 
     //call all station
-     this.homeservice.GetStation()
+     await this.homeservice.GetStation()
 
      this.adminService.GetAllTrain()
   
@@ -46,7 +46,10 @@ async ngOnInit()
     this.dropMarker()
     await this.adminService.GetAllUser()
 
+    await this.adminService.GetAllRids()
    
+
+    this.FilterRide = this.adminService.FilterRides()
     //CurrentLocation 
     if(localStorage.getItem("user") !=null)
     {

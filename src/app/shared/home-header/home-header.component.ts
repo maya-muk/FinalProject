@@ -14,6 +14,8 @@ export class HomeHeaderComponent {
   {
     if(localStorage.getItem("user") != null)
       this.id = localStorage.getItem("user")
+      this.id = JSON.parse(this.id)
+      
   }
   Logout()
   {
