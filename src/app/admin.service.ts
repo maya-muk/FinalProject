@@ -335,8 +335,12 @@ export class AdminService {
     this.http.get("https://localhost:44304/api/Testemonial/All").subscribe(
       {
         next: (result) => {
+          
+          
           this.AllTestimonial = result
           this.toaster.success("Success")
+
+          console.log("Maya" + this.AllTestimonial);
         },
         error: (err) => {
           console.log(err);
@@ -522,6 +526,7 @@ export class AdminService {
 
 
   FilterTestimonial() {
+
     return this.AllTestimonial.filter((obj: any) => obj.status == "Yes")
   }
 
@@ -530,5 +535,26 @@ export class AdminService {
     return this.AllRide.filter((obj : any)=>obj.status == "Yes")
   }
 
+
+  idstation : any
+  StationID(ID : any)
+  {
+     this.idstation = ID
+     console.log(this.idstation);
+     
+  }
+  FilterRideByID()
+  {
+    return this.AllRide.filter((obj : any)=> obj.stationnid == this.idstation)
+  }
+  
+  idRide : any
+  ObjRide : any
+  async RideID(ID :any)
+  {
+     this.idRide =await ID;
+     this.ObjRide = this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
+  }
+  
   
 }

@@ -268,54 +268,23 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           </div>
       </div>
       <div class="row">
-          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
+          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4" *ngFor="let item of FilterTestimonial">
               <div class="testimony-39291">
                   <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem laborum cumque commodi, unde doloribus.</p>
+                      <p>{{item.opinion}}</p>
                   </blockquote>
                   <div class="d-flex vcard align-items-center">
                       <div class="pic mr-3">
-                          <img src="../../../assets/HomeAssets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
+                          <img src="../../../assets/Image/{{item.imagepath}}" alt="Image" class="img-fluid">
                       </div>
                       <div class="text">
-                          <strong class="d-block">John Doe</strong>
-                          <span>CEO and Co-Founder</span>
+                          <strong class="d-block">{{item.username}}</strong>
+                          
                       </div>
                   </div>
               </div>
           </div>
-          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
-              <div class="testimony-39291">
-                  <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem laborum cumque commodi, unde doloribus.</p>
-                  </blockquote>
-                  <div class="d-flex vcard align-items-center">
-                      <div class="pic mr-3">
-                          <img src="../../../assets/HomeAssets/images/person_4_sq.jpg" alt="Image" class="img-fluid">
-                      </div>
-                      <div class="text">
-                          <strong class="d-block">John Doe</strong>
-                          <span>CEO and Co-Founder</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
-              <div class="testimony-39291">
-                  <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem laborum cumque commodi, unde doloribus.</p>
-                  </blockquote>
-                  <div class="d-flex vcard align-items-center">
-                      <div class="pic mr-3">
-                          <img src="../../../assets/HomeAssets/images/person_3_sq.jpg" alt="Image" class="img-fluid">
-                      </div>
-                      <div class="text">
-                          <strong class="d-block">John Doe</strong>
-                          <span>CEO and Co-Founder</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        
       </div>
   </div>
 </div>

@@ -22,6 +22,7 @@ AllObj : any
 FinalObj : any
 
 FilterRide : any
+FilterTestimonial : any
 async ngOnInit() 
  {
     /** spinner starts on init **/
@@ -41,7 +42,7 @@ async ngOnInit()
 
      this.adminService.GetAllTrain()
   
-     this.adminService.GetAllTestimonial()
+    await this.adminService.GetAllTestimonial()
     
     this.dropMarker()
     await this.adminService.GetAllUser()
@@ -50,6 +51,7 @@ async ngOnInit()
    
 
     this.FilterRide = this.adminService.FilterRides()
+    this.FilterTestimonial = this.adminService.FilterTestimonial()
     //CurrentLocation 
     if(localStorage.getItem("user") !=null)
     {
@@ -115,12 +117,13 @@ async ngOnInit()
   }
 
   @Input() IdStation : any
-  @Output() Send = new EventEmitter()
+
   openInfo(marker:any) {
-      console.log(marker);
-      this.IdStation = marker
+      
+      this.IdStation = marker.id
+      this.adminService.StationID(this.IdStation)
+      console.log(this.IdStation);
       this.route.navigate(["//rideDetails"])
-      this.Send.emit(this.IdStation)
   }
 
   

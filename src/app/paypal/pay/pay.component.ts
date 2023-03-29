@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { AdminService } from 'src/app/admin.service';
 @Component({
   selector: 'app-pay',
   templateUrl: './pay.component.html',
@@ -8,21 +9,13 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 })
 export class PayComponent  implements OnInit{
 
-// constructor(){  render({
-//   id:"#myPaypalButtons",
-//   currency:"USD",
-//   value:"100.00 ",
-//   onApprove: (details) => {
-// alert("successfull");
-//   }
-// }
-// );
-// }
+
+constructor(public adminservice:AdminService){}
 ngOnInit() {
   this.initConfig()
 
-
-
+ console.log( this.adminservice.ObjRide[0]);
+ 
 }
 public payPalConfig ?: IPayPalConfig;
 

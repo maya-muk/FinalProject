@@ -9,15 +9,18 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class ReportComponent {
 
+  TotalPrice : any = 0
+  TotalProfit: any = 0
+  TotalProfitA : any = 0
   range = new FormGroup({
     start: new FormControl<Date | null >(null),
     end: new FormControl<Date | null>(null),
   });
   constructor(public adminservices:AdminService){}
   dtOptions: any = {};
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.adminservices.ReturnReport()
+    await this.adminservices.ReturnReport()
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 3,
@@ -28,9 +31,20 @@ export class ReportComponent {
         ]
       };
 
+      for (let item of this.adminservices.Reports) {
+        this.TotalPrice += item.price
+      }
+      this.TotalProfitA = (this.TotalPrice * (30 / 100))
+      this.TotalPrice = 0
     }
-    onSubmit()
+    async onSubmit()
     {
-       this.adminservices.SearchReport(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
+      await this.adminservices.SearchReport(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
+      for (let item of this.adminservices.Reports) {
+        this.TotalPrice += item.price
+      }
+      this.TotalProfit = (this.TotalPrice * (30 / 100))
+      this.TotalPrice = 0
+      this.range.reset()
     }
 }
