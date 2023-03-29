@@ -30,7 +30,8 @@ import { DataTablesModule } from 'angular-datatables';
     HomeHeaderComponent,
     HomeFooterComponent,
     UserHeaderComponent,
-    UserSideBarComponent
+    UserSideBarComponent,
+    NgModule
   ],
   imports: [
     CommonModule,
