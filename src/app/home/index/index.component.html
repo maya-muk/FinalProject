@@ -1,23 +1,24 @@
-<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#0090e7" 
-type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#0090e7" type="ball-running-dots" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
 <app-home-header></app-home-header>
 
 
-  <div class="intro-section" style="background-image: url(../../../assets/HomeAssets/images/hero_1.jpg);">
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
-                  <h1>Reliable Rides,</h1>
-                  <p>Arrive your destinations safe.</p>
-                  <p><a routerLink="//about" class="btn btn-primary py-3 px-5">Read More</a></p>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="intro-section" style="background-image: url(../../../assets/HomeAssets/images/hero_1.jpg);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
+                <h1>Reliable Rides,</h1>
+                <p>Arrive your destinations safe.</p>
+                <p><a routerLink="//about" class="btn btn-primary py-3 px-5">Read More</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
- 
+
 
 
 
@@ -26,292 +27,256 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
 
 <div class="site-section">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-6">
-              <img src="../../../assets/HomeAssets/images/hero_3.jpg" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-              <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">About Us</span>
-              <h4 class="heading-92913 text-black">Welcome To Our Website</h4>
-              <p>
-                  "HOPE VALLEY" is a web-based application that works within a centralized network.
-                  this site
-                  Represents the provision of rail transportation.
-              </p>
-              <br />
-              <p><a routerLink="//about"class="btn btn-primary py-3 px-4">Read More</a></p>
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="../../../assets/HomeAssets/images/hero_3.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">About Us</span>
+                <h4 class="heading-92913 text-black">Welcome To Our Website</h4>
+                <p>
+                    "HOPE VALLEY" is a web-based application that works within a centralized network.
+                    this site
+                    Represents the provision of rail transportation.
+                </p>
+                <br />
+                <p><a routerLink="//about" class="btn btn-primary py-3 px-4">Read More</a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 
-<div class="site-section bg-image overlay" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
-  <div class="container">
-      <div class="row">
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>{{adminService.AllTrain.length}}</h3>
-                  <span>Number of Trains</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>{{adminService.FilterTestimonial().length}}</h3>
-                  <span>Customers Testimonial</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>{{homeservice.AllStation.length}}</h3>
-                  <span>Number of Stations</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>{{adminService.AllRide.length}}</h3>
-                  <span>Number of Rides</span>
-              </div>
-          </div>
+<div class="site-section bg-image overlay"
+    style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.AllTrain.length}}</h3>
+                    <span>Number of Trains</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.FilterTestimonial().length}}</h3>
+                    <span>Customers Testimonial</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{homeservice.AllStation.length}}</h3>
+                    <span>Number of Stations</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.AllRide.length}}</h3>
+                    <span>Number of Rides</span>
+                </div>
+            </div>
 
-      </div>
-  </div>
+        </div>
+    </div>
 </div>
 
 <div class="site-section bg-light">
-  <div class="container">
-      <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center">
-              <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Destination</span>
-              <h3 class="heading-92913 text-black text-center">Our Rides</h3>
-          </div>
-      </div>
-      <div class="row">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center">
+                <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Destination</span>
+                <h3 class="heading-92913 text-black text-center">Our Rides</h3>
+            </div>
+        </div>
+        <div class="row">
 
-          <div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of FilterRide">
+            <div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of FilterRide">
 
-              <div class="service-39381">
+                <div class="service-39381">
 
-                  <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
-                  <div class="p-4">
-                      <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.arrivalstation}} &mdash; {{item.depaturestation}}</a></h3>
-                      <div class="d-flex">
-                          <div class="mr-auto">
-                              <span class="icon-date_range"></span>
-                              {{item.depaturetime}}
-                          </div>
-                          <div class="ml-auto price">
-                              <span class="bg-primary">${{item.price}}</span>
-                          </div>
+                    <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
+                    <div class="p-4">
+                        <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.arrivalstation}}
+                                &mdash; {{item.depaturestation}}</a></h3>
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                <span class="icon-date_range"></span>
+                                {{item.depaturetime}}
+                            </div>
+                            <div class="ml-auto price">
+                                <span class="bg-primary">${{item.price}}</span>
+                            </div>
 
-                      </div>
-                  </div>
-              </div>
+                        </div>
+                    </div>
+                </div>
 
-          </div>
-      </div>
-      <p><a href="#" style="margin-left:500px" class="btn btn-primary py-3 px-4">All Rides</a></p>
-  </div>
+            </div>
+        </div>
+        <p><a href="#" style="margin-left:500px" class="btn btn-primary py-3 px-4">All Rides</a></p>
+    </div>
 </div>
 
 <div class="site-section">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-7">
-              <p><img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>
-          </div>
-          <div class="col-md-5">
-              <span class="text-serif text-primary">Book Now</span>
-              <h3 class="heading-92913 text-black">Book A Yacht</h3>
-              <form action="#" class="row">
-                  <div class="form-group col-md-6">
-                      <label for="input-1">Full Name:</label>
-                      <input type="text" class="form-control" id="input-1">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="input-2">Number of People:</label>
-                      <input type="text" class="form-control" id="input-2">
-                  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <google-map #myGoogleMap height="500px" width="100%" [zoom]="zoom" [center]="center"
+                    [options]="options">
+                    <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
+                        [label]="marker.label" [title]="marker.title" [options]="marker.options"
+                        (mapClick)="openInfo(marker)">
+                    </map-marker>
 
-                  <div class="form-group col-md-6">
-                      <label for="input-3">Date From:</label>
-                      <input type="text" class="form-control datepicker" id="input-3">
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label for="input-4">Date To:</label>
-                      <input type="text" class="form-control datepicker" id="input-4">
-                  </div>
+                    <map-info-window>{{ infoContent }}</map-info-window>
+                </google-map>
 
-                  <div class="form-group col-md-12">
-                      <label for="input-5">Yacht You're Interested in:</label>
-                      <select name="" id="input-5" class="form-control">
-                          <option value="">Motor Yacht</option>
-                          <option value="">Hi-Speed Yacht</option>
-                          <option value="">Premium Yacht</option>
-                          <option value="">Presidential Yacht</option>
-                      </select>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                      <label for="input-6">Email Address</label>
-                      <input type="text" class="form-control" id="input-6">
-                  </div>
-
-                  <div class="form-group col-md-6">
-                      <label for="input-7">Phone Number</label>
-                      <input type="text" class="form-control" id="input-7">
-                  </div>
-
-
-
-                  <div class="form-group col-md-12">
-                      <label for="input-8">Notes</label>
-                      <textarea name="" id="input-8" cols="30" rows="5" class="form-control"></textarea>
-                  </div>
-
-                  <div class="form-group col-md-12">
-                      <input type="submit" class="btn btn-primary py-3 px-5" value="Book Now">
-                  </div>
-
-              </form>
-          </div>
-      </div>
-  </div>
+                <button *ngIf="user !=null">nearest Station </button>
+             <!---<p><img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>-->
+            </div>
+            <div class="col-md-5">
+                <span class="text-serif text-primary">Book Now</span>
+                <h3 class="heading-92913 text-black">Book A Tickets</h3>
+                
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <div class="site-section">
-  <div class="container">
-      <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center">
-              <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Team</span>
-              <h3 class="heading-92913 text-black text-center">Our Team</h3>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-lg-3 col-md-6 mb-lg-0">
-              <div class="person">
-                  <figure>
-                      <img src="../../../assets/HomeAssets/images/person_1.jpg" alt="Image" class="img-fluid">
-                      <div class="social">
-                          <a href="#"><span class="icon-facebook"></span></a>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center">
+                <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Team</span>
+                <h3 class="heading-92913 text-black text-center">Our Team</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-lg-0">
+                <div class="person">
+                    <figure>
+                        <img src="../../../assets/HomeAssets/images/person_1.jpg" alt="Image" class="img-fluid">
+                        <div class="social">
+                            <a href="#"><span class="icon-facebook"></span></a>
 
-                      </div>
-                  </figure>
-                  <div class="person-contents">
-                      <h3>Craig Daniel</h3>
-                      <span class="position">Engineer</span>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                    </figure>
+                    <div class="person-contents">
+                        <h3>Craig Daniel</h3>
+                        <span class="position">Engineer</span>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-lg-3 col-md-6 mb-lg-0">
-              <div class="person">
-                  <figure>
-                      <img src="../../../assets/HomeAssets/images/person_2.jpg" alt="Image" class="img-fluid">
-                      <div class="social">
-                          <a href="#"><span class="icon-facebook"></span></a>
+            <div class="col-lg-3 col-md-6 mb-lg-0">
+                <div class="person">
+                    <figure>
+                        <img src="../../../assets/HomeAssets/images/person_2.jpg" alt="Image" class="img-fluid">
+                        <div class="social">
+                            <a href="#"><span class="icon-facebook"></span></a>
 
-                      </div>
-                  </figure>
-                  <div class="person-contents">
-                      <h3>Craig Daniel</h3>
-                      <span class="position">Engineer</span>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                    </figure>
+                    <div class="person-contents">
+                        <h3>Craig Daniel</h3>
+                        <span class="position">Engineer</span>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-lg-3 col-md-6 mb-lg-0">
-              <div class="person">
-                  <figure>
-                      <img src="../../../assets/HomeAssets/images/person_3.jpg" alt="Image" class="img-fluid">
-                      <div class="social">
-                          <a href="#"><span class="icon-facebook"></span></a>
+            <div class="col-lg-3 col-md-6 mb-lg-0">
+                <div class="person">
+                    <figure>
+                        <img src="../../../assets/HomeAssets/images/person_3.jpg" alt="Image" class="img-fluid">
+                        <div class="social">
+                            <a href="#"><span class="icon-facebook"></span></a>
 
-                      </div>
-                  </figure>
-                  <div class="person-contents">
-                      <h3>Craig Daniel</h3>
-                      <span class="position">Engineer</span>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                    </figure>
+                    <div class="person-contents">
+                        <h3>Craig Daniel</h3>
+                        <span class="position">Engineer</span>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-lg-3 col-md-6 mb-lg-0">
-              <div class="person">
-                  <figure>
-                      <img src="../../../assets/HomeAssets/images/person_4.jpg" alt="Image" class="img-fluid">
-                      <div class="social">
-                          <a href="#"><span class="icon-facebook"></span></a>
+            <div class="col-lg-3 col-md-6 mb-lg-0">
+                <div class="person">
+                    <figure>
+                        <img src="../../../assets/HomeAssets/images/person_4.jpg" alt="Image" class="img-fluid">
+                        <div class="social">
+                            <a href="#"><span class="icon-facebook"></span></a>
 
-                      </div>
-                  </figure>
-                  <div class="person-contents">
-                      <h3>Craig Daniel</h3>
-                      <span class="position">Engineer</span>
-                  </div>
-              </div>
-          </div>
+                        </div>
+                    </figure>
+                    <div class="person-contents">
+                        <h3>Craig Daniel</h3>
+                        <span class="position">Engineer</span>
+                    </div>
+                </div>
+            </div>
 
-      </div>
-  </div>
+        </div>
+    </div>
 </div>
 
 <div class="site-section">
-  <div class="container">
-      <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center">
-              <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Testimonial</span>
-              <h3 class="heading-92913 text-black text-center">What Customer Saying...</h3>
-          </div>
-      </div>
-      <div class="row">
-          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4" *ngFor="let item of FilterTestimonial">
-              <div class="testimony-39291">
-                  <blockquote>
-                      <p>{{item.opinion}}</p>
-                  </blockquote>
-                  <div class="d-flex vcard align-items-center">
-                      <div class="pic mr-3">
-                          <img src="../../../assets/Image/{{item.imagepath}}" alt="Image" class="img-fluid">
-                      </div>
-                      <div class="text">
-                          <strong class="d-block">{{item.username}}</strong>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-        
-      </div>
-  </div>
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center">
+                <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">Testimonial</span>
+                <h3 class="heading-92913 text-black text-center">What Customer Saying...</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-4 mb-lg-0 col-md-6 col-lg-4" *ngFor="let item of FilterTestimonial">
+                <div class="testimony-39291">
+                    <blockquote>
+                        <p>{{item.opinion}}</p>
+                    </blockquote>
+                    <div class="d-flex vcard align-items-center">
+                        <div class="pic mr-3">
+                            <img src="../../../assets/Image/{{item.imagepath}}" alt="Image" class="img-fluid">
+                        </div>
+                        <div class="text">
+                            <strong class="d-block">{{item.username}}</strong>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="site-section bg-image overlay" style="background-image: url('../../../assets/HomeAssets/images/hero_2.jpg');">
-  <div class="container">
-      <div class="row justify-content-center">
-          <div class="col-md-7 text-center">
-              <h2 class="text-white">Get In Touch With Us</h2>
-              <br />
-              <form>
-                  <label style="color:white" for="fname">Full Name</label><br>
-                  <input type="text" id="fname" name="fname"><br>
-                  <label style="color:white" for="email">Email</label><br>
-                  <input type="email" id="lname" name="lname"><br>
+<div class="site-section bg-image overlay"
+    style="background-image: url('../../../assets/HomeAssets/images/hero_2.jpg');">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 text-center">
+                <h2 class="text-white">Get In Touch With Us</h2>
+                <br />
+                <form>
+                    <label style="color:white" for="fname">Full Name</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label style="color:white" for="email">Email</label><br>
+                    <input type="email" id="lname" name="lname"><br>
 
-                  <label style="color:white" for="msg">Message</label><br>
-                  <textarea type="email" id="msg" name="msg"></textarea>
+                    <label style="color:white" for="msg">Message</label><br>
+                    <textarea type="email" id="msg" name="msg"></textarea>
 
-              </form>
-              <br />
-              <p class="mb-0"><a href="#" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
-              <br />
-              <p><a href="#" style="width:65px" class="btn btn-warning  text-white text-center">More</a></p>
-          </div>
-      </div>
-  </div>
+                </form>
+                <br />
+                <p class="mb-0"><a href="#" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
+                <br />
+                <p><a href="#" style="width:65px" class="btn btn-warning  text-white text-center">More</a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -336,39 +301,3 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
 
 <app-home-footer></app-home-footer>
-
-
-<google-map
-  
-#myGoogleMap
-
-height="500px"
-width="100%"
-[zoom]="zoom"
-[center]="center"
-[options]="options"
-
->
-<map-marker
-  #markerElem="mapMarker"
-  *ngFor="let marker of markers"
-  [position]="marker.position"
-  [label]="marker.label"
-  [title]="marker.title"
-  [options]="marker.options"
-  (mapClick)="openInfo(marker)"
-  
->
-</map-marker>
-
-<map-info-window>{{ infoContent }}</map-info-window>
-</google-map>
-
-<button   *ngIf="user !=null">nearest Station </button>
-
-
-
-
-
-
-
