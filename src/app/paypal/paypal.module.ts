@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { PaypalRoutingModule } from './paypal-routing.module';
 import { PayComponent } from './pay/pay.component';
@@ -10,6 +10,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
   declarations: [
     PayComponent
   ],
+  providers: [DatePipe],
   imports: [
     CommonModule,
     PaypalRoutingModule,
