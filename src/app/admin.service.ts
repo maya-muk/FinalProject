@@ -581,5 +581,30 @@ export class AdminService {
      this.ObjRide = this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
   }
   
-  
+  CreateTicket(Ticket: any) {
+    // return new Promise<void>((resolve,reject)=>
+    // {
+      console.log(Ticket);
+    this.spinner.show()
+    this.http.post("https://localhost:44304/api/Tickets", Ticket).subscribe(
+      {
+        next: () => {
+          this.spinner.hide()
+          this.toaster.success("Pay Successfully And Ticket Booked")
+          
+          // resolve()
+        },
+        error: (err) => {
+          console.log(err);
+          
+          this.spinner.hide()
+          this.toaster.error("Error")
+          // reject()
+        }
+      }
+    )
+    // })
+  }
+
+
 }
