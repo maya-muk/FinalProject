@@ -10,7 +10,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Stations</h4>
-                <input type="button" class="B" value="ADD">
+                <input type="button" class="B" value="ADD" (click)="OpenDialog()">
                 <div class="table-responsive">
                   <table class="table table-striped">
                     <thead>
@@ -47,7 +47,64 @@
     <app-admin-footer></app-admin-footer>
 </body>
 
-<ng-template #DeleteRides>
+<ng-template #CreateStations>
+  <div class="A" >
+  <form [formGroup]="CreateStationForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Station Name</mat-label>
+          <input type="text" matInput formControlName="stationname" />
+          <mat-error *ngIf="CreateStationForm.controls['stationname'].hasError('required')">
+             Station Name is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Latitude</mat-label>
+          <input type="text" matInput formControlName="locations" />
+          <mat-error *ngIf="CreateStationForm.controls['locations'].hasError('required')">
+            Latitude is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Longitude</mat-label>
+          <input type="text" matInput formControlName="locationla" />
+          <mat-error *ngIf="CreateStationForm.controls['locationla'].hasError('required')">
+            Longitude is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+    </div>
+     <div style="margin-top: 5%;">
+        <google-map #myGoogleMap height="250px" width="100%" [zoom]="zoom" [center]="center"
+        [options]="options" (mapClick)="addMarker($event)">
+        <map-marker #markerElem="mapMarker" *ngFor="let marker of Positions"
+        [position]="marker">
+        </map-marker>
+
+    </google-map>
+     </div>
+    <div class="container">
+      <div class="C">
+      <input type="button" mat-dialog-close  value="Create" [disabled]="CreateStationForm.invalid" (click)="AddStations()"/>
+    </div>
+    <div class="C">
+      <input type="button"  value="Delete"  (click)="DeleteLocations()" />
+    </div>
+    <div class="C">
+      <input type="button"  value="Close" mat-dialog-close="" />
+    </div>
+  </div>
+  </form>
+</div>
+</ng-template>
+
+
+<ng-template #DeleteStations>
   
   <mat-label style="color: black;margin-top: 50px; margin-left: 70px;"><b>Would you like to delete this Ride?</b></mat-label>
   

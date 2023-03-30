@@ -126,12 +126,6 @@ async ngOnInit()
       this.route.navigate(["//rideDetails"])
   }
 
-  
-/*
-  openInfo(marker: MapMarker, content: string) {
-    this.infoContent = content;
-    this.info.open(marker)
-  }*/
 
   
   LatUser : any

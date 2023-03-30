@@ -248,10 +248,34 @@ export class AdminService {
     })
   }
 
+  AddStation(station : any)
+  {
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.post("https://localhost:44304/api/station/",station).subscribe(
+        {
+          next:()=>
+          {
+            this.toaster.success("Add Successfully")
+            resolve()
+          },
+          error:(err)=>
+          {
+            console.log(err);
+            this.toaster.error("Error")
+          }
+
+        }
+      )
+    })
+  }
+
   //Train
   AllTrain: any = []
   GetAllTrain() {
-    this.http.get("https://localhost:44304/api/trains").subscribe(
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get("https://localhost:44304/api/trains").subscribe(
       {
         next: (result) => {
           this.AllTrain = result
@@ -263,6 +287,7 @@ export class AdminService {
         }
       }
     )
+    })
   }
 
   CreateTrain(train: any) {
