@@ -9,6 +9,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { CardComponent } from './card/card.component';
 import { RideDetailsComponent } from './ride-details/ride-details.component';
+import { RidesComponent } from './rides/rides.component';
+import { StationsComponent } from './stations/stations.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { RideDetailsComponent } from './ride-details/ride-details.component';
     TestimonialComponent,
     CardComponent,
     RideDetailsComponent,
-    
+    RidesComponent,
+    StationsComponent,
+    TicketComponent
   ],
   imports: [
     CommonModule,
