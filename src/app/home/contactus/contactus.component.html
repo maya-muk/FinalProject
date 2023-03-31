@@ -58,10 +58,12 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
           <hr>
           <form>
               <div class="lab-grid mb-4">
+                <form [formGroup]="CreateContatc">
                   <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
                       <div class="floating-label-wrap">
-                          <input type="text" class="floating-label-field floating-label-field--s1" id="field-1" placeholder="Full Name">
-                          <label for="field-1" class="floating-label">Full Name</label>
+                          <input type="text" class="floating-label-field floating-label-field--s1" formControlName="Subject" placeholder="Full Name">
+                          <label for="field-1" class="floating-label">Subject</label>
+                          <small style="color:black" [class.d-none]="CreateContatc.controls.Subject.valid || CreateContatc.controls.Subject.untouched ">Subject is required</small><br>
                       </div>
                       <!-- .floating-label-wrap -->
                   </div>
@@ -69,8 +71,9 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
                   <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
                       <div class="floating-label-wrap">
-                          <input type="email" class="floating-label-field floating-label-field--s1" id="field-2" placeholder="Email">
-                          <label for="field-2" class="floating-label">Email</label>
+                          <input type="text" class="floating-label-field floating-label-field--s1" id="field-2" placeholder="Name" formControlName="Name">
+                          <label for="field-2" class="floating-label">Name</label>
+                          <small style="color:black" [class.d-none]="CreateContatc.controls.Name.valid || CreateContatc.controls.Name.untouched ">Name is required</small><br>
                       </div>
                       <!-- .floating-label-wrap -->
                   </div>
@@ -80,23 +83,26 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
                   <div class="lab-grid-cell lab-grid-cell--mb-2x w-third--d w-half--t w-full--m">
                       <div class="floating-label-wrap">
-                          <input type="tel" class="floating-label-field floating-label-field--s1" id="field-4" placeholder="Contact Number">
-                          <label for="field-4" class="floating-label">Tel. Number</label>
+                          <input type="email" class="floating-label-field floating-label-field--s1" id="field-4" placeholder="Email" formControlName="Email">
+                          <label for="field-4" class="floating-label">Email</label>
+                          <small style="color:black" [class.d-none]="CreateContatc.controls.Email.valid || CreateContatc.controls.Email.untouched ">Email is required</small><br>
                       </div>
                       <!-- .floating-label-wrap -->
                   </div>
                   <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
                   <div class="lab-grid-cell lab-grid-cell--mb-2x w-full">
                       <div class="floating-label-wrap">
-                          <textarea class="floating-label-field floating-label-field--s1" id="field-7" placeholder="Textarea" row="15"></textarea>
+                          <textarea class="floating-label-field floating-label-field--s1" id="field-7" placeholder="Textarea" row="15" formControlName="Message"></textarea>
                           <label for="field-7" class="floating-label">Message</label>
+                          <small style="color:black" [class.d-none]="CreateContatc.controls.Message.valid || CreateContatc.controls.Message.untouched ">Message is required</small><br>
                       </div>
                       <!-- .floating-label-wrap -->
                   </div>
                   <!-- .lab-grid-cell lab-grid-cell--mb-2x -->
+                </form>
               </div>
               <!-- .lab-grid -->
-              <button style="background-color:#1089FF" type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <button style="background-color:#1089FF" type="submit" class="btn btn-primary btn-lg" [disabled]="CreateContatc.invalid" (click)="SendMessage()">Submit</button>
           </form>
       </div>
   </div>

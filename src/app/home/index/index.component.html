@@ -134,7 +134,6 @@
                 </google-map>
 
                 <button *ngIf="user !=null">nearest Station </button>
-             <!---<p><img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid"></p>-->
             </div>
             <div class="col-md-5">
                 <span class="text-serif text-primary">Book Now</span>
@@ -232,23 +231,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="mb-4 mb-lg-0 col-md-6 col-lg-4" *ngFor="let item of FilterTestimonial">
-                <div class="testimony-39291">
-                    <blockquote>
-                        <p>{{item.opinion}}</p>
-                    </blockquote>
-                    <div class="d-flex vcard align-items-center">
-                        <div class="pic mr-3">
-                            <img src="../../../assets/Image/{{item.imagepath}}" alt="Image" class="img-fluid">
+            <div class="container-fluid py-5">
+                <div class="container">
+            <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+                <mdb-carousel-item *ngFor="let item of FilterTestimonial">
+                    <div class="testimonial-item text-center">
+                        <div class="position-relative mb-5">
+                        <div class="testimonial">
+                        <img src="../../../assets/Image/{{item.imagepath}}" alt="">
+                        <blockquote>
+                            <p>&ldquo; {{item.opinion}} &rdquo;</p>
+                        </blockquote>
+                        <p class="client-name">{{item.username}}</p>
                         </div>
-                        <div class="text">
-                            <strong class="d-block">{{item.username}}</strong>
-
                         </div>
                     </div>
-                </div>
+                </mdb-carousel-item>
+            </mdb-carousel>
             </div>
-
+            </div>
         </div>
     </div>
 </div>
@@ -260,20 +261,24 @@
             <div class="col-md-7 text-center">
                 <h2 class="text-white">Get In Touch With Us</h2>
                 <br />
-                <form>
-                    <label style="color:white" for="fname">Full Name</label><br>
-                    <input type="text" id="fname" name="fname"><br>
+                <form [formGroup]="CreateContatc">
+                    <label style="color:white" for="sub">Subject</label><br>
+                    <input type="text" id="sub" name="sub" formControlName="Subject"><br>
+                    <small style="color:black" [class.d-none]="CreateContatc.controls.Subject.valid || CreateContatc.controls.Subject.untouched ">Subject is required</small><br>
+                    <label style="color:white" for="fname">Name</label><br>
+                    <input type="text" id="fname" formControlName="Name"><br>
+                    <small style="color:black" [class.d-none]="CreateContatc.controls.Name.valid || CreateContatc.controls.Name.untouched ">Name is required</small><br>
                     <label style="color:white" for="email">Email</label><br>
-                    <input type="email" id="lname" name="lname"><br>
-
+                    <input type="email" id="lname" name="lname" formControlName="Email"><br>
+                    <small style="color:black" [class.d-none]="CreateContatc.controls.Email.valid || CreateContatc.controls.Email.untouched ">Email is required</small><br>
                     <label style="color:white" for="msg">Message</label><br>
-                    <textarea type="email" id="msg" name="msg"></textarea>
-
+                    <textarea type="email" id="msg" name="msg" formControlName="Message"></textarea><br>
+                    <small style="color:black" [class.d-none]="CreateContatc.controls.Message.valid || CreateContatc.controls.Message.untouched ">Message is required</small><br>
+                
+                <p class="mb-0"><button type="submit" [disabled]="CreateContatc.invalid" class="btn btn-warning py-3 px-5 text-white" (click)="SendMessage()">Contact Us</button></p>
                 </form>
                 <br />
-                <p class="mb-0"><a href="#" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
-                <br />
-                <p><a href="#" style="width:65px" class="btn btn-warning  text-white text-center">More</a></p>
+                <p><a routerLink="/contact" style="width:65px" class="btn btn-warning  text-white text-center">More</a></p>
             </div>
         </div>
     </div>

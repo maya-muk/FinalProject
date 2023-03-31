@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/home.service';
 
 @Component({
@@ -9,12 +10,11 @@ import { HomeService } from 'src/app/home.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent {
-  constructor(private spinner: NgxSpinnerService,public homeService : HomeService) {}
+  constructor(private spinner: NgxSpinnerService,public homeService : HomeService,private tost:ToastrService) {}
 
 
   CreateContatc = new FormGroup(
     {
-      ContactID:new FormControl(''),
       Subject :new FormControl('',Validators.required),
       Name : new FormControl('',Validators.required),
       Message : new FormControl('',Validators.required),
@@ -34,7 +34,14 @@ export class ContactusComponent {
 
   async SendMessage()
   {
-     //console.log(this.CreateContatc.value);
-     await this.homeService.SendMessage(this.CreateContatc.value);
+    console.log(this.CreateContatc.value);
+    
+     if(this.CreateContatc.value == null)
+     this.tost.error("You Must Fill All Data")
+     else
+     {
+      await this.homeService.SendMessage(this.CreateContatc.value);
+      this.CreateContatc.reset()
+     }
   }
 }
