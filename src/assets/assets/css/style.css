@@ -11142,6 +11142,11 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem; }
+
+  .navbar-menu-wrapper.flex-grow.d-flex.align-items-stretch{
+   
+}
+
   .navbar .container,
   .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
     display: flex;
@@ -20372,7 +20377,8 @@ div.tagsinput {
       line-height: 48px;
       margin-right: 0;
       padding: 0rem 0rem 0rem 1.3rem;
-      width: 100%; }
+      width: 100%; 
+    }
       .navbar .navbar-brand-wrapper .navbar-brand:active, .navbar .navbar-brand-wrapper .navbar-brand:focus, .navbar .navbar-brand-wrapper .navbar-brand:hover {
         color: #252b3e; }
       .navbar .navbar-brand-wrapper .navbar-brand img {
@@ -20655,7 +20661,10 @@ div.tagsinput {
       line-height: 48px;
       margin-right: 0;
       padding: 0rem 0rem 0rem 1.3rem;
-      width: 100%; }
+      width: 100%; 
+    
+    
+    }
       .sidebar .sidebar-brand-wrapper .sidebar-brand:active, .sidebar .sidebar-brand-wrapper .sidebar-brand:focus, .sidebar .sidebar-brand-wrapper .sidebar-brand:hover {
         color: #252b3e; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand img {
