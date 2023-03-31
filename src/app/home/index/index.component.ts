@@ -2,10 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AdminService } from 'src/app/admin.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HomeService } from 'src/app/home.service';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { createContext } from 'chart.js/dist/helpers/helpers.options';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -13,8 +15,17 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent {
 
+
+  CreateContatc = new FormGroup(
+    {
+      Subject :new FormControl('',Validators.required),
+      Name : new FormControl('',Validators.required),
+      Message : new FormControl('',Validators.required),
+      Email : new FormControl('',[Validators.required,Validators.email])
+    }
+  )
 constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
-            public homeservice:HomeService,private route: Router) {}
+            public homeservice:HomeService,private route: Router,private tost:ToastrService) {}
 
 
 user:any
@@ -148,6 +159,19 @@ async ngOnInit()
 
 
 
+  //SendContactUS
+  async SendMessage()
+  {
+    console.log(this.CreateContatc.value);
+    
+     if(this.CreateContatc.value == null)
+     this.tost.error("You Must Fill All Data")
+     else
+     {
+      await this.homeservice.SendMessage(this.CreateContatc.value);
+      this.CreateContatc.reset()
+     }
+  }
 
 
 

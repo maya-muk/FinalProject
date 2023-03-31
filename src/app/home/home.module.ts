@@ -12,8 +12,7 @@ import { RideDetailsComponent } from './ride-details/ride-details.component';
 import { RidesComponent } from './rides/rides.component';
 import { StationsComponent } from './stations/stations.component';
 import { TicketComponent } from './ticket/ticket.component';
-
-
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 @NgModule({
   declarations: [
     IndexComponent,
@@ -29,7 +28,8 @@ import { TicketComponent } from './ticket/ticket.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    MdbCarouselModule
   ]
 })
 export class HomeModule { }

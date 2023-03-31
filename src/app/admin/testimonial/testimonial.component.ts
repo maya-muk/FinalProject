@@ -36,7 +36,7 @@ export class TestimonialComponent {
   Testimonial : any
   async OpenUpdateDialog(tesID:number)
   {
-   
+    
     this.Testimonial = await this.adminService.AllTestimonial.filter((obj : any)=> obj.id == tesID)
     this.UpdateTetimonialForm.patchValue(this.Testimonial[0])   
     

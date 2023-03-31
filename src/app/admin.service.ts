@@ -270,6 +270,27 @@ export class AdminService {
     })
   }
 
+  UpdateStation(station : any)
+  {
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.put("https://localhost:44304/api/station/Update/",station).subscribe(
+        {
+          next:()=>
+          {
+            this.toaster.success("Update Successfully")
+            resolve()
+          },
+          error:(err)=>
+          {
+            console.log(err);
+            this.toaster.error("Error")
+          }
+
+        }
+      )
+    })
+  }
   //Train
   AllTrain: any = []
   GetAllTrain() {
@@ -357,15 +378,16 @@ export class AdminService {
   //Testimonial
   AllTestimonial: any = []
   GetAllTestimonial() {
-    this.http.get("https://localhost:44304/api/Testemonial/All").subscribe(
+    return new Promise<void>((resolve,reject)=>
+    {
+      this.http.get("https://localhost:44304/api/Testemonial/All").subscribe(
       {
         next: (result) => {
           
           
           this.AllTestimonial = result
           this.toaster.success("Success")
-
-          console.log("Maya" + this.AllTestimonial);
+          resolve()
         },
         error: (err) => {
           console.log(err);
@@ -373,12 +395,13 @@ export class AdminService {
         }
       }
     )
+    })
   }
 
   async UpdateTestimonial(Testimonial: any) {
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
-      this.http.put("https://localhost:44304/api/Testemonial", Testimonial).subscribe(
+      this.http.put("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
         {
           next: () => {
             this.spinner.hide()
