@@ -29,7 +29,7 @@
                         <td> {{item.stationname}} </td>
                         <td> {{item.locations}} </td>
                         <td> {{item.locationla}} </td>
-                        <td> <input type="button" class="D" value="Edit">| 
+                        <td> <input type="button" class="D" value="Edit" (click)="OpenUpdateDialog(item.stationid)">| 
                              <input type="button" class="D"  value="Delete" (click)="OpenDeleteDialog(item.stationid)">
                         </td>
                       </tr>
@@ -83,7 +83,7 @@
         <google-map #myGoogleMap height="250px" width="100%" [zoom]="zoom" [center]="center"
         [options]="options" (mapClick)="addMarker($event)">
         <map-marker #markerElem="mapMarker" *ngFor="let marker of Positions"
-        [position]="marker">
+        [position]="marker.position">
         </map-marker>
 
     </google-map>
@@ -94,6 +94,63 @@
     </div>
     <div class="C">
       <input type="button"  value="Delete"  (click)="DeleteLocations()" />
+    </div>
+    <div class="C">
+      <input type="button"  value="Close" mat-dialog-close="" />
+    </div>
+  </div>
+  </form>
+</div>
+</ng-template>
+
+
+
+<ng-template #UpdateStations>
+  <div class="A" >
+  <form [formGroup]="UpdateStationForm">
+    <div class="container">
+      <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Station Name</mat-label>
+          <input type="text" matInput formControlName="stationname" />
+          <mat-error *ngIf="UpdateStationForm.controls['stationname'].hasError('required')">
+             Station Name is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Latitude</mat-label>
+          <input type="text" matInput formControlName="locations" />
+          <mat-error *ngIf="UpdateStationForm.controls['locations'].hasError('required')">
+            Latitude is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+       <div class="M">
+        <mat-form-field>
+          <mat-label style="color: black;">Longitude</mat-label>
+          <input type="text" matInput formControlName="locationla" />
+          <mat-error *ngIf="UpdateStationForm.controls['locationla'].hasError('required')">
+            Longitude is Required
+          </mat-error>
+        </mat-form-field>
+       </div>
+    </div>
+     <div style="margin-top: 5%;">
+      <google-map #myGoogleMap height="250px" width="100%" [zoom]="zoom" [center]="center"
+      [options]="options" (mapClick)="addMarker($event)">
+      <map-marker #markerElem="mapMarker" *ngFor="let marker of Positions"
+      [position]="marker.position">
+      </map-marker>
+    </google-map>
+     </div>
+    <div class="container">
+      <div class="C">
+      <input type="button" mat-dialog-close  value="Update" [disabled]="UpdateStationForm.invalid" (click)="UpdateStation()"/>
+    </div>
+    <div class="C">
+      <input type="button"  value="Delete"  (click)="DeleteLocationsUpdate()" />
     </div>
     <div class="C">
       <input type="button"  value="Close" mat-dialog-close="" />
