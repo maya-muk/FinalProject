@@ -16,7 +16,7 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -66,6 +66,8 @@ import { DataTablesModule } from 'angular-datatables';
      MatDialogModule ,// dialog
      MatSelectModule,//select
      DataTablesModule,
+     NgxMatDatetimePickerModule,
+      NgxMatTimepickerModule
   ]
 })
 export class SharedModule { }

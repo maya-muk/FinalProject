@@ -123,7 +123,9 @@ async ngOnInit()
       this.IdStation = marker.id
       this.adminService.StationID(this.IdStation)
       console.log(this.IdStation);
-      this.route.navigate(["//rideDetails"])
+      
+      this.adminService.FilterRideBystation(this.IdStation);
+   this.route.navigate(["/allrides"])
   }
 
 
@@ -144,7 +146,10 @@ async ngOnInit()
      })
      
   }
- 
+  movetorides(id :any){
+    this.adminService.FilterRideBystation(id);
+   this.route.navigate(["/allrides"]);
+    }
 
 
 

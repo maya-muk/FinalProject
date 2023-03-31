@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-stations',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./stations.component.css']
 })
 export class StationsComponent {
+  constructor(public admin: AdminService,private route :Router){}
+ async ngOnInit(){
+   await  this.admin.GetAllStation()
+
+
+
+
+  }
+
+   movetorides(id :any){
+  this.admin.FilterRideBystation(id);
+ this.route.navigate(["/allrides"]);
+  }
+
+
 
 }

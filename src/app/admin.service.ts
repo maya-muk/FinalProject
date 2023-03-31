@@ -572,6 +572,13 @@ export class AdminService {
   {
     return this.AllRide.filter((obj : any)=> obj.stationnid == this.idstation)
   }
+  ridesforstation:any
+  stationname:any
+   async FilterRideBystation(id :any)
+  {
+    this.ridesforstation= await this.AllRide.filter((obj : any)=> obj.stationnid == id)
+this.stationname=await this.AllStation.filter((obj : any)=> obj.stationid == id)
+  }
   
   idRide : any
   ObjRide : any

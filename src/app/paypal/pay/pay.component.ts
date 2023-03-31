@@ -17,8 +17,8 @@ export class PayComponent implements OnInit {
     currentDateTime ?:any
     async ngOnInit() {
         
-        this.currentDateTime = this.datepipe.transform((new Date), 'yyyy/MM/dd h:mm:ss')
-        console.log(this.currentDateTime)
+        this.currentDateTime =this.datepipe.transform((new Date), 'yyyy/MM/dd h:mm:ss')
+        console.log(new Date(this.currentDateTime))
 
         this.user =  localStorage.getItem('user')
         this.user = JSON.parse(this.user)
