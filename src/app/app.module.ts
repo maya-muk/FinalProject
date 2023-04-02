@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http'; //hit on api
-
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { NgxPayPalModule } from 'ngx-paypal';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    NgxPayPalModule
+    NgxPayPalModule,
+    MdbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

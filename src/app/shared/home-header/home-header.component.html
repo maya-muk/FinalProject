@@ -52,15 +52,18 @@
                                 <li>
                                     <a routerLink="//testimonial" class="nav-link text-left">Testimonials</a>
                                 </li>
-                                <li><a routerLink="blog.html" class="nav-link text-left">Rides</a></li>
+                                <li><a routerLink="//station" class="nav-link text-left">Stations</a></li>
                                 <li>
                                     <a routerLink="//contact" class="nav-link text-left">Contact Us</a>
                                 </li>
                                 <li *ngIf="id ==null">
                                     <a routerLink="/Auth/login" class="nav-link text-left">LOGIN/REGISTER</a>
                                 </li>
-                                <li *ngIf="id !=null">
+                                <li *ngIf="id !=null && id.Roleid == 2">
                                     <a routerLink="/User/profile" class="nav-link text-left">Profile</a>
+                                </li>
+                                <li *ngIf="id !=null && id.Roleid == 1">
+                                    <a routerLink="/Admin/dash" class="nav-link text-left">Dashboard</a>
                                 </li>
                                 <li *ngIf="id !=null">
                                     <a (click)="Logout()" class="nav-link text-left" routerLink="/">Logout</a>

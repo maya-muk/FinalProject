@@ -1,5 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Toast, ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 import { IndexComponent } from '../index/index.component';
 
 @Component({
@@ -9,70 +11,25 @@ import { IndexComponent } from '../index/index.component';
 })
 export class RideDetailsComponent {
 
-  //constructor( ){}
+  constructor(public adminservice:AdminService ,private rout:Router,private tost:ToastrService){}
 
-  ngOnInit():void{
+  Ride : any
+  ngOnInit(){
     
-    
+    this.Ride = this.adminservice.FilterRideByID()
   }
-/**
- private activatedrout : ActivatedRoute = new ActivatedRoute
- private index :IndexComponent = new IndexComponent()
 
-
-  ridee:any;
-  rideid:number = 1;
-
-ngOnInit():void{
-  this.rideid = Number(this.activatedrout.snapshot.params['id']);
-  this.ridee = this.index.Ride.find(x=>x.id = this.rideid)
-
- 
-  
-}
-
-
-  ss():void{
-    console.log(this.rideid);
-  }
- */
-
-
-
-  ride:any;
-  getdata()
+  Booked(id : any)
   {
-    localStorage.getItem('ArrivalStations');
-    const data ={
-      ArrivalStations : localStorage.getItem('ArrivalStations')
+    if(localStorage.getItem("user") == null)
+    {
+        this.tost.warning("Login first")
+        this.rout.navigate(["/Auth/login"])
     }
-    this.ride = data;
-    debugger
+    else
+    {
+         this.adminservice.RideID(id)
+         this.rout.navigate(["/paypal"])
+    }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  qparam:any
-  constructor(private route:ActivatedRoute){}
-
-  ngoninit()
-  {
-    this.route.queryParams.subscribe(param =>{
-     console.log(param);
-     
-    })
-  }
-
 }

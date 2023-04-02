@@ -4,7 +4,10 @@ import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { IndexComponent } from './index/index.component';
 import { RideDetailsComponent } from './ride-details/ride-details.component';
+import { RidesComponent } from './rides/rides.component';
+import { StationsComponent } from './stations/stations.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,18 @@ const routes: Routes = [
   {
     path:"rideDetails",
     component:RideDetailsComponent
+  },
+  {
+    path:"allrides",
+    component:RidesComponent
+  },
+  {
+    path:"station",
+    component:StationsComponent
+  },
+  {
+    path:"ticket",
+    component:TicketComponent
   }
 ];
 

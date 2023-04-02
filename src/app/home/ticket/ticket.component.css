@@ -1,29 +1,16 @@
-.A
-{
-    margin-top: 50%;
-}
 body{
     margin: 0;
     padding: 0;
     background: #fff;
   }
-
   
- /* .box{
+  .box{
     position: absolute;
     top: calc(50% - 125px);
     top: -webkit-calc(50% - 125px);
     left: calc(50% - 300px);
     left: -webkit-calc(50% - 300px);
-  }*/
-
-  .box{
-    position: absolute;
-    top: calc(50% - 125px);
-   
-    left:100px
   }
-
   
   .ticket{
     width: 600px;

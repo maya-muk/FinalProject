@@ -9,31 +9,29 @@ import { AdminService } from 'src/app/admin.service';
 export class UsertestimonialComponent {
   constructor(public adminService:AdminService) {}
 
-update = new FormGroup(
-  {
-    userid :new FormControl(''),
-    status: new FormControl('Yes'),
-    opinion :new FormControl('',[Validators.required])
-  }
+  update = new FormGroup(
+    {
   
+      userid :new FormControl(''),
+      status: new FormControl('no'),
+      opinion :new FormControl('',[Validators.required])
+    }
   )
-  FinalObj :any
-  AllObj : any
+  userid : any 
+ 
   user:any
+  
   async ngOnInit(){
      await this.adminService.GetAllUser()
     
       this.user= localStorage.getItem('user')
       this.user = JSON.parse(this.user)
-      
-      this.update.patchValue(this.user)
-      
-
+      this.userid =Number(this.user.userid)
+      this.update.controls.userid.patchValue(this.userid)
   }
-
- async updatetest(){
- await this.adminService.CreateTestimonial(this.update.value)
   
-console.log(this.update.value)
+ async updatetest(){
+  await this.adminService.CreateTestimonial(this.update.value)
+  console.log(this.update.value)
 }
 }

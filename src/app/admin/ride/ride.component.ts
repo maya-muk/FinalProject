@@ -9,6 +9,16 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./ride.component.css']
 })
 export class RideComponent {
+  public today: Date = new Date();
+  public currentYear: number = this.today.getFullYear();
+  public currentMonth: number = this.today.getMonth();
+  public currentDay: number = this.today.getDate();
+  public currentHour: number = this.today.getHours();
+  public currentMinute: number = this.today.getMinutes();
+  public currentSecond: number = this.today.getSeconds();
+  public date: Date = new Date(new Date().setDate(14));
+  public minDate: Date = new Date(this.currentYear,this.currentMonth,7,0,0,0);
+  public maxDate: Date = new Date(this.currentYear,this.currentMonth,27,this.currentHour,this.currentMinute,this.currentSecond);
 
   @ViewChild('CreateRides') Create: any;
   @ViewChild('DeleteRides') Delete: any;
@@ -24,6 +34,7 @@ export class RideComponent {
         depaturetime: new FormControl('', Validators.required),
         capacityy: new FormControl('', Validators.required),
         status: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
         trainsid: new FormControl('', Validators.required),
         stationnid: new FormControl('', Validators.required)
       }
@@ -38,6 +49,7 @@ export class RideComponent {
         depaturetime: new FormControl('', Validators.required),
         capacityy: new FormControl('', Validators.required),
         status: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
         trainsid: new FormControl('', Validators.required),
         stationnid: new FormControl('', Validators.required)
       }

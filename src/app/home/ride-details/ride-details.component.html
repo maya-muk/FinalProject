@@ -1,9 +1,28 @@
  <app-home-header></app-home-header> 
 
-<html>
 
-<!---
-<app-card [ArrivalStation]="ride.ArrivalStations" class="col-md-6 col-lg-4 mb-4"></app-card>
--->
+
+<div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of Ride">
+
+    <div class="service-39381">
+
+        <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
+        <div class="p-4">
+            <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.arrivalstation}} &mdash; {{item.depaturestation}}</a></h3>
+            <div class="d-flex">
+                <div class="mr-auto">
+                    <span class="icon-date_range"></span>
+                    {{item.depaturetime}}
+                </div>
+                <div class="ml-auto price">
+                    <span class="bg-primary">${{item.price}}</span>
+                </div>
+
+                <input type="button" value="Booked" (click)="Booked(item.rideid)">
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <app-home-footer></app-home-footer> 

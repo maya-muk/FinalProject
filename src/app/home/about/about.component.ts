@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { AdminService } from 'src/app/admin.service';
+import { HomeService } from 'src/app/home.service';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +9,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService,public adminService:AdminService,public homeservice:HomeService) {}
 
   ngOnInit() {
     /** spinner starts on init */
@@ -17,5 +19,13 @@ export class AboutComponent {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 1000);
+
+    this.adminService.GetAllTrain()
+    this.adminService.GetAllTestimonial()
+    this.homeservice.GetStation()
+    this.adminService.GetAllRids()
   }
+
+ 
+
 }

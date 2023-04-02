@@ -5,6 +5,7 @@ import { ManageaboutComponent } from './manageabout/manageabout.component';
 import { ManagecontactComponent } from './managecontact/managecontact.component';
 import { ManagehomeComponent } from './managehome/managehome.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReportComponent } from './report/report.component';
 import { RideComponent } from './ride/ride.component';
 import { StationComponent } from './station/station.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
@@ -61,6 +62,11 @@ const routes: Routes = [
   {
     path:"ManageContact",
     component:ManagecontactComponent
+  }
+  ,
+  {
+    path:"Report",
+    component:ReportComponent
   }
 ];
 
