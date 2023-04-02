@@ -65,9 +65,9 @@ import { DataTablesModule } from 'angular-datatables';
      MatNativeDateModule, //format for date
      MatDialogModule ,// dialog
      MatSelectModule,//select
-     DataTablesModule,
-     NgxMatDatetimePickerModule,
-      NgxMatTimepickerModule
+     DataTablesModule
+    /* NgxMatDatetimePickerModule,
+     NgxMatTimepickerModule*/
   ]
 })
 export class SharedModule { }

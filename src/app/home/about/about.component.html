@@ -41,36 +41,37 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 </div>
 
 
-<div class="site-section bg-image overlay" style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
-  <div class="container">
-      <div class="row">
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>349</h3>
-                  <span>Number of Trains</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>7000+</h3>
-                  <span>Customers Satisfied</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>120</h3>
-                  <span>Number of Stations</span>
-              </div>
-          </div>
-          <div class="col">
-              <div class="counter-39392">
-                  <h3>493</h3>
-                  <span>Number of Rides</span>
-              </div>
-          </div>
+<div class="site-section bg-image overlay"
+    style="background-image: url('../../../assets/HomeAssets/images/hero_1.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.AllTrain.length}}</h3>
+                    <span>Number of Trains</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.FilterTestimonial().length}}</h3>
+                    <span>Customers Testimonial</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{homeservice.AllStation.length}}</h3>
+                    <span>Number of Stations</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter-39392">
+                    <h3>{{adminService.AllRide.length}}</h3>
+                    <span>Number of Rides</span>
+                </div>
+            </div>
 
-      </div>
-  </div>
+        </div>
+    </div>
 </div>
 
 

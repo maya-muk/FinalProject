@@ -178,37 +178,35 @@ export class AdminService {
       this.http.get("https://localhost:44304/api/tickets/reports").subscribe(
         {
           next: (result) => {
-               this.Reports = result
-               this.toaster.success("Successfully")
-               resolve()
+            this.Reports = result
+            this.toaster.success("Successfully")
+            resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             this.toaster.error("Error")
           }
-          
+
         }
       )
     })
   }
 
   SearchReport(DateFome: any, Dateto: any) {
-   return new Promise<void>((resolve,reject)=>
-   {
-    this.http.get("https://localhost:44304/api/Tickets/Report/" + DateFome + "/" + Dateto).subscribe(
-      {
-        next: (res) => {
-          this.Reports = res
-          resolve()
-        },
-        error: (err) => {
-          console.log(err)
-          reject()
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Tickets/Report/" + DateFome + "/" + Dateto).subscribe(
+        {
+          next: (res) => {
+            this.Reports = res
+            resolve()
+          },
+          error: (err) => {
+            console.log(err)
+            reject()
+          }
         }
-      }
-    )
-   })
+      )
+    })
   }
   //Station
   AllStation: any = []
@@ -248,19 +246,15 @@ export class AdminService {
     })
   }
 
-  AddStation(station : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
-      this.http.post("https://localhost:44304/api/station/",station).subscribe(
+  AddStation(station: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/station/", station).subscribe(
         {
-          next:()=>
-          {
+          next: () => {
             this.toaster.success("Add Successfully")
             resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             this.toaster.error("Error")
           }
@@ -270,23 +264,38 @@ export class AdminService {
     })
   }
 
-  UpdateStation(station : any)
-  {
-    return new Promise<void>((resolve,reject)=>
-    {
-      this.http.put("https://localhost:44304/api/station/Update/",station).subscribe(
+  UpdateStation(station: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.put("https://localhost:44304/api/station/Update/", station).subscribe(
         {
-          next:()=>
-          {
+          next: () => {
             this.toaster.success("Update Successfully")
             resolve()
           },
-          error:(err)=>
-          {
+          error: (err) => {
             console.log(err);
             this.toaster.error("Error")
           }
 
+        }
+      )
+    })
+  }
+
+  // Search By Name
+  GetStationByName(stationName: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/station/ByName/"+ stationName).subscribe(
+        {
+          next: (result) => {
+            this.AllStation = result
+            this.toaster.success("Success")
+          },
+          error: (err) =>
+          {
+            console.log(err);
+            this.toaster.error("You must enter data first")
+          }
         }
       )
     })
@@ -294,20 +303,19 @@ export class AdminService {
   //Train
   AllTrain: any = []
   GetAllTrain() {
-    return new Promise<void>((resolve,reject)=>
-    {
+    return new Promise<void>((resolve, reject) => {
       this.http.get("https://localhost:44304/api/trains").subscribe(
-      {
-        next: (result) => {
-          this.AllTrain = result
-          this.toaster.success("Success")
-        },
-        error: (err) => {
-          console.log(err);
-          this.toaster.error("Error")
+        {
+          next: (result) => {
+            this.AllTrain = result
+            this.toaster.success("Success")
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+          }
         }
-      }
-    )
+      )
     })
   }
 
@@ -378,30 +386,29 @@ export class AdminService {
   //Testimonial
   AllTestimonial: any = []
   GetAllTestimonial() {
-    return new Promise<void>((resolve,reject)=>
-    {
+    return new Promise<void>((resolve, reject) => {
       this.http.get("https://localhost:44304/api/Testemonial/All").subscribe(
-      {
-        next: (result) => {
-          
-          
-          this.AllTestimonial = result
-          this.toaster.success("Success")
-          resolve()
-        },
-        error: (err) => {
-          console.log(err);
-          this.toaster.error("Error")
+        {
+          next: (result) => {
+
+
+            this.AllTestimonial = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+          }
         }
-      }
-    )
+      )
     })
   }
 
   async UpdateTestimonial(Testimonial: any) {
     return new Promise<void>((resolve, reject) => {
       this.spinner.show()
-      this.http.put("https://localhost:44304/api/Testemonial",Testimonial).subscribe(
+      this.http.put("https://localhost:44304/api/Testemonial", Testimonial).subscribe(
         {
           next: () => {
             this.spinner.hide()
@@ -578,55 +585,50 @@ export class AdminService {
     return this.AllTestimonial.filter((obj: any) => obj.status == "Yes")
   }
 
-  FilterRides()
-  {
-    return this.AllRide.filter((obj : any)=>obj.status == "Yes")
+  FilterRides() {
+    return this.AllRide.filter((obj: any) => obj.status == "Yes")
   }
 
 
-  idstation : any
-  StationID(ID : any)
-  {
-     this.idstation = ID
-     console.log(this.idstation);
-     
+  idstation: any
+  StationID(ID: any) {
+    this.idstation = ID
+    console.log(this.idstation);
+
   }
-  FilterRideByID()
-  {
-    return this.AllRide.filter((obj : any)=> obj.stationnid == this.idstation)
+  FilterRideByID() {
+    return this.AllRide.filter((obj: any) => obj.stationnid == this.idstation)
   }
-  ridesforstation:any
-  stationname:any
-   async FilterRideBystation(id :any)
-  {
-    this.ridesforstation= await this.AllRide.filter((obj : any)=> obj.stationnid == id)
-this.stationname=await this.AllStation.filter((obj : any)=> obj.stationid == id)
+  ridesforstation: any
+  stationname: any
+  async FilterRideBystation(id: any) {
+    this.ridesforstation = await this.AllRide.filter((obj: any) => obj.stationnid == id)
+    this.stationname = await this.AllStation.filter((obj: any) => obj.stationid == id)
   }
-  
-  idRide : any
-  ObjRide : any
-  async RideID(ID :any)
-  {
-     this.idRide =await ID;
-     this.ObjRide = this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
+
+  idRide: any
+  ObjRide: any
+  async RideID(ID: any) {
+    this.idRide = await ID;
+    this.ObjRide = this.AllRide.filter((obj: any) => obj.rideid == this.idRide)
   }
-  
+
   CreateTicket(Ticket: any) {
     // return new Promise<void>((resolve,reject)=>
     // {
-      console.log(Ticket);
+    console.log(Ticket);
     this.spinner.show()
     this.http.post("https://localhost:44304/api/Tickets", Ticket).subscribe(
       {
         next: () => {
           this.spinner.hide()
           this.toaster.success("Pay Successfully And Ticket Booked")
-          
+
           // resolve()
         },
         error: (err) => {
           console.log(err);
-          
+
           this.spinner.hide()
           this.toaster.error("Error")
           // reject()
