@@ -12,25 +12,36 @@
     <input type="button" value="Search" (click)="Search()">
     <br>
     <br>
-    <div class="card-columns">
-        <div  *ngFor="let item of admin.AllStation " class="card bg-success">
-            <div class="card-body">
-                <div class="p-4">
-                    <h3 style="color:black" >{{item.stationname}}</h3>
-                    <div class="d-flex">
-                        <div style="color:black"  class="mr-auto">
-                            <span ></span>
-                            station location
-                        </div>
-                        <div class="ml-auto price">
-                            <button style="color:black"  (click)="movetorides(item.stationid)"  class="btn bg-light">All rides</button>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of admin.AllStation " class="col-md-6 col-lg-4 mb-4">
+    
+                <img style="height:300px" src="../../../assets/Image/reem2.png" alt="Image" class="img-fluid">
+                <div class="service-39381">
+                    <div class="p-4">
+                        <h3>Station Name: {{item.stationname}}</h3>
+                        <h3>Number Of Trains:</h3>
+                        <div class="d-flex">
+                            <div class="mr-auto">
+                                <h3>Number Of Rides:</h3>
+                            </div>
+                            <div class="ml-auto price">
+                                <button style="color:#1089ff"> <span (click)="movetorides(item.stationid)" >ALL RIDES</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+    
             </div>
+    
+    
+    
+           
+    
+    
+    
         </div>
-
-    </div>
+        </div>
 </div>
 
 <br>
