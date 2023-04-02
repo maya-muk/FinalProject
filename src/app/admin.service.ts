@@ -627,11 +627,17 @@ export class AdminService {
   FilterRideByID() {
     return this.AllRide.filter((obj: any) => obj.stationnid == this.idstation)
   }
+  ridesforstation1: any
   ridesforstation: any
+  
   stationname: any
   async FilterRideBystation(id: any) {
-    this.ridesforstation = await this.AllRide.filter((obj: any) => obj.stationnid == id)
+    this.ridesforstation1 = await this.AllRide.filter((obj: any) => obj.stationnid == id)
     this.stationname = await this.AllStation.filter((obj: any) => obj.stationid == id)
+    localStorage.setItem('station', JSON.stringify( this.ridesforstation1))
+    
+    this.ridesforstation = localStorage.getItem('station')
+    this.ridesforstation = JSON.parse(this.ridesforstation)
   }
   
   idRide : any
