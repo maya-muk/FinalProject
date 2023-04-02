@@ -456,6 +456,34 @@ async DeleteTrains(TrainID : number)
 
     
   }
+//manage about us page
+  async UpdateAbout(aboutinfo: any){
+    return new Promise<void>((resolve, reject) => {
+      console.log( this.imageName)
+    if(this.imageName != ""){
+    aboutinfo.Imagepath=this.imageName
+    console.log(aboutinfo)
+    console.log( this.imageName)}
+    this.http.put("https://localhost:44304/api/Dynamic",aboutinfo).subscribe(
+      {
+        next:(result)=>{
+
+          this.toaster.success("Updated")
+          resolve
+      },
+      error:(err)=>{
+          console.log(aboutinfo);
+          
+          console.log(err);
+          this.toaster.error("Error")
+      }
+
+
+      }
+    )
+
+    })
+  }
   //create test userdashboard
    CreateTestimonial(Testimonial : any)
   {

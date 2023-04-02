@@ -62,7 +62,7 @@ import {MatSelectModule} from '@angular/material/select';
      MatDatepickerModule, //date 
      MatNativeDateModule, //format for date
      MatDialogModule ,// dialog
-     MatSelectModule,//select
+     MatSelectModule,//select,
   ]
 })
 export class SharedModule { }

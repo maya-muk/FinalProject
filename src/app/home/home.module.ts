@@ -24,7 +24,8 @@ import { RideDetailsComponent } from './ride-details/ride-details.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class HomeModule { }
