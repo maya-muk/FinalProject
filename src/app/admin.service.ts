@@ -602,15 +602,28 @@ export class AdminService {
     this.ridesforstation= await this.AllRide.filter((obj : any)=> obj.stationnid == id)
 this.stationname=await this.AllStation.filter((obj : any)=> obj.stationid == id)
   }
-  
+   TrainName : any
+  async FilterRideByTrain(id:any)
+  {
+     this.TrainName = await this.AllTrain.filter((obj:any)=>obj.trainid == id)
+  }
+  emailuser :any 
+
   idRide : any
   ObjRide : any
   async RideID(ID :any)
   {
-     this.idRide =await ID;
-     this.ObjRide = this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
+     this.idRide = ID;
+     this.ObjRide = await this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
   }
-  
+  async EmailUser(ID :any)
+  {
+     
+     this.emailuser= this.AllUser.filter((obj : any)=> obj.userid == ID)
+
+  }
+
+
   CreateTicket(Ticket: any) {
     // return new Promise<void>((resolve,reject)=>
     // {
@@ -635,6 +648,32 @@ this.stationname=await this.AllStation.filter((obj : any)=> obj.stationid == id)
     )
     // })
   }
+
+  sendemail(emailobj: any) {
+    // return new Promise<void>((resolve,reject)=>
+    // {
+      console.log(emailobj);
+    this.spinner.show()
+    this.http.post("https://localhost:44304/api/Mail", emailobj).subscribe(
+      {
+        next: () => {
+          this.spinner.hide()
+          this.toaster.success("email sent")
+          
+          // resolve()
+        },
+        error: (err) => {
+          console.log(err);
+          
+          this.spinner.hide()
+          this.toaster.error("Error")
+          // reject()
+        }
+      }
+    )
+    // })
+  }
+
 
 
 }

@@ -13,38 +13,71 @@ export class PayComponent implements OnInit {
 
     constructor(public adminservice: AdminService, private datepipe: DatePipe) {
     }
-    user :any
-    currentDateTime ?:any
+    Ticket: any
+    ridefprpay: any
+    public payPalConfig?: IPayPalConfig;
+    user: any
+    currentDateTime?: any
+    emailinfo: any
+
+
+
+
     async ngOnInit() {
-        
-        this.currentDateTime =this.datepipe.transform((new Date), 'yyyy/MM/dd h:mm:ss')
+
+        this.adminservice.GetAllUser();
+
+        this.currentDateTime = this.datepipe.transform((new Date), 'yyyy/MM/dd h:mm:ss')
         console.log(new Date(this.currentDateTime))
 
-        this.user =  localStorage.getItem('user')
+        this.user = localStorage.getItem('user')
         this.user = JSON.parse(this.user)
-
+        this.adminservice.EmailUser(this.user.userid)
         this.ridefprpay = await this.adminservice.ObjRide[0]
-        console.log(this.ridefprpay)
+      //
         this.Ticket = {
 
 
             price: this.ridefprpay.price,
             status: "No",
-            bookedtime:new Date(this.currentDateTime),
-            userrid: Number(this.user.userid) ,
+            bookedtime: new Date(this.currentDateTime),
+            userrid: Number(this.user.userid),
             ridesid: Number(this.ridefprpay.rideid)
 
 
         }
+        this.adminservice.GetAllTrain()
+        await this.adminservice.GetAllStation()
+        this.adminservice.FilterRideBystation(this.ridefprpay.stationid)
+       // console.log(this.adminservice.stationname[0].stationname)
+      await  this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
+      //  console.log(this.adminservice.TrainName[0].trainname)
+    //     this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
+    // let stationticket = await this.adminservice.stationname[0]
+     
+  // let trainnameticket = await this.adminservice.TrainName[0]
+        this.emailinfo = {
+            rideid: this.ridefprpay.rideid,
+            arrivalstation: this.ridefprpay.arrivalstation,
+            depaturestation: this.ridefprpay.depaturestation,
+            depaturetime: this.ridefprpay.depaturetime,
+          // trainname: this.adminservice.TrainName[0].trainname ,
+
+          // stationname:  this.adminservice.stationname[0],
+            price: this.ridefprpay.price,
+            email: await this.adminservice.emailuser[0].email,
+            username: this.user.username
+        }
+        console.log(this.emailinfo)
         console.log(this.Ticket)
         this.initConfig()
 
-       
+
 
     }
-    Ticket: any
-    ridefprpay: any
-    public payPalConfig?: IPayPalConfig;
+
+
+
 
     private initConfig(): void {
         this.payPalConfig = {
@@ -95,6 +128,7 @@ export class PayComponent implements OnInit {
                 console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
                 if (data.status == "COMPLETED") {
                     this.adminservice.CreateTicket(this.Ticket);
+                    this.adminservice.sendemail(this.emailinfo);
                 }
             },
             onCancel: (data, actions) => {
