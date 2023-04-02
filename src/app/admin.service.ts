@@ -605,14 +605,15 @@ export class AdminService {
     this.ridesforstation = await this.AllRide.filter((obj: any) => obj.stationnid == id)
     this.stationname = await this.AllStation.filter((obj: any) => obj.stationid == id)
   }
-
-  idRide: any
-  ObjRide: any
-  async RideID(ID: any) {
-    this.idRide = await ID;
-    this.ObjRide = this.AllRide.filter((obj: any) => obj.rideid == this.idRide)
+  
+  idRide : any
+  ObjRide : any
+  async RideID(ID :any)
+  {
+     this.idRide =await ID;
+     this.ObjRide = this.AllRide.filter((obj : any)=> obj.rideid == this.idRide)
   }
-
+  
   CreateTicket(Ticket: any) {
     // return new Promise<void>((resolve,reject)=>
     // {
@@ -637,6 +638,32 @@ export class AdminService {
     )
     // })
   }
+
+  sendemail(emailobj: any) {
+    // return new Promise<void>((resolve,reject)=>
+    // {
+      console.log(emailobj);
+    this.spinner.show()
+    this.http.post("https://localhost:44304/api/Mail", emailobj).subscribe(
+      {
+        next: () => {
+          this.spinner.hide()
+          this.toaster.success("email sent")
+          
+          // resolve()
+        },
+        error: (err) => {
+          console.log(err);
+          
+          this.spinner.hide()
+          this.toaster.error("Error")
+          // reject()
+        }
+      }
+    )
+    // })
+  }
+
 
 
 }
