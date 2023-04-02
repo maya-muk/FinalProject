@@ -14,6 +14,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { ManagehomeComponent } from './managehome/managehome.component';
 import { ManageaboutComponent } from './manageabout/manageabout.component';
 import { ManagecontactComponent } from './managecontact/managecontact.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ManagecontactComponent } from './managecontact/managecontact.component'
     TicketComponent,
     ManagehomeComponent,
     ManageaboutComponent,
-    ManagecontactComponent
+    ManagecontactComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,

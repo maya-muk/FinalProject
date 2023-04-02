@@ -2,10 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { AdminService } from 'src/app/admin.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HomeService } from 'src/app/home.service';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { createContext } from 'chart.js/dist/helpers/helpers.options';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -13,13 +15,25 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent {
 
+
+  CreateContatc = new FormGroup(
+    {
+      Subject :new FormControl('',Validators.required),
+      Name : new FormControl('',Validators.required),
+      Message : new FormControl('',Validators.required),
+      Email : new FormControl('',[Validators.required,Validators.email])
+    }
+  )
 constructor(private spinner: NgxSpinnerService ,public adminService:AdminService, 
-            public homeservice:HomeService,private route: Router) {}
+            public homeservice:HomeService,private route: Router,private tost:ToastrService) {}
 
 
 user:any
 AllObj : any
 FinalObj : any
+
+FilterRide : any
+FilterTestimonial : any
 async ngOnInit() 
  {
     /** spinner starts on init **/
@@ -35,13 +49,20 @@ async ngOnInit()
 
 
     //call all station
-    await this.homeservice.GetStation()
+     await this.homeservice.GetStation()
 
+     this.adminService.GetAllTrain()
   
+    await this.adminService.GetAllTestimonial()
+    
     this.dropMarker()
     await this.adminService.GetAllUser()
 
+    await this.adminService.GetAllRids()
    
+
+    this.FilterRide = this.adminService.FilterRides()
+    this.FilterTestimonial = this.adminService.FilterTestimonial()
     //CurrentLocation 
     if(localStorage.getItem("user") !=null)
     {
@@ -107,20 +128,17 @@ async ngOnInit()
   }
 
   @Input() IdStation : any
-  @Output() Send = new EventEmitter()
+
   openInfo(marker:any) {
-      console.log(marker);
-      this.IdStation = marker
-      this.route.navigate(["//rideDetails"])
-      this.Send.emit(this.IdStation)
+      
+      this.IdStation = marker.id
+      this.adminService.StationID(this.IdStation)
+      console.log(this.IdStation);
+      
+      this.adminService.FilterRideBystation(this.IdStation);
+   this.route.navigate(["/allrides"])
   }
 
-  
-/*
-  openInfo(marker: MapMarker, content: string) {
-    this.infoContent = content;
-    this.info.open(marker)
-  }*/
 
   
   LatUser : any
@@ -139,10 +157,26 @@ async ngOnInit()
      })
      
   }
- 
+  movetorides(id :any){
+    this.adminService.FilterRideBystation(id);
+   this.route.navigate(["/allrides"]);
+    }
 
 
 
+  //SendContactUS
+  async SendMessage()
+  {
+    console.log(this.CreateContatc.value);
+    
+     if(this.CreateContatc.value == null)
+     this.tost.error("You Must Fill All Data")
+     else
+     {
+      await this.homeservice.SendMessage(this.CreateContatc.value);
+      this.CreateContatc.reset()
+     }
+  }
 
 
 

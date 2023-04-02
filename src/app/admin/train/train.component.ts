@@ -58,7 +58,7 @@ export class TrainComponent {
   }
   async DeleteTrain() {
     console.log(this.ID);
-    this.adminServices.DeleteTrains(this.ID)
+    await this.adminServices.DeleteTrains(this.ID)
     this.adminServices.GetAllTrain()
   }
 
@@ -66,9 +66,7 @@ export class TrainComponent {
   async OpenUpdateDialog(id:any)
   {
     this.Train = await this.adminServices.AllTrain.filter((obj:any)=>obj.trainid == id)
-    console.log(this.Train);
-    
-    this.UpdateTrainForm.patchValue(this.Train)
+    this.UpdateTrainForm.patchValue(this.Train[0])
     this.dialog.open(this.Update, { height: '160px', width: '700px' })
   }
 
