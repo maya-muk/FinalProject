@@ -130,7 +130,8 @@ export class AdminService {
 
 
   // Tickets
-
+  theuseritem:any
+numofticketuser:any=[]
   AllTickets: any = []
   GetAllTickets() {
     return new Promise<void>((resolve, reject) => {
@@ -139,7 +140,14 @@ export class AdminService {
           next: (result) => {
             this.AllTickets = result
             console.log("Done");
-
+            
+        this.theuseritem = localStorage.getItem('user')
+        this.theuseritem = JSON.parse(this.theuseritem)
+        console.log(Number(this.theuseritem.userid));
+         this.numofticketuser= this.AllTickets.filter((obj: any)=> obj.userrid == Number(this.theuseritem.userid))
+          console.log(this.numofticketuser.length);
+           localStorage.setItem('ticket',this.numofticketuser)
+           localStorage.setItem('ticket', JSON.stringify(this.numofticketuser))
             this.toaster.success("Success")
             resolve()
           },
@@ -606,8 +614,11 @@ export class AdminService {
     // })
   }
 
+EmailUser(id: any)
+{
+ return this.AllUser.filter((obj: any) => obj.userid == id)
 
-
+}
   FilterTestimonial() {
 
     return this.AllTestimonial.filter((obj: any) => obj.status == "Yes")
