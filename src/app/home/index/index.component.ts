@@ -94,11 +94,11 @@ async ngOnInit()
           lng:(Number)(item.locationla),
         },
         label: {
-          color: 'blue',
-          text: item.stationname + (this.markers.length + 1),
+          color: 'white',
+          text: item.stationname,
         },
-        title: 'Click To Show The Ride For This Station ' + (this.markers.length + 1),
-        info: 'Marker info ' + (this.markers.length + 1),
+        title: 'Click To Show The Ride For ' + (item.stationname) + ' Station',
+        info: 'Marker info ' + item.stationname,
         options: {
           animation: google.maps.Animation.DROP,
         },
@@ -157,6 +157,7 @@ async ngOnInit()
      })
      
   }
+
   movetorides(id :any){
     this.adminService.FilterRideBystation(id);
    this.route.navigate(["/allrides"]);
@@ -178,182 +179,9 @@ async ngOnInit()
      }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- //search interval 
-
-  range = new FormGroup({
-    start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
-  });
-
- onSubmit()
- {
-
-    this.adminService.Search(this.range.value.start?.toJSON().slice(0,10),this.range.value.end?.toJSON().slice(0,10))
-    
- }
-
-  Ride = [
-    {
-       id:1,
-       ArrivalStation:"Irbid",
-       DepatureStation:"Amman",
-       DepatureTime :"01/06/2023 15:15",
-       Capacity:50,
-       TrainName:"A",
-       StationName:"AmmanStation",
-       Price:10
-    },
-    {
-      id:2,
-      ArrivalStation:"Amman",
-      DepatureStation:"Irbid",
-      DepatureTime :"01/06/2023 22:15",
-      Capacity:50,
-      TrainName:"B",
-      StationName:"IrbidStation",
-      Price:10
-   },
-   {
-    id:3,
-    ArrivalStation:"Ajlon",
-    DepatureStation:"Amman",
-    DepatureTime :"01/06/2023 15:15",
-    Capacity:50,
-    TrainName:"A",
-    StationName:"AmmanStation",
-    Price:10
- },
- {
-  id:4,
-  ArrivalStation:"Amman",
-  DepatureStation:"Ajlon",
-  DepatureTime :"01/06/2023 15:50",
-  Capacity:50,
-  TrainName:"A",
-  StationName:"AmmanStation",
-  Price:10
-},
-{
-  id:5,
-  ArrivalStation:"Aqaba",
-  DepatureStation:"Amman",
-  DepatureTime :"01/06/2023 15:15",
-  Capacity:50,
-  TrainName:"A",
-  StationName:"AmmanStation",
-  Price:10
-},
-{
-  id:6,
-  ArrivalStation:"Salt",
-  DepatureStation:"Irbid",
-  DepatureTime :"01/06/2023 15:15",
-  Capacity:50,
-  TrainName:"B",
-  StationName:"IrbidStation",
-  Price:10
+  //Current Date
+  isToday(date: Date | string): boolean {
+    return new Date().toISOString() < new Date(date).toISOString();
 }
-
-  ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   //map marker 
-  //
-
-  /*
-  markerOptions : google.maps.MarkerOptions = {draggable: false}
-  markerPositions : google.maps.LatLngLiteral[] = []
-
-  addMarker(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.markerPositions.push(event.latLng.toJSON())
-  }
-*/
-
-/*
-  zoomIn() {
-    if (this.zoom < this.maxZoom) this.zoom++;
-    console.log('Get Zoom',this.map.getZoom());
-  }
-
-  zoomOut() {
-    if (this.zoom > this.minZoom) this.zoom--;
-  }
-
-  eventHandler(event: any ,name:string){
-    console.log(event,name);
-    if(name === 'mapDblclick'){
-      this.dropMarker(event)
-    }
-  }
-
-   // Markers
-   logCenter() {
-    console.log(JSON.stringify(this.map.getCenter()))
-  }
-  **/
-
-
-
-
-
-////////////Reeeem Maya
-
-
-  //map lat lng
- /* display : any;
-
-
-  //to move map  using mapclick on html 
-  moveMap(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.center = (event.latLng.toJSON())
-  }
-
-  //to save lat and lng using map mouse move in html
-  move(event:google.maps.MapMouseEvent)
-  {
-    if(event.latLng != null)
-    this.display = (event.latLng.toJSON())
-  }
-*/
 }
 

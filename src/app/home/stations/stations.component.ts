@@ -9,23 +9,30 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class StationsComponent {
 
-  stationName : any = ""
-  constructor(public admin: AdminService,private route :Router){}
-  async ngOnInit(){
-   await  this.admin.GetAllStation()
+  stationName: any = ""
+  constructor(public admin: AdminService, private route: Router) { }
+  async ngOnInit() {
+    await this.admin.GetAllStation()
+    this.admin.GetAllRids()
+
   }
 
-   movetorides(id :any){
+  movetorides(id: any) {
     this.admin.FilterRideBystation(id);
     this.route.navigate(["/allrides"]);
   }
 
-  Search()
-{
-  console.log(this.stationName);
-  this.admin.GetStationByName(this.stationName)
-}
+  Search() {
+    if(this.stationName == "")
+    this.admin.GetAllStation()
+    else
+    this.admin.GetStationByName(this.stationName)
+  }
 
-
+  NumOfRide : any
+  SendID(id : any)
+  {
+    return this.admin.AllRide.filter((obj : any)=>obj.stationnid == id).length
+  }
 
 }

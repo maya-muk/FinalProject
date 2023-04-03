@@ -19,6 +19,9 @@ export class UserComponent {
 
  SearchByName()
  {
+   if(this.UserName == "")
+   this.adminService.GetAllUser()
+   else
    this.adminService.FilterUserByName(this.UserName) 
  }
 }

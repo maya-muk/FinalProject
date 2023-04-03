@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { IndexComponent } from './index/index.component';
@@ -25,6 +25,7 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     StationsComponent,
     TicketComponent
   ],
+  providers: [DatePipe],
   imports: [
     CommonModule,
     HomeRoutingModule,
