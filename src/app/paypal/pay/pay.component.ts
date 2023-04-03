@@ -26,9 +26,10 @@ useremail:any
     async ngOnInit() {
 
         this.adminservice.GetAllUser();
-
-        this.currentDateTime = this.datepipe.transform((new Date), 'yyyy/MM/dd h:mm:ss')
-        console.log(new Date(this.currentDateTime))
+       // this.datepipe.transform((new Date))
+        this.currentDateTime = new Date().toISOString()
+        this.currentDateTime =this.currentDateTime;
+        console.log(this.currentDateTime)
 
         this.user = localStorage.getItem('user')
         this.user = JSON.parse(this.user)

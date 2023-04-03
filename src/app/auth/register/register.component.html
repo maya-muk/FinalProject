@@ -41,12 +41,18 @@
 								  </small>
 							</div>
 							<div class="form-group">
-								<input id="password-field" type="password" class="form-control" formControlName="Password" placeholder="Password" required>
+								<input id="password-field" [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="Password" placeholder="Password" required>
+								<mat-icon matSuffix (click)="togglePasswordVisibility()">
+									{{showPassword?'visibility_off':'visibility'}}
+								</mat-icon>
 								<small class="text-white left" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('pattern')" [class.d-none]="RegisterForm.controls.Password.valid || RegisterForm.controls.Password.untouched ">
-									Must Be min length 8 
+									length must be 6 and have capital letter and special characters 
 								  </small>
 								  <small class="text-white" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('required')" [class.d-none]="RegisterForm.controls.Password.valid|| RegisterForm.controls.Password.untouched ">
 									Password is required
+								  </small>
+								  <small class="text-white" style="text-align: left;" *ngIf="RegisterForm.controls.Password.hasError('minLength')" [class.d-none]="RegisterForm.controls.Password.valid|| RegisterForm.controls.Password.untouched ">
+									min 6 length 
 								  </small>
 							
 							</div>
