@@ -32,7 +32,9 @@ useremail:any
 
         this.user = localStorage.getItem('user')
         this.user = JSON.parse(this.user)
-        this.adminservice.EmailUser(this.user.userid)
+        this.useremail= await this.adminservice.EmailUser(this.user.userid)
+        // this.useremail=this.useremail[0].email
+        // console.log(this.useremail)
         this.ridefprpay = await this.adminservice.ObjRide[0]
 
       //
@@ -51,7 +53,7 @@ useremail:any
         await this.adminservice.GetAllStation()
         this.adminservice.FilterRideBystation(this.ridefprpay.stationid)
        // console.log(this.adminservice.stationname[0].stationname)
-      await  this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
+    //  await  this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
       //  console.log(this.adminservice.TrainName[0].trainname)
     //     this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
     // let stationticket = await this.adminservice.stationname[0]
@@ -66,7 +68,7 @@ useremail:any
 
           stationname:  this.ridefprpay.depaturetime,
             price: this.ridefprpay.price,
-            email: await this.adminservice.emailuser[0].email,
+           email:this.user.email ,
             username: this.user.username
         }
         console.log(this.emailinfo)
