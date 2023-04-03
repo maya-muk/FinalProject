@@ -64,6 +64,7 @@ import { DataTablesModule } from 'angular-datatables';
      MatDatepickerModule, //date 
      MatNativeDateModule, //format for date
      MatDialogModule ,// dialog
+     MatSelectModule,//select,
      MatSelectModule,//select
      DataTablesModule
     /* NgxMatDatetimePickerModule,

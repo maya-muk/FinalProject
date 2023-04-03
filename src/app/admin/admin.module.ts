@@ -11,6 +11,9 @@ import { TrainComponent } from './train/train.component';
 import { RideComponent } from './ride/ride.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ManagehomeComponent } from './managehome/managehome.component';
+import { ManageaboutComponent } from './manageabout/manageabout.component';
+import { ManagecontactComponent } from './managecontact/managecontact.component';
 import { ReportComponent } from './report/report.component';
 
 
@@ -24,12 +27,15 @@ import { ReportComponent } from './report/report.component';
     RideComponent,
     TestimonialComponent,
     TicketComponent,
+    ManagehomeComponent,
+    ManageaboutComponent,
+    ManagecontactComponent,
     ReportComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class AdminModule { }

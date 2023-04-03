@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
+import { ManageaboutComponent } from './manageabout/manageabout.component';
+import { ManagecontactComponent } from './managecontact/managecontact.component';
+import { ManagehomeComponent } from './managehome/managehome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportComponent } from './report/report.component';
 import { RideComponent } from './ride/ride.component';
@@ -47,6 +50,18 @@ const routes: Routes = [
   {
     path:"Ticket",
     component:TicketComponent
+  },
+  {
+    path:"ManageHome",
+    component:ManagehomeComponent
+  },
+  {
+    path:"ManageAbout",
+    component:ManageaboutComponent
+  },
+  {
+    path:"ManageContact",
+    component:ManagecontactComponent
   }
   ,
   {

@@ -19,7 +19,7 @@ export class PayComponent implements OnInit {
     user: any
     currentDateTime?: any
     emailinfo: any
-
+useremail:any
 
 
 
@@ -32,8 +32,9 @@ export class PayComponent implements OnInit {
 
         this.user = localStorage.getItem('user')
         this.user = JSON.parse(this.user)
-       // this.adminservice.EmailUser(this.user.userid)
+        this.adminservice.EmailUser(this.user.userid)
         this.ridefprpay = await this.adminservice.ObjRide[0]
+
       //
         this.Ticket = {
 
@@ -50,7 +51,7 @@ export class PayComponent implements OnInit {
         await this.adminservice.GetAllStation()
         this.adminservice.FilterRideBystation(this.ridefprpay.stationid)
        // console.log(this.adminservice.stationname[0].stationname)
-  //    await  this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
+      await  this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
       //  console.log(this.adminservice.TrainName[0].trainname)
     //     this.adminservice.FilterRideByTrain(this.ridefprpay.trainsid)
     // let stationticket = await this.adminservice.stationname[0]
@@ -63,9 +64,9 @@ export class PayComponent implements OnInit {
             depaturetime: this.ridefprpay.depaturetime,
           // trainname: this.adminservice.TrainName[0].trainname ,
 
-          // stationname:  this.adminservice.stationname[0],
+          stationname:  this.ridefprpay.depaturetime,
             price: this.ridefprpay.price,
-          //  email: await this.adminservice.emailuser[0].email,
+            email: await this.adminservice.emailuser[0].email,
             username: this.user.username
         }
         console.log(this.emailinfo)

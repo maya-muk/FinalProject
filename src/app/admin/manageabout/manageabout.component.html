@@ -1,0 +1,47 @@
+<body>
+    <div class="container-scroller">
+
+     <app-admin-header></app-admin-header>
+     <app-admin-side-bar></app-admin-side-bar>
+
+     <div class="main-panel">
+        <div class="content-wrapper">
+          <form [formGroup]="Updateabout" #sendinfo>
+            <h2>Manage About Us Page Components</h2>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Background Sentence</label>
+                <textarea class="form-control" formControlName="BackSentence" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Background Image</label>
+                <input type="file" class="form-control-file" formControlName="BackImage">
+              </div>
+              <hr color="white">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">About Us Sentence lower part</label>
+                <textarea class="form-control" formControlName="lowerAboutSentence" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">About Us Image lower part</label>
+                <input type="file" class="form-control-file"formControlName="lowerAboutImage">
+              </div>
+              <hr color="white">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Contact Us Sentence</label>
+                <textarea class="form-control" formControlName="ContactSentence" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Contact Us Image</label>
+                <input type="file" class="form-control-file" formControlName="ContactImage">
+              </div>
+              
+              <button type="submit" class="btn btn-primary mr-2" (click)="updateinfo(sendinfo)" >Update</button>
+          </form>
+                    </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+      </div>
+
+     
+    </div>
+</body>

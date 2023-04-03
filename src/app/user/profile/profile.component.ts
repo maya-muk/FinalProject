@@ -25,20 +25,31 @@ export class ProfileComponent {
     }
 
   )
+  numofticket:any
   FinalObj: any
   AllObj: any
   user: any
+  theuseritem:any
   async ngOnInit() {
     await this.adminService.GetAllUser()
-
+    await this.adminService.GetAllTickets()
+   
+//console.log(this.adminService.AllTickets.filter((obj: any)=> obj.userrid == this.user.userid))
 
     this.user = localStorage.getItem('user')
     this.user = JSON.parse(this.user)
-
+    // this.numofticket=  this.adminService.AllTickets.filter((obj: any)=> obj.userid == 67).length
+    // console.log(this.numofticket)
+    
+    this.theuseritem = localStorage.getItem('ticket')
+    this.theuseritem = JSON.parse(this.theuseritem)
+    
+    this.numofticket=this.theuseritem.length
+    
+    
+    //this.numofticket=this.numofticket.length;
     await this.userobj()
-
-
-
+    
 
   }//on 
 

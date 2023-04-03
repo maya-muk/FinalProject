@@ -10,16 +10,20 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class RidesComponent {
 constructor(public admin:AdminService ,private rout:Router,private tost:ToastrService){}
-
+rideobj :any
 ara:any
 stationname:any
 async ngOnInit(){
   this.Ride = this.admin.FilterRideByID()
+  this.rideobj = localStorage.getItem('station')
+  this.rideobj = JSON.parse(this.rideobj)
+  console.log(this.rideobj)
 await this.admin.GetAllStation()
 await this.admin.GetAllRids()
 console.log(this.admin.stationname)
 this.stationname=this.admin.stationname[0].stationname
 console.log(this.admin.ridesforstation[0].depaturetime.transform())
+
 
 }
 

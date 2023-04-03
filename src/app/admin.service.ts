@@ -130,7 +130,8 @@ export class AdminService {
 
 
   // Tickets
-
+  theuseritem:any
+numofticketuser:any=[]
   AllTickets: any = []
   GetAllTickets() {
     return new Promise<void>((resolve, reject) => {
@@ -139,7 +140,14 @@ export class AdminService {
           next: (result) => {
             this.AllTickets = result
             console.log("Done");
-
+            
+        this.theuseritem = localStorage.getItem('user')
+        this.theuseritem = JSON.parse(this.theuseritem)
+        console.log(Number(this.theuseritem.userid));
+         this.numofticketuser= this.AllTickets.filter((obj: any)=> obj.userrid == Number(this.theuseritem.userid))
+          console.log(this.numofticketuser.length);
+           localStorage.setItem('ticket',this.numofticketuser)
+           localStorage.setItem('ticket', JSON.stringify(this.numofticketuser))
             this.toaster.success("Success")
             resolve()
           },
@@ -554,6 +562,34 @@ export class AdminService {
 
 
   }
+//manage about us page
+  async UpdateAbout(aboutinfo: any){
+    return new Promise<void>((resolve, reject) => {
+      console.log( this.imageName)
+    if(this.imageName != ""){
+    aboutinfo.Imagepath=this.imageName
+    console.log(aboutinfo)
+    console.log( this.imageName)}
+    this.http.put("https://localhost:44304/api/Dynamic",aboutinfo).subscribe(
+      {
+        next:(result)=>{
+
+          this.toaster.success("Updated")
+          resolve
+      },
+      error:(err)=>{
+          console.log(aboutinfo);
+          
+          console.log(err);
+          this.toaster.error("Error")
+      }
+
+
+      }
+    )
+
+    })
+  }
   //create test userdashboard
   CreateTestimonial(Testimonial: any) {
     // return new Promise<void>((resolve,reject)=>
@@ -578,8 +614,11 @@ export class AdminService {
     // })
   }
 
+EmailUser(id: any)
+{
+ return this.AllUser.filter((obj: any) => obj.userid == id)
 
-
+}
   FilterTestimonial() {
 
     return this.AllTestimonial.filter((obj: any) => obj.status == "Yes")
@@ -599,11 +638,17 @@ export class AdminService {
   FilterRideByID() {
     return this.AllRide.filter((obj: any) => obj.stationnid == this.idstation)
   }
+  ridesforstation1: any
   ridesforstation: any
+  
   stationname: any
   async FilterRideBystation(id: any) {
-    this.ridesforstation = await this.AllRide.filter((obj: any) => obj.stationnid == id)
+    this.ridesforstation1 = await this.AllRide.filter((obj: any) => obj.stationnid == id)
     this.stationname = await this.AllStation.filter((obj: any) => obj.stationid == id)
+    localStorage.setItem('station', JSON.stringify( this.ridesforstation1))
+    
+    this.ridesforstation = localStorage.getItem('station')
+    this.ridesforstation = JSON.parse(this.ridesforstation)
   }
   
   idRide : any
