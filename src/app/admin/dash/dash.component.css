@@ -1,6 +1,7 @@
 #divChart{
-    /*display: block;*/
+    display: block;
+    /*margin-top: 20%;*/
     margin-left: 25%;
-    width: 600px;
-    height:600px;
+    width: 50%;
+    height:50%;
 }

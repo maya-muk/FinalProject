@@ -69,7 +69,7 @@ useremail:any
 
           stationname:  this.ridefprpay.depaturetime,
             price: this.ridefprpay.price,
-         email:this.user.email ,
+           email:this.user.email ,
             username: this.user.username
         }
         console.log(this.emailinfo)

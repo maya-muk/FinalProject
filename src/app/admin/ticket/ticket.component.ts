@@ -49,7 +49,7 @@ export class TicketComponent {
     this.Tickets = await this.adminService.AllTickets.filter((obj : any)=> obj.ticketid == TickID)
     this.UpdateTicketForm.patchValue(this.Tickets[0])   
     
-    this.dialog.open(this.Update,{height:'180px' ,width:'400px'})
+    this.dialog.open(this.Update,{height:'160px' ,width:'380px'})
   }
 
   async UpdateTicket(){

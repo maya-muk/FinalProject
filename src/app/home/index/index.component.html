@@ -94,7 +94,7 @@
 
             <div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of FilterRide">
 
-                <div class="service-39381">
+                <div class="service-39381" *ngIf="isToday(item.depaturetime)">
 
                     <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
                     <div class="p-4">
@@ -138,7 +138,7 @@
             <div class="col-md-5">
                 <span class="text-serif text-primary">Book Now</span>
                 <h3 class="heading-92913 text-black">Book A Tickets</h3>
-                <p></p>
+                <h1>  click Marker to view all rides </h1>
             </div>
         </div>
     </div>

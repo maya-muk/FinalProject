@@ -29,7 +29,7 @@
                         <td> {{item.stationname}} </td>
                         <td> {{item.locations}} </td>
                         <td> {{item.locationla}} </td>
-                        <td> <input type="button" class="D" value="Edit" (click)="OpenUpdateDialog(item.stationid)">| 
+                        <td> <input type="button" class="D" value="Edit" (click)="OpenUpdateDialog(item.stationid)" >| 
                              <input type="button" class="D"  value="Delete" (click)="OpenDeleteDialog(item.stationid)">
                         </td>
                       </tr>
@@ -163,7 +163,7 @@
 
 <ng-template #DeleteStations>
   
-  <mat-label style="color: black;margin-top: 50px; margin-left: 70px;"><b>Would you like to delete this Ride?</b></mat-label>
+  <mat-label style="color: black;margin-top: 50px; margin-left: 70px;"><b>Would you like to delete this Statin?</b></mat-label>
   
   <div class="delete">
     <input mat-dialog-close value="Yes" type="button" class="btn btn-success" (click)="DeleteStation()"/>
