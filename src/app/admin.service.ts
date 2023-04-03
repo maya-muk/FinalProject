@@ -690,12 +690,10 @@ export class AdminService {
     )
   }
 
-
-
-   async FilterUserByName(Name: any) {
+   FilterUserByName(Name: any) {
     console.log(Name);
+    this.AllUser = this.AllUser.filter((obj: any) => obj.username == Name)
     
-    return await this.AllUser.filter((obj: any) => obj.username == Name)
   }
 
 
