@@ -235,7 +235,7 @@ export class AdminService {
           next: (res) => {
             this.spinner.hide()
             this.toaster.success("Deleted Successfully")
-            resolve
+            resolve()
           },
           error: (err) => {
             console.log(err);
@@ -665,5 +665,11 @@ export class AdminService {
   }
 
 
+
+  FilterUserByName(UserName : any)
+  {
+     return this.AllUser.filter((obj:any)=>obj.username == UserName) 
+
+  }
 
 }

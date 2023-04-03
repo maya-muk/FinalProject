@@ -8,11 +8,17 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class UserComponent {
 
+   UserName : any = ""
+
   constructor(public adminService:AdminService){}
 
  ngOnInit()
  {
-   console.log("Hi");
    this.adminService.GetAllUser()
+ }
+
+ SearchByName()
+ {
+   this.adminService.FilterUserByName(this.UserName) 
  }
 }

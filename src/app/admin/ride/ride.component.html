@@ -25,7 +25,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
                         <th> Depature Time</th>
                         <th> Capacity </th>
                         <th> Price </th>
-                        <th> Status </th>
+                        <th> Publish </th>
                         <th> TrainID </th>
                         <th> StationID </th>
                       </tr>
@@ -70,18 +70,26 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
   <form [formGroup]="CreateRideForm">
     <div class="container">
       <div class="M">
-        <mat-form-field>
+        <mat-form-field formControlName="arrivalstation">
           <mat-label style="color: black;">Arrival Station</mat-label>
-          <input type="text" matInput formControlName="arrivalstation" />
+          <mat-select >
+            <mat-option *ngFor="let item of adminService.AllStation" [value]="item.stationname">
+              {{item.stationname}}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="CreateRideForm.controls['arrivalstation'].hasError('required')">
               Arrival Station is Required
           </mat-error>
         </mat-form-field>
        </div>
        <div class="M">
-        <mat-form-field>
+        <mat-form-field formControlName="depaturestation">
           <mat-label style="color: black;">Depature Station</mat-label>
-          <input type="text" matInput formControlName="depaturestation" />
+          <mat-select >
+            <mat-option *ngFor="let item of adminService.AllStation" [value]="item.stationname">
+              {{item.stationname}}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="CreateRideForm.controls['depaturestation'].hasError('required')">
             Depature Station is Required
           </mat-error>
@@ -117,7 +125,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
       
       <div class="M">
         <mat-form-field formControlName="status">
-          <mat-label style="color: black;">Status</mat-label>
+          <mat-label style="color: black;">Publish</mat-label>
           <mat-select>
             <mat-option *ngFor="let item of RideStatus" [value]="item">
                 {{item}}
@@ -198,19 +206,27 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
   <form [formGroup]="UpdateRideForm">
     <div class="container">
       <div class="M">
-        <mat-form-field>
+        <mat-form-field formControlName="arrivalstation">
           <mat-label style="color: black;">Arrival Station</mat-label>
-          <input type="text" matInput formControlName="arrivalstation" />
-          <mat-error *ngIf="UpdateRideForm.controls['arrivalstation'].hasError('required')">
+          <mat-select >
+            <mat-option *ngFor="let item of adminService.AllStation" [value]="item.stationname">
+              {{item.stationname}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="CreateRideForm.controls['arrivalstation'].hasError('required')">
               Arrival Station is Required
           </mat-error>
         </mat-form-field>
        </div>
        <div class="M">
-        <mat-form-field>
+        <mat-form-field formControlName="depaturestation">
           <mat-label style="color: black;">Depature Station</mat-label>
-          <input type="text" matInput formControlName="depaturestation" />
-          <mat-error *ngIf="UpdateRideForm.controls['depaturestation'].hasError('required')">
+          <mat-select >
+            <mat-option *ngFor="let item of adminService.AllStation" [value]="item.stationname">
+              {{item.stationname}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="CreateRideForm.controls['depaturestation'].hasError('required')">
             Depature Station is Required
           </mat-error>
         </mat-form-field>
@@ -245,7 +261,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
        
       <div class="M">
         <mat-form-field formControlName="status">
-          <mat-label style="color: black;">Status</mat-label>
+          <mat-label style="color: black;">Publish</mat-label>
           <mat-select>
             <mat-option *ngFor="let item of RideStatus" [value]="item">
                 {{item}}

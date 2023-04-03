@@ -27,7 +27,7 @@ export class DashComponent {
     var myChart = new Chart("myChart", {
       type: 'bar',
       data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: ['Users', 'Rides', 'Tickets', 'Stations'],
           datasets: [{
               label: '# of Votes',
               data: [this.adminService.AllUser.length, this.adminService.AllRide.length, this.adminService.AllTickets.length, this.adminService.AllStation.length],
@@ -47,7 +47,7 @@ export class DashComponent {
                   'rgba(153, 102, 255, 1)',
                   'rgba(255, 159, 64, 1)'
               ],
-              borderWidth: 1
+              borderWidth: 2
           }]
       },
       options: {

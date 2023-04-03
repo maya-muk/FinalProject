@@ -43,7 +43,8 @@ export class StationComponent {
    OpenDialog() {
     if(this.Positions.length > 0)
       this.Positions = []
-    this.dialog.open(this.Create, { height: '460px', width: '800px' })
+      this.CreateStationForm.reset()
+      this.dialog.open(this.Create, { height: '460px', width: '800px' })
   }
   async AddStations()
   {
@@ -80,6 +81,7 @@ export class StationComponent {
   async DeleteStation() {
     await this.adminService.DeleteStation(this.ID)
     this.adminService.GetAllStation()
+    location.reload()
   }
 
 
@@ -112,19 +114,14 @@ export class StationComponent {
           lng:(Number)(this.P.lng),
         }})
     }
-   
-     console.log(this.Positions[0].position);
-     
-     if(this.dialog.getDialogById("Create"))
-     {
+
+
       this.CreateStationForm.controls.locations.patchValue((String)(this.Positions[0].position.lat))
      this.CreateStationForm.controls.locationla.patchValue((String)(this.Positions[0].position.lng))
-     }
-     else
-     {
+
       this.UpdateStationForm.controls.locations.patchValue((String)(this.Positions[0].position.lat))
-     this.UpdateStationForm.controls.locationla.patchValue((String)(this.Positions[0].position.lng))
-     }
+      this.UpdateStationForm.controls.locationla.patchValue((String)(this.Positions[0].position.lng))
+     
 
   }
 
