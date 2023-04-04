@@ -9,6 +9,7 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { NgxPayPalModule } from 'ngx-paypal';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

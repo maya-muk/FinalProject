@@ -32,12 +32,12 @@
                                         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
                                       </mat-form-field>
                                      
-                                    </div>
+                              </div>
                                     <button class="B" (click)="onSubmit()">search</button>
                                 
                                 <div class="table-responsive">
 
-                                    <table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions" >
+                                    <table class="table" class="table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
                                         <thead>
                                           <tr>
                                             <th>Tickets ID</th>
@@ -85,7 +85,9 @@
                 </div>
             </div>
         </div>
+      
     </div>
+    
     <app-admin-footer></app-admin-footer>
     </body>
                 
