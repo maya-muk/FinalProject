@@ -599,6 +599,7 @@ export class AdminService {
           error: (err) => {
             console.log(err);
             this.toaster.error("Error")
+            reject()
           }
         }
       )
