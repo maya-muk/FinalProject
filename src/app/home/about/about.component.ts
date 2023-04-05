@@ -10,8 +10,8 @@ import { HomeService } from 'src/app/home.service';
 })
 export class AboutComponent {
   constructor(private spinner: NgxSpinnerService,public adminService:AdminService,public homeservice:HomeService) {}
-
-  ngOnInit() {
+about:any
+  async ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
 
@@ -19,7 +19,8 @@ export class AboutComponent {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 1000);
-
+    this.adminService.GetAllAbout()
+this.about= await this.adminService.AllAbout[0]
     this.adminService.GetAllTrain()
     this.adminService.GetAllTestimonial()
     this.homeservice.GetStation()

@@ -692,8 +692,52 @@ export class AdminService {
 
     })
   }
+  allcontact: any = []
+  GetAllcon() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Dynamic/getcontact").subscribe(
+        {
+          next: (result) => {
+            this.allcontact= result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )})}
 
 
+      UpdateContact(aboutinfo: any) {
+        return new Promise<void>((resolve, reject) => {
+          console.log(this.imageName)
+          if (this.imageName1 != "") {
+            aboutinfo.contactbackimage = this.imageName1
+          }
+          this.http.put("https://localhost:44304/api/Dynamic/contact", aboutinfo).subscribe(
+            {
+              next: (result) => {
+                this.toaster.success("Updated")
+                resolve()
+              },
+              error: (err) => {
+               
+                reject
+                console.log(err);
+               
+                this.toaster.error("Error")
+                reject()
+              }
+    
+    
+            }
+          )
+    
+        })
+      }
 
   EmailUser(id: any) {
     return this.AllUser.filter((obj: any) => obj.userid == id)

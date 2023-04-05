@@ -29,19 +29,19 @@ Updatecon = new FormGroup(
   )
   about:any
   async ngOnInit(){
-    await this.adminService.GetAllAbout()
+    await this.adminService.GetAllcon()
     
     await this.ondata()
   }
   
 async ondata(){
 
-  this.about = await this.adminService.AllAbout[0]
-  this.about=this.about[0]
-  console.log(this.about)
+  this.about = await this.adminService.allcontact[0]
+ 
+   console.log(this.about)
 
-   this.Updatecon.patchValue(this.adminService.AllAbout[0])
-   console.log(this.adminService.AllAbout[0])
+   this.Updatecon.patchValue(this.about)
+   
  }
 
   
@@ -58,35 +58,10 @@ async ondata(){
 
   }
   
-  UploadImage2(input: any) // <input>
-  {
-    console.log(input);
-    console.log(input.files);
-    if (input.files.length != 0) {
-      let uploadedFile = input.files[0] // imagefile 
-      let formData = new FormData()
-      formData.append('file', uploadedFile)
-      this.adminService.UploadImage2(formData)
-    }
-
-  }
-  
-  UploadImage3(input: any) // <input>
-  {
-    console.log(input);
-    console.log(input.files);
-    if (input.files.length != 0) {
-      let uploadedFile = input.files[0] // imagefile 
-      let formData = new FormData()
-      formData.append('file', uploadedFile)
-      this.adminService.UploadImage3(formData)
-    }
-
-  }
  
   updateinfo(){
-   this.adminService.UpdateAbout(this.Updatecon.value)
-   this.adminService.GetAllAbout()
+   this.adminService.UpdateContact(this.Updatecon.value)
+   this.adminService.GetAllcon()
   }
 
 }
