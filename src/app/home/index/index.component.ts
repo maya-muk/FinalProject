@@ -31,7 +31,7 @@ export class IndexComponent {
   user: any
   AllObj: any
   FinalObj: any
-home:any
+  home: any
   FilterRide: any
   FilterTestimonial: any
   async ngOnInit() {
@@ -41,8 +41,9 @@ home:any
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 2000);
-this.adminService.GettAllHome()
-this.home=this.adminService.AllHome[0]
+
+    await this.adminService.GettAllHome()
+    this.home = this.adminService.AllHome[0]
 
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()

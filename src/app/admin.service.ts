@@ -624,6 +624,8 @@ export class AdminService {
   UpdateHome(home:any)
   {
     return new Promise<void>((resolve, reject) => {
+      console.log(home);
+      
       if (this.imageName2 != "") {
         home.homebackimage = this.imageName2
       }

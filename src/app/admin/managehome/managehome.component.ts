@@ -87,7 +87,7 @@ export class ManagehomeComponent {
       let uploadedFile = input.files[0] // imagefile 
       let formData = new FormData()
       formData.append('file', uploadedFile)
-      this.adminService.UploadImage3(formData)
+      this.adminService.UploadImage4(formData)
     }
 
   }
