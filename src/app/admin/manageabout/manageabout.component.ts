@@ -34,7 +34,7 @@ export class ManageaboutComponent {
 async ondata(){
 
   this.about = await this.adminService.AllAbout[0]
-  this.about=this.about[0]
+ 
   console.log(this.about)
 
    this.Updateabout.patchValue(this.about)

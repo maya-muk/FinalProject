@@ -13,7 +13,7 @@ export class ManagecontactComponent {
   constructor(public adminService: AdminService) { }
 
 
-Updateabout = new FormGroup(
+Updatecon = new FormGroup(
   {
     contactdyid: new FormControl(''),
     contactbackimage: new FormControl(''),
@@ -40,7 +40,7 @@ async ondata(){
   this.about=this.about[0]
   console.log(this.about)
 
-   this.Updateabout.patchValue(this.adminService.AllAbout[0])
+   this.Updatecon.patchValue(this.adminService.AllAbout[0])
    console.log(this.adminService.AllAbout[0])
  }
 
@@ -85,7 +85,7 @@ async ondata(){
   }
  
   updateinfo(){
-   this.adminService.UpdateAbout(this.Updateabout.value)
+   this.adminService.UpdateAbout(this.Updatecon.value)
    this.adminService.GetAllAbout()
   }
 

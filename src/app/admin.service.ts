@@ -615,7 +615,7 @@ export class AdminService {
       if (this.imageName3 != "") {
         aboutinfo.contactimage = this.imageName3
       }
-      this.http.put("https://localhost:44304/api/Dynamic", aboutinfo).subscribe(
+      this.http.put("https://localhost:44304/api/Dynamic/about", aboutinfo).subscribe(
         {
           next: (result) => {
             this.toaster.success("Updated")
