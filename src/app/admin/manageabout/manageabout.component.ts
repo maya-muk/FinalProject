@@ -10,7 +10,7 @@ import { AdminService } from 'src/app/admin.service';
 export class ManageaboutComponent {
 
   constructor(public adminService: AdminService) { }
-@Output() sendinfoEvent = new EventEmitter<object>();
+
 
 Updateabout = new FormGroup(
   {
