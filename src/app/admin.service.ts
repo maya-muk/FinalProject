@@ -531,6 +531,24 @@ export class AdminService {
       )
     })
   }
+  
+  AllAbout: any = []
+  GetAllAbout() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Dynamic/getabout").subscribe(
+        {
+          next: (result) => {
+            this.AllAbout = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )})}
 
   //Register
   CreateUser(User: any) {
@@ -611,8 +629,14 @@ export class AdminService {
   UpdateAbout(aboutinfo: any) {
     return new Promise<void>((resolve, reject) => {
       console.log(this.imageName)
-      if (this.imageName != "") {
-        aboutinfo.Imagepath = this.imageName
+      if (this.imageName1 != "") {
+        aboutinfo.aboutbackimage = this.imageName1
+      }
+      if (this.imageName2 != "") {
+        aboutinfo.aboutimage = this.imageName2
+      } 
+      if (this.imageName3 != "") {
+        aboutinfo.contactimage = this.imageName3
       }
       this.http.put("https://localhost:44304/api/Dynamic/about", aboutinfo).subscribe(
         {
@@ -621,10 +645,12 @@ export class AdminService {
             resolve()
           },
           error: (err) => {
-            console.log(aboutinfo);
-
+           
+            reject
             console.log(err);
+           
             this.toaster.error("Error")
+            reject()
           }
 
 
@@ -719,5 +745,55 @@ export class AdminService {
     
   }
 
+  imageName1 = "" // imagename
+
+  async UploadImage1(imageFile: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
+        {
+          next: (res: any) => {
+            this.imageName1 = res.imagepath
+
+            resolve
+          },
+          error: () => { }
+        }
+      )
+    })
+  }
+  
+  imageName2 = "" // imagename
+
+  async UploadImage2(imageFile: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
+        {
+          next: (res: any) => {
+            this.imageName2 = res.imagepath
+
+            resolve
+          },
+          error: () => { }
+        }
+      )
+    })
+  }
+  
+  imageName3 = "" // imagename
+
+  async UploadImage3(imageFile: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
+        {
+          next: (res: any) => {
+            this.imageName3 = res.imagepath
+console.log(this.imageName3 )
+            resolve
+          },
+          error: () => { }
+        }
+      )
+    })
+  }
 
 }
