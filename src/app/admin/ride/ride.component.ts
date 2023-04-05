@@ -9,6 +9,8 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./ride.component.css']
 })
 export class RideComponent {
+
+  
   public today: Date = new Date();
   public currentYear: number = this.today.getFullYear();
   public currentMonth: number = this.today.getMonth();

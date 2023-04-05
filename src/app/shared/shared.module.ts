@@ -16,7 +16,7 @@ import { GoogleMapsModule, MapMarker ,MapInfoWindow } from '@angular/google-maps
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserSideBarComponent } from './user-side-bar/user-side-bar.component';
 import {MatRadioModule} from '@angular/material/radio';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -38,7 +38,6 @@ import { DataTablesModule } from 'angular-datatables';
     RouterModule,
     GoogleMapsModule,
     MatDialogModule,
-    DataTablesModule
   ],
   exports:
   [
@@ -53,22 +52,18 @@ import { DataTablesModule } from 'angular-datatables';
      NgxSpinnerModule, //spinner
      GoogleMapsModule, // for map
      MapMarker,// to but mark on map
-     MapInfoWindow,
      UserHeaderComponent,
      UserSideBarComponent,
-     MatRadioModule,
      MatDatepickerModule,
-     MatNativeDateModule,
      MapInfoWindow, //map window info
      MatRadioModule, //radio button
-     MatDatepickerModule, //date 
      MatNativeDateModule, //format for date
      MatDialogModule ,// dialog
-     MatSelectModule,//select,
      MatSelectModule,//select
+     NgxMatDatetimePickerModule,
+     NgxMatTimepickerModule,
+     NgxMatNativeDateModule,
      DataTablesModule
-    /* NgxMatDatetimePickerModule,
-     NgxMatTimepickerModule*/
   ]
 })
 export class SharedModule { }

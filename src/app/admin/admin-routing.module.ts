@@ -12,6 +12,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TrainComponent } from './train/train.component';
 import { UserComponent } from './user/user.component';
+import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
   {
     path:"Report",
     component:ReportComponent
+  },
+  {
+    path:"Reports",
+    component:ReportsComponent
   }
 ];
 

@@ -20,7 +20,6 @@ export class ReportComponent {
   dtOptions: any = {};
   async ngOnInit() {
 
-    await this.adminservices.ReturnReport()
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 3,
@@ -29,7 +28,9 @@ export class ReportComponent {
         buttons: [
             'copy', 'csv', 'excel', 'print'
         ]
-      };
+    };
+    await this.adminservices.ReturnReport()
+    
 
       for (let item of this.adminservices.Reports) {
         this.TotalPrice += item.price

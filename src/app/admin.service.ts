@@ -583,6 +583,29 @@ export class AdminService {
 
   }
 
+//get about us page component
+  AllAbout: any = []
+  GetAllAbout() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Dynamic/getabout").subscribe(
+        {
+          next: (result) => {
+
+
+            this.AllAbout = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+          }
+        }
+      )
+    })
+  }
+
+
 
   //manage about us page
   UpdateAbout(aboutinfo: any) {
@@ -591,7 +614,7 @@ export class AdminService {
       if (this.imageName != "") {
         aboutinfo.Imagepath = this.imageName
       }
-      this.http.put("https://localhost:44304/api/Dynamic", aboutinfo).subscribe(
+      this.http.put("https://localhost:44304/api/Dynamic/about", aboutinfo).subscribe(
         {
           next: (result) => {
             this.toaster.success("Updated")
@@ -690,12 +713,10 @@ export class AdminService {
     )
   }
 
-
-
-   async FilterUserByName(Name: any) {
+   FilterUserByName(Name: any) {
     console.log(Name);
+    this.AllUser = this.AllUser.filter((obj: any) => obj.username == Name)
     
-    return await this.AllUser.filter((obj: any) => obj.username == Name)
   }
 
 

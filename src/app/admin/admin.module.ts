@@ -15,6 +15,8 @@ import { ManagehomeComponent } from './managehome/managehome.component';
 import { ManageaboutComponent } from './manageabout/manageabout.component';
 import { ManagecontactComponent } from './managecontact/managecontact.component';
 import { ReportComponent } from './report/report.component';
+import { ReportsComponent } from './reports/reports.component';
+import { AppModule } from '../app.module';
 
 
 @NgModule({
@@ -30,12 +32,14 @@ import { ReportComponent } from './report/report.component';
     ManagehomeComponent,
     ManageaboutComponent,
     ManagecontactComponent,
-    ReportComponent
+    ReportComponent,
+    ReportsComponent,
+
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule,
+    SharedModule
   ]
 })
 export class AdminModule { }
