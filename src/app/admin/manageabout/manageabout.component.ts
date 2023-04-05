@@ -10,7 +10,6 @@ import { AdminService } from 'src/app/admin.service';
 export class ManageaboutComponent {
 
   constructor(public adminService: AdminService) { }
-@Output() sendinfoEvent = new EventEmitter<object>();
 
 Updateabout = new FormGroup(
 {
@@ -80,9 +79,8 @@ async ondata(){
     }
 
   }
-  updateinfo(value: object){
-    this.sendinfoEvent.emit(this.Updateabout.value);
-  //  await this.adminService.UpdateAbout(this.Updateabout.value)
+  async updateinfo(){
+    await this.adminService.UpdateAbout(this.Updateabout.value)
     // console.log("Updated");
   }
 }
