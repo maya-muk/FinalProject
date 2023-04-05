@@ -3,11 +3,11 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 <app-home-header></app-home-header>
 
 
-<div class="intro-section" style="background-image: url('../../../assets/HomeAssets/images/hero_6.jpg');">
+<div class="intro-section" style="background-image: url('../../../assets/HomeAssets/Image/{{con.contactbackimage}}');">
   <div class="container">
       <div class="row align-items-center">
           <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
-              <h1 style="font-weight:500">Get In Touch</h1>
+              <h1 style="font-weight:500">{{con.contactbackword}}</h1>
               <p class="text-white text-center">
                   <a routerLink="/">Home</a>
                   <span class="mx-2">/</span>
@@ -24,31 +24,22 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 
   <div class="contact-form">
       <div style="background-color:#1089FF;margin-left:30px" class="contact-form-box__left">
-          <h3 class="m-b-15">Get in touch</h3>
+          <h3 class="m-b-15"> {{con.contactformword}}</h3>
           <hr>
           
           <div>
               <small class="light-grey"><i class="fas fa-envelope m-r-5"></i> Email</small>
-              <p>ralomari962@gmail.com</p>
+              <p>{{con.contactformemail}}</p>
           </div>
           <div>
               <small class="light-grey"><i class="fas fa-phone m-r-5"></i> Phone</small>
               <p>
-                  +962 79821 6515</p>
-
-              <p>
-                  +962 79174 7902</p>
-
-              <p>
-                  +962 79194 0057</p>
-
-              <p>
-                  +962 79726 2030
+                {{con.contactformphone}}
               </p>
           </div>
           <div>
               <small class="light-grey"><i class="fas fa-map-marker m-r-5"></i> Address</small>
-              <p>Irbid, Jordan</p>
+              <p>{{con.contactformadress}}</p>
           </div>
           <div class="contact-form-box__left_footer"> <a href="#!"><i class="fab fa-facebook-f"></i></a> <a href="#!"><i class="fab fa-twitter"></i></a> <a href="#!"><i class="fab fa-instagram"></i></a> <a href="#!"><i class="fab fa-youtube"></i></a> </div>
       </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/admin.service';
 import { HomeService } from 'src/app/home.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { HomeService } from 'src/app/home.service';
   styleUrls: ['./contactus.component.css']
 })
 export class ContactusComponent {
-  constructor(private spinner: NgxSpinnerService,public homeService : HomeService,private tost:ToastrService) {}
+  constructor(private spinner: NgxSpinnerService,public homeService : HomeService,private tost:ToastrService,public admain:AdminService) {}
 
 
   CreateContatc = new FormGroup(
@@ -22,14 +23,18 @@ export class ContactusComponent {
     }
   )
 
-
-  ngOnInit() {
+con:any
+ async ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 1000);
+
+  await this.admain.GetAllcon()
+    this.con=this.admain.allcontact[0]
+
   }
 
   async SendMessage()

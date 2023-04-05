@@ -4,12 +4,12 @@
 <app-home-header></app-home-header>
 
 
-<div class="intro-section" style="background-image: url(../../../assets/HomeAssets/images/hero_1.jpg);">
+<div class="intro-section" style="background-image: url(../../../assets/Image/{{home.homebackimage}});">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
-                <h1>Reliable Rides,</h1>
-                <p>Arrive your destinations safe.</p>
+                <h1>{{home.homebackword}}</h1>
+                
                 <p><a routerLink="//about" class="btn btn-primary py-3 px-5">Read More</a></p>
             </div>
         </div>
@@ -30,12 +30,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="../../../assets/HomeAssets/images/hero_3.jpg" alt="Image" class="img-fluid">
+                <img src="../../../assets/Image/{{home.aboutimage}}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <span style="font-size:30px;font-weight:bold" class="text-serif text-primary">About Us</span>
                 <h4 class="heading-92913 text-black">Welcome To Our Website</h4>
-                <p>
+                <p>{{home.aboutkword}}
                     "HOPE VALLEY" is a web-based application that works within a centralized network.
                     this site
                     Represents the provision of rail transportation.
@@ -152,7 +152,7 @@
     </div>
 </div>
 
-
+<!-- 
 <div class="site-section">
     <div class="container">
         <div class="row justify-content-center mb-5">
@@ -228,7 +228,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="site-section">
     <div class="container">
@@ -263,11 +263,11 @@
 </div>
 
 <div class="site-section bg-image overlay"
-    style="background-image: url('../../../assets/HomeAssets/images/hero_2.jpg');">
+    style="background-image: url('../../../assets/Image/{{home.contactimag}}');">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7 text-center">
-                <h2 class="text-white">Get In Touch With Us</h2>
+                <h2 class="text-white">{{home.contactword}}</h2>
                 <br />
                 <form [formGroup]="CreateContatc">
                     <label style="color:white" for="sub">Subject</label><br>
