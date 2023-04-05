@@ -41,9 +41,8 @@ export class IndexComponent {
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 2000);
-
     await this.adminService.GettAllHome()
-    this.home = this.adminService.AllHome[0]
+this.home=await this.adminService.AllHome[0]
 
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()
