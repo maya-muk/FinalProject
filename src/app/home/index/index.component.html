@@ -92,30 +92,38 @@
         </div>
         <div class="row">
 
-            <div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of FilterRide">
+            <div *ngFor="let item of FilterRide" class="col-md-6 col-lg-4 mb-4" >
+               
+                   
+                        <div *ngIf="isToday(item.depaturetime)">
+                        <div class="service-39381">
 
-                <div class="service-39381" *ngIf="isToday(item.depaturetime)">
+                            <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
+                            <div class="p-4">
+                                <h3><a href="#"><span class="icon-room mr-1 text-primary"></span>
+                                        {{item.arrivalstation}}
+                                        &mdash; {{item.depaturestation}}</a></h3>
+                                <div class="d-flex">
+                                    <div class="mr-auto">
+                                        <span class="icon-date_range"></span>
+                                        {{item.depaturetime}}
+                                    </div>
+                                    <div class="ml-auto price">
+                                        <span class="bg-primary">${{item.price}}</span>
+                                    </div>
 
-                    <img src="../../../assets/HomeAssets/images/hero_1.jpg" alt="Image" class="img-fluid">
-                    <div class="p-4">
-                        <h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.arrivalstation}}
-                                &mdash; {{item.depaturestation}}</a></h3>
-                        <div class="d-flex">
-                            <div class="mr-auto">
-                                <span class="icon-date_range"></span>
-                                {{item.depaturetime}}
+                                </div>
                             </div>
-                            <div class="ml-auto price">
-                                <span class="bg-primary">${{item.price}}</span>
-                            </div>
-
                         </div>
+                    
                     </div>
-                </div>
-
+                
             </div>
         </div>
-        <p><a routerLink="/station" style="margin-left:500px" class="btn btn-primary py-3 px-4">All Rides</a></p>
+                <p><a routerLink="/station" style="margin-left:500px" class="btn btn-primary py-3 px-4">All Rides</a>
+                </p>
+           
+
     </div>
 </div>
 
@@ -138,7 +146,7 @@
             <div class="col-md-5">
                 <span class="text-serif text-primary">Book Now</span>
                 <h3 class="heading-92913 text-black">Book A Tickets</h3>
-                <h1>  click Marker to view all rides </h1>
+                <h1> click Marker to view all rides </h1>
             </div>
         </div>
     </div>
@@ -233,22 +241,22 @@
         <div class="row">
             <div class="container-fluid py-5">
                 <div class="container">
-            <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
-                <mdb-carousel-item *ngFor="let item of FilterTestimonial">
-                    <div class="testimonial-item text-center">
-                        <div class="position-relative mb-5">
-                        <div class="testimonial">
-                        <img src="../../../assets/Image/{{item.imagepath}}" alt="">
-                        <blockquote>
-                            <p>&ldquo; {{item.opinion}} &rdquo;</p>
-                        </blockquote>
-                        <p class="client-name">{{item.username}}</p>
-                        </div>
-                        </div>
-                    </div>
-                </mdb-carousel-item>
-            </mdb-carousel>
-            </div>
+                    <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+                        <mdb-carousel-item *ngFor="let item of FilterTestimonial">
+                            <div class="testimonial-item text-center">
+                                <div class="position-relative mb-5">
+                                    <div class="testimonial">
+                                        <img src="../../../assets/Image/{{item.imagepath}}" alt="">
+                                        <blockquote>
+                                            <p>&ldquo; {{item.opinion}} &rdquo;</p>
+                                        </blockquote>
+                                        <p class="client-name">{{item.username}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </mdb-carousel-item>
+                    </mdb-carousel>
+                </div>
             </div>
         </div>
     </div>
@@ -264,21 +272,31 @@
                 <form [formGroup]="CreateContatc">
                     <label style="color:white" for="sub">Subject</label><br>
                     <input type="text" id="sub" name="sub" formControlName="Subject"><br>
-                    <small style="color:black" [class.d-none]="CreateContatc.controls.Subject.valid || CreateContatc.controls.Subject.untouched ">Subject is required</small><br>
+                    <small style="color:black"
+                        [class.d-none]="CreateContatc.controls.Subject.valid || CreateContatc.controls.Subject.untouched ">Subject
+                        is required</small><br>
                     <label style="color:white" for="fname">Name</label><br>
                     <input type="text" id="fname" formControlName="Name"><br>
-                    <small style="color:black" [class.d-none]="CreateContatc.controls.Name.valid || CreateContatc.controls.Name.untouched ">Name is required</small><br>
+                    <small style="color:black"
+                        [class.d-none]="CreateContatc.controls.Name.valid || CreateContatc.controls.Name.untouched ">Name
+                        is required</small><br>
                     <label style="color:white" for="email">Email</label><br>
                     <input type="email" id="lname" name="lname" formControlName="Email"><br>
-                    <small style="color:black" [class.d-none]="CreateContatc.controls.Email.valid || CreateContatc.controls.Email.untouched ">Email is required</small><br>
+                    <small style="color:black"
+                        [class.d-none]="CreateContatc.controls.Email.valid || CreateContatc.controls.Email.untouched ">Email
+                        is required</small><br>
                     <label style="color:white" for="msg">Message</label><br>
                     <textarea type="email" id="msg" name="msg" formControlName="Message"></textarea><br>
-                    <small style="color:black" [class.d-none]="CreateContatc.controls.Message.valid || CreateContatc.controls.Message.untouched ">Message is required</small><br>
-                
-                <p class="mb-0"><button type="submit" [disabled]="CreateContatc.invalid" class="btn btn-warning py-3 px-5 text-white" (click)="SendMessage()">Contact Us</button></p>
+                    <small style="color:black"
+                        [class.d-none]="CreateContatc.controls.Message.valid || CreateContatc.controls.Message.untouched ">Message
+                        is required</small><br>
+
+                    <p class="mb-0"><button type="submit" [disabled]="CreateContatc.invalid"
+                            class="btn btn-warning py-3 px-5 text-white" (click)="SendMessage()">Contact Us</button></p>
                 </form>
                 <br />
-                <p><a routerLink="/contact" style="width:65px" class="btn btn-warning  text-white text-center">More</a></p>
+                <p><a routerLink="/contact" style="width:65px" class="btn btn-warning  text-white text-center">More</a>
+                </p>
             </div>
         </div>
     </div>
