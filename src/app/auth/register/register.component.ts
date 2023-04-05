@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/admin.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent {
     {
       Username : new FormControl('',[Validators.required]),
       Email: new FormControl('',[Validators.required , Validators.email]),
-      Password : new FormControl('',[Validators.required , Validators.minLength(5),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+      Password : new FormControl('',[Validators.required , Validators.minLength(5),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,}')]),
       Firstname : new FormControl('',[Validators.required]),
       Lastname : new FormControl('',[Validators.required])
     }
@@ -23,8 +24,8 @@ export class RegisterComponent {
   
   
   
-  constructor(private spinner: NgxSpinnerService,public adminService: AdminService,public rout:Router) {}
-  ngOnInit() {
+  constructor( private spinner: NgxSpinnerService,public adminService: AdminService,public rout:Router ,private toaster:ToastrService) {}
+  async ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
   
@@ -32,8 +33,9 @@ export class RegisterComponent {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 3000);
+   await this.adminService.GetAllUser()
   }
-  
+  showPassword: boolean = false
   UploadImage(input: any) // <input>
   {
   console.log(input);
@@ -47,8 +49,20 @@ export class RegisterComponent {
   }
   
   }
+  cheakuser:any
   async createUser(){
+    
+  
+    this.cheakuser= this.adminService.AllUser.filter((obj:any) =>obj.username == this.RegisterForm.controls.Username.value)
+ if(this.cheakuser.length>0){
+  this.toaster.error("Username is exist")
+  this.cheakuser=[]
+ }
+  else  {
   await this.adminService.CreateUser(this.RegisterForm.value)
-  this.rout.navigate(["Auth/login"])
+  this.rout.navigate(["Auth/login"])}
+  }
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

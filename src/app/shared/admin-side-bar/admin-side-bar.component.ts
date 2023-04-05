@@ -14,7 +14,7 @@ export class AdminSideBarComponent {
   Obj : any
    async ngOnInit()
    {
-    await this.adminService.GetAllUser()
+     await this.adminService.GetAllUser()
       this.User = localStorage.getItem("user")
       this.User  = JSON.parse(this.User)
       this.userobj()
@@ -22,7 +22,7 @@ export class AdminSideBarComponent {
    userobj() {
     return new Promise<void>((resolve, reject) => {
       this.Obj = this.adminService.AllUser.filter((obj: any) => obj.userid == this.User.userid)
-      resolve
+      resolve()
     })
   }
   Logout()

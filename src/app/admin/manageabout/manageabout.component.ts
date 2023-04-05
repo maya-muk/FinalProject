@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/admin.service';
 
@@ -10,10 +10,14 @@ import { AdminService } from 'src/app/admin.service';
 export class ManageaboutComponent {
 
   constructor(public adminService: AdminService) { }
-@Output() sendinfoEvent = new EventEmitter<object>();
 
+  ngOnInit(){
+    this.adminService.GetAllAbout()
+  }
+  
 Updateabout = new FormGroup(
 {
+  id: new FormControl(''),
 BackSentence: new FormControl(''),
 BackImage: new FormControl(''),
 lowerAboutSentence: new FormControl(''),
@@ -38,8 +42,7 @@ ContactImage: new FormControl('')
 
   }
   updateinfo(value: object){
-    this.sendinfoEvent.emit(this.Updateabout.value);
-  //  await this.adminService.UpdateAbout(this.Updateabout.value)
-    // console.log("Updated");
+   this.adminService.UpdateAbout(this.Updateabout.value)
+   this.adminService.AllAbout()
   }
 }
