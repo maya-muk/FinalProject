@@ -42,7 +42,7 @@ export class IndexComponent {
       this.spinner.hide();
     }, 2000);
     await this.adminService.GettAllHome()
-this.home=await this.adminService.AllHome[0]
+    this.home=await this.adminService.AllHome[0]
 
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()

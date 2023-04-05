@@ -5,10 +5,10 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 		<div class="container">
 			<h2>All Rides of {{stationname}} Station</h2>
 			<div class="row">
-				<div *ngFor="let item of rideobj">
-					<div class="service-39381" *ngIf="isToday(item.depaturetime)">
+				<div class="col-md-6 col-lg-4 mb-4" *ngFor="let item of rideobj">
+					<div class="service-39381" *ngIf="isToday(item.depaturetime)" >
 						<div class="p-4">
-							<h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.arrivalstation}} &mdash; {{item.depaturestation}}</a></h3>
+							<h3><a href="#"><span class="icon-room mr-1 text-primary"></span> {{item.depaturestation}} &mdash; {{item.arrivalstation}}</a></h3>
 							<div class="d-flex">
 								<div class="mr-auto">
 									<span class="icon-date_range"></span>
@@ -25,7 +25,7 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
 							<button routerLink="/paypal" (click)="Booked(item.rideid)" class="btn bg-secondary" style="margin-left:30px;margin-bottom:10px">Details</button>
 						</div>
 					</div>
-					</div>
+			    </div>
 
 			</div>
 		</div>
