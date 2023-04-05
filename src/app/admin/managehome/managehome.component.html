@@ -6,41 +6,42 @@
 
      <div class="main-panel">
         <div class="content-wrapper">
+          <form [formGroup]="UpdateHome" >
             <h2>Manage Home Page Components</h2>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Logo</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" #file1 class="form-control-file"(change)="UploadImage1(file1)" >
               </div>
               <hr color="white">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Home Background Sentence</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="homebackword"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Home Background Image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" #file2 class="form-control-file"(change)="UploadImage2(file2)" >
               </div>
               <hr color="white">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">About Us Sentence</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="aboutkword"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">About Us Image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" #file3 class="form-control-file"(change)="UploadImage3(file3)" >
               </div>
               <hr color="white">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Contact Us Sentence</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="contactword"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Contact Us Image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" #file4 class="form-control-file"(change)="UploadImage4(file4)" >
               </div>
               
               <button type="submit" class="btn btn-primary mr-2" >Update</button>
-
+</form>
                     </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->

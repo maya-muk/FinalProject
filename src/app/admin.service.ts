@@ -602,6 +602,62 @@ export class AdminService {
         }
       )})}
 
+  AllHome: any = []
+  GettAllHome() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Dynamic/gethome").subscribe(
+        {
+          next: (result) => {
+            this.AllHome = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )})}
+
+  //Home manage
+  UpdateHome(home:any)
+  {
+    return new Promise<void>((resolve, reject) => {
+      if (this.imageName2 != "") {
+        home.homebackimage = this.imageName2
+      }
+      if (this.imageName1 != "") {
+        home.logo = this.imageName1
+      } 
+      if (this.imageName3 != "") {
+        home.aboutimage = this.imageName3
+      }
+      if(this.imageName4 != "")
+      {
+        home.contactimage = this.imageName4
+      }
+      this.http.put("https://localhost:44304/api/Dynamic/home", home).subscribe(
+        {
+          next: (result) => {
+            this.toaster.success("Updated")
+            resolve()
+          },
+          error: (err) => {
+           
+            reject
+            console.log(err);
+           
+            this.toaster.error("Error")
+            reject()
+          }
+
+
+        }
+      )
+
+    })
+  }
   //manage about us page
   UpdateAbout(aboutinfo: any) {
     return new Promise<void>((resolve, reject) => {
@@ -808,8 +864,25 @@ export class AdminService {
         {
           next: (res: any) => {
             this.imageName3 = res.imagepath
-console.log(this.imageName3 )
+            console.log(this.imageName3 )
             resolve
+          },
+          error: () => { }
+        }
+      )
+    })
+  }
+
+  imageName4 = "" // imagename
+
+  async UploadImage4(imageFile: any) {
+    return new Promise<void>((resolve, reject) => {
+      this.http.post("https://localhost:44304/api/User/UploadImage", imageFile).subscribe(
+        {
+          next: (res: any) => {
+            this.imageName4 = res.imagepath
+
+            resolve()
           },
           error: () => { }
         }
