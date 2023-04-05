@@ -584,7 +584,23 @@ export class AdminService {
 
 
   }
-
+  AllAbout: any = []
+  GetAllAbout() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get("https://localhost:44304/api/Dynamic/getabout").subscribe(
+        {
+          next: (result) => {
+            this.AllAbout = result
+            this.toaster.success("Success")
+            resolve()
+          },
+          error: (err) => {
+            console.log(err);
+            this.toaster.error("Error")
+            reject()
+          }
+        }
+      )})}
 
   //manage about us page
   UpdateAbout(aboutinfo: any) {
