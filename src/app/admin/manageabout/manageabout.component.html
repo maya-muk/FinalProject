@@ -10,36 +10,36 @@
             <h2>Manage About Us Page Components</h2>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Background Sentence</label>
-                <textarea class="form-control" formControlName="BackSentence" rows="3"></textarea>
+                <input class="form-control" formControlName="aboutbackword" rows="3">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Background Image</label>
-                <input type="file" class="form-control-file" formControlName="BackImage">
+                <input type="file" #file1 class="form-control-file"(change)="UploadImage1(file1)" >
               </div>
               <hr color="white">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">About Us Sentence lower part</label>
-                <textarea class="form-control" formControlName="lowerAboutSentence" rows="3"></textarea>
+                <textarea class="form-control" formControlName="aboutword" rows="3"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">About Us Image lower part</label>
-                <input type="file" class="form-control-file"formControlName="lowerAboutImage">
+                <input type="file" #file2 class="form-control-file"(change)="UploadImage2(file2)" >
               </div>
               <hr color="white">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Contact Us Sentence</label>
-                <textarea class="form-control" formControlName="ContactSentence" rows="3"></textarea>
+                <textarea class="form-control" formControlName="contactword" rows="3"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Contact Us Image</label>
-                <input type="file" class="form-control-file" formControlName="ContactImage">
+                <input type="file" #file3 class="form-control-file"(change)="UploadImage3(file3)" >
               </div>
               
-              <button type="submit" class="btn btn-primary mr-2" (click)="updateinfo" >Update</button>
-          </form>
-                    </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+              <button type="submit" class="btn btn-primary mr-2" (click)="updateinfo()" >Update</button>
+         
+            </form>
+        </div>         
+        
       </div>
 
      

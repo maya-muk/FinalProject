@@ -10,26 +10,39 @@ import { AdminService } from 'src/app/admin.service';
 export class ManageaboutComponent {
 
   constructor(public adminService: AdminService) { }
-
-  ngOnInit(){
-    this.adminService.GetAllAbout()
-  }
   
 Updateabout = new FormGroup(
-{
-  id: new FormControl(''),
-BackSentence: new FormControl(''),
-BackImage: new FormControl(''),
-lowerAboutSentence: new FormControl(''),
-lowerAboutImage: new FormControl(''),
-ContactSentence: new FormControl(''),
-ContactImage: new FormControl('')
+  {
+  aboutid: new FormControl(''),
+  aboutbackword: new FormControl(''),
+  aboutbackimage: new FormControl(''),
+  aboutword: new FormControl(''),
+  aboutimage: new FormControl(''),
+  contactword: new FormControl(''),
+  contactimage: new FormControl('')
 
-}
+  }
+  
   )
+  about:any
+  async ngOnInit(){
+    await this.adminService.GetAllAbout()
+    
+    await this.ondata()
+  }
+  
+async ondata(){
+
+  this.about =  this.adminService.AllAbout[0]
+  this.about=this.about[0]
+  console.log(this.about)
+
+   this.Updateabout.patchValue(this.adminService.AllAbout[0])
+   console.log(this.adminService.AllAbout[0])
+ }
 
   
-  UploadImage(input: any) // <input>
+  UploadImage1(input: any) // <input>
   {
     console.log(input);
     console.log(input.files);
@@ -37,12 +50,39 @@ ContactImage: new FormControl('')
       let uploadedFile = input.files[0] // imagefile 
       let formData = new FormData()
       formData.append('file', uploadedFile)
-      this.adminService.UploadImage(formData)
+      this.adminService.UploadImage1(formData)
     }
 
   }
-  updateinfo(value: object){
+  
+  UploadImage2(input: any) // <input>
+  {
+    console.log(input);
+    console.log(input.files);
+    if (input.files.length != 0) {
+      let uploadedFile = input.files[0] // imagefile 
+      let formData = new FormData()
+      formData.append('file', uploadedFile)
+      this.adminService.UploadImage2(formData)
+    }
+
+  }
+  
+  UploadImage3(input: any) // <input>
+  {
+    console.log(input);
+    console.log(input.files);
+    if (input.files.length != 0) {
+      let uploadedFile = input.files[0] // imagefile 
+      let formData = new FormData()
+      formData.append('file', uploadedFile)
+      this.adminService.UploadImage3(formData)
+    }
+
+  }
+ 
+  updateinfo(){
    this.adminService.UpdateAbout(this.Updateabout.value)
-   this.adminService.AllAbout()
+   this.adminService.GetAllAbout()
   }
 }
