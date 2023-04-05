@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdminService } from 'src/app/admin.service';
 
 @Component({
   selector: 'app-home-footer',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-footer.component.css']
 })
 export class HomeFooterComponent {
+constructor(public admin :AdminService){
+
+}
+
+logo:any
+async ngOnInit() {
+
+await this.admin.GettAllHome()
+this.logo=await this.admin.AllHome[0]
+
+
+}
+
 
 }
