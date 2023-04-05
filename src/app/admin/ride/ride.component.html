@@ -96,27 +96,13 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
         </mat-form-field>
        </div>
        <div class="M">
-      
+      <div class="N">
           <mat-label style="color: black;">Depature Time</mat-label>
           <input   type="datetime-local" formControlName="depaturetime">
           <small class="text-danger" style="text-align: left;" *ngIf="UpdateRideForm.controls.depaturetime.hasError('required')" [class.d-none]="UpdateRideForm.controls.depaturetime.valid|| UpdateRideForm.controls.depaturetime.untouched ">
             Time is required
             </small>
-       
-      
-        <!-- <mat-form-field >
-          <mat-label style="color: black;">Depature Time</mat-label>
-          <input  matInput [matDatepicker]="datepicker" formControlName="depaturetime">
-          <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-          <mat-datepicker #datepicker>
-            <mat-datepicker-actions>
-              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-          </mat-datepicker>
-          <mat-error *ngIf="CreateRideForm.controls['depaturetime'].hasError('required')">
-            Depature Time is Required
-          </mat-error>
-        </mat-form-field> -->
+      </div>
        </div>
     </div>
      <div class="container">
@@ -240,24 +226,13 @@ type = "ball-running-dots" [fullScreen] = "true"><p style="color: white" > Loadi
         </mat-form-field>
        </div>
        <div class="M">
+        <div class="N"> 
         <mat-label style="color: black;">Depature Time</mat-label>
         <input   type="datetime-local" formControlName="depaturetime">
         <small class="text-danger" style="text-align: left;" *ngIf="UpdateRideForm.controls.depaturetime.hasError('required')" [class.d-none]="UpdateRideForm.controls.depaturetime.valid|| UpdateRideForm.controls.depaturetime.untouched ">
           Time is required
           </small>
-        <!-- <mat-form-field >
-          <mat-label style="color: black;">Depature Time</mat-label>
-          <input matInput [matDatepicker]="datepicker" formControlName="depaturetime">
-          <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-          <mat-datepicker #datepicker>
-            <mat-datepicker-actions>
-              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-          </mat-datepicker>
-          <mat-error *ngIf="UpdateRideForm.controls['depaturetime'].hasError('required')">
-            Depature Time is Required
-          </mat-error>
-        </mat-form-field> -->
+          </div>
        </div>
     </div>
      <div class="container">

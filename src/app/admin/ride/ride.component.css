@@ -67,3 +67,19 @@ input ,mat-select
     width: 200px;
     background-color: black;
 }
+.N{
+    margin-top: 16%;
+    margin-left: 8%;
+    background-color: white;
+}
+
+.N mat-label 
+{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.N input
+{
+    margin-left: 10%;
+}

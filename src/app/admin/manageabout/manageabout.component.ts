@@ -11,16 +11,14 @@ export class ManageaboutComponent {
 
   constructor(public adminService: AdminService) { }
 
-
 Updateabout = new FormGroup(
-  {
-  aboutid: new FormControl(''),
-  aboutbackword: new FormControl(''),
-  aboutbackimage: new FormControl(''),
-  aboutword: new FormControl(''),
-  aboutimage: new FormControl(''),
-  contactword: new FormControl(''),
-  contactimage: new FormControl('')
+{
+BackSentence: new FormControl(''),
+BackImage: new FormControl(''),
+lowerAboutSentence: new FormControl(''),
+lowerAboutImage: new FormControl(''),
+ContactSentence: new FormControl(''),
+ContactImage: new FormControl('')
 
   }
   
@@ -81,9 +79,8 @@ async ondata(){
     }
 
   }
- 
-  updateinfo(){
-   this.adminService.UpdateAbout(this.Updateabout.value)
-   this.adminService.GetAllAbout()
+  async updateinfo(){
+    await this.adminService.UpdateAbout(this.Updateabout.value)
+    // console.log("Updated");
   }
 }
