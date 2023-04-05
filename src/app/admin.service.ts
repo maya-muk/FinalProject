@@ -585,30 +585,6 @@ export class AdminService {
 
   }
 
-//get about us page component
-  AllAbout: any = []
-  GetAllAbout() {
-    return new Promise<void>((resolve, reject) => {
-      this.http.get("https://localhost:44304/api/Dynamic/getabout").subscribe(
-        {
-          next: (result) => {
-            this.AllAbout = result
-            this.toaster.success("Success")
-            resolve()
-          },
-          error: (err) => {
-            console.log(err);
-            this.toaster.error("Error")
-            reject()
-          }
-        }
-      )
-    })
-  }
-
-
-
-
 
   //manage about us page
   UpdateAbout(aboutinfo: any) {
@@ -623,7 +599,7 @@ export class AdminService {
       if (this.imageName3 != "") {
         aboutinfo.contactimage = this.imageName3
       }
-      this.http.put("https://localhost:44304/api/Dynamic/about", aboutinfo).subscribe(
+      this.http.put("https://localhost:44304/api/Dynamic", aboutinfo).subscribe(
         {
           next: (result) => {
             this.toaster.success("Updated")
