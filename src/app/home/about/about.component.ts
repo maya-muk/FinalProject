@@ -19,7 +19,7 @@ about:any
       /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 1000);
-    this.adminService.GetAllAbout()
+    await this.adminService.GetAllAbout()
 this.about= await this.adminService.AllAbout[0]
     this.adminService.GetAllTrain()
     this.adminService.GetAllTestimonial()

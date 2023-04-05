@@ -41,8 +41,8 @@ home:any
       /** spinner ends after 5 seconds **/
       this.spinner.hide();
     }, 2000);
-this.adminService.GettAllHome()
-this.home=this.adminService.AllHome[0]
+    await this.adminService.GettAllHome()
+this.home=await this.adminService.AllHome[0]
 
     //Call Function From Admin Service To Display Ride 
     this.adminService.GetAllTickets()

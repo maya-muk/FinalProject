@@ -33,7 +33,7 @@ con:any
     }, 1000);
 
   await this.admain.GetAllcon()
-    this.con=this.admain.allcontact[0]
+    this.con= await this.admain.allcontact[0]
 
   }
 
